@@ -601,5 +601,222 @@
         "FastAPI"
       ]
     }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:41:59.621157Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet data",
+      "bloc1_yesno": "Oui",
+      "bloc1_tasks": [
+        "Nettoyage de données",
+        "Visualisation",
+        "Analyse exploratoire (EDA)",
+        "Feature engineering"
+      ],
+      "bloc1_tools": [
+        "NumPy",
+        "Pandas",
+        "Matplotlib",
+        "Plotly"
+      ],
+      "bloc2_likert": 2,
+      "bloc2_text": "non",
+      "bloc2_yesno": "Non",
+      "bloc2_tasks": [
+        "Classification",
+        "Clustering"
+      ],
+      "bloc2_tools": [
+        "XGBoost"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "projet data",
+      "bloc3_yesno": "Oui",
+      "bloc3_tasks": [
+        "Tokenization",
+        "Classification de texte",
+        "RAG (Retrieval-Augmented Generation)"
+      ],
+      "bloc3_tools": [
+        "NLTK"
+      ],
+      "bloc4_likert": 5,
+      "bloc4_text": "projet data",
+      "bloc4_yesno": "Oui",
+      "bloc4_tasks": [
+        "Probabilités",
+        "Tests statistiques",
+        "Optimisation mathématique",
+        "Régression statistique"
+      ],
+      "bloc4_tools": [
+        "Statsmodels",
+        "SymPy",
+        "R"
+      ],
+      "bloc5_likert": 2,
+      "bloc5_text": "projet data",
+      "bloc5_yesno": "Oui",
+      "bloc5_tasks": [
+        "Hadoop",
+        "Kafka"
+      ],
+      "bloc5_tools": [
+        "Azure",
+        "Docker"
+      ],
+      "bloc6_likert": 3,
+      "bloc6_text": "projet data",
+      "bloc6_yesno": "Oui",
+      "bloc6_tasks": [
+        "Présentations business",
+        "Data storytelling",
+        "Aucune de ces tâches"
+      ],
+      "bloc6_tools": [],
+      "bloc7_likert": 1,
+      "bloc7_text": "projet data",
+      "bloc7_yesno": "Oui",
+      "bloc7_tasks": [
+        "RGPD / Conformité"
+      ],
+      "bloc7_tools": [
+        "RBAC",
+        "Data Catalog"
+      ],
+      "bloc8_likert": 5,
+      "bloc8_text": "projet data",
+      "bloc8_yesno": "Oui",
+      "bloc8_tasks": [
+        "Requêtes complexes (JOIN, CTE)",
+        "Window functions",
+        "Modélisation de bases de données",
+        "Optimisation de requêtes"
+      ],
+      "bloc8_tools": [
+        "MySQL",
+        "SQLite",
+        "PostgreSQL",
+        "MongoDB"
+      ],
+      "bloc9_likert": 2,
+      "bloc9_text": "projet data",
+      "bloc9_yesno": "Oui",
+      "bloc9_tasks": [
+        "CI/CD pour ML",
+        "Déploiement de modèles"
+      ],
+      "bloc9_tools": [
+        "MLflow"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:50:35.439959Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet data",
+      "bloc1_yesno": "Oui",
+      "bloc1_tasks": [
+        "Nettoyage de données",
+        "Analyse exploratoire (EDA)",
+        "Feature engineering",
+        "Visualisation"
+      ],
+      "bloc1_tools": [
+        "NumPy",
+        "Matplotlib",
+        "Plotly"
+      ],
+      "bloc2_likert": 2,
+      "bloc2_text": "projet data",
+      "bloc2_yesno": "Oui",
+      "bloc2_tasks": [
+        "Régression",
+        "Clustering"
+      ],
+      "bloc2_tools": [
+        "scikit-learn"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "projet data",
+      "bloc3_yesno": "Oui",
+      "bloc3_tasks": [
+        "Embeddings"
+      ],
+      "bloc3_tools": [
+        "Transformers"
+      ],
+      "bloc4_likert": 5,
+      "bloc4_text": "projet data",
+      "bloc4_yesno": "Oui",
+      "bloc4_tasks": [
+        "Régression statistique",
+        "Tests statistiques",
+        "Optimisation mathématique",
+        "Probabilités"
+      ],
+      "bloc4_tools": [
+        "SymPy",
+        "R"
+      ],
+      "bloc5_likert": 4,
+      "bloc5_text": "projet data",
+      "bloc5_yesno": "Oui",
+      "bloc5_tasks": [
+        "Kafka",
+        "Databricks"
+      ],
+      "bloc5_tools": [
+        "Azure",
+        "Docker"
+      ],
+      "bloc6_likert": 3,
+      "bloc6_text": "projet data",
+      "bloc6_yesno": "Oui",
+      "bloc6_tasks": [
+        "Création de dashboards",
+        "Définition de KPIs",
+        "Présentations business",
+        "Data storytelling"
+      ],
+      "bloc6_tools": [
+        "PowerBI",
+        "Excel",
+        "Tableau",
+        "Google Slides"
+      ],
+      "bloc7_likert": 2,
+      "bloc7_text": "projet data",
+      "bloc7_yesno": "Oui",
+      "bloc7_tasks": [
+        "Détection de biais IA"
+      ],
+      "bloc7_tools": [
+        "Data Catalog"
+      ],
+      "bloc8_likert": 2,
+      "bloc8_text": "projet data",
+      "bloc8_yesno": "Oui",
+      "bloc8_tasks": [
+        "Optimisation de requêtes",
+        "Modélisation de bases de données",
+        "Requêtes complexes (JOIN, CTE)",
+        "Window functions"
+      ],
+      "bloc8_tools": [
+        "MySQL"
+      ],
+      "bloc9_likert": 2,
+      "bloc9_text": "projet data",
+      "bloc9_yesno": "Oui",
+      "bloc9_tasks": [],
+      "bloc9_tools": []
+    }
   }
 ]

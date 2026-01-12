@@ -192,17 +192,62 @@ if st.session_state.show_results and st.session_state.analysis_results:
         9: "⚙️ MLOps"
     }
     
-    block_scores = st.session_state.analysis_results
+    # Récupérer les résultats
+    results = st.session_state.analysis_results
+    block_scores = results['block_scores']
+    coverage_score = results['coverage_score']
+    recommended_jobs = results['recommended_jobs']
     
     # Titre des résultats
     st.markdown("""
     <div class='results-container'>
-        <h1 style='text-align: center; color: #667eea; margin-bottom: 30px;'>
+        <h1 style='text-align: center; color: #667eea; margin-bottom: 20px;'>
             🎯 VOS RÉSULTATS D'ANALYSE SÉMANTIQUE
         </h1>
     """, unsafe_allow_html=True)
     
-    # TOP 3
+    # Afficher le Coverage Score global
+    st.markdown(f"""
+    <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                padding: 30px; 
+                border-radius: 15px; 
+                text-align: center; 
+                color: white;
+                margin-bottom: 30px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.2);'>
+        <h2 style='margin: 0; color: white;'>📈 SCORE DE COUVERTURE GLOBAL</h2>
+        <div style='font-size: 72px; font-weight: bold; margin: 20px 0;'>{coverage_score*100:.1f}%</div>
+        <p style='font-size: 18px; margin: 0; opacity: 0.9;'>Coverage Score : {coverage_score:.4f}</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    # NOUVEAU : Afficher les 3 métiers recommandés
+    st.markdown("<h2 style='color: #333; text-align: center; margin-bottom: 20px;'>💼 Vos 3 Métiers Recommandés</h2>", unsafe_allow_html=True)
+    
+    job_medals = ["🥇", "🥈", "🥉"]
+    job_cols = st.columns(3)
+    
+    for i, job in enumerate(recommended_jobs):
+        with job_cols[i]:
+            st.markdown(f"""
+            <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        padding: 20px;
+                        border-radius: 15px;
+                        color: white;
+                        text-align: center;
+                        margin: 10px 0;
+                        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+                        min-height: 280px;'>
+                <div style='font-size: 48px;'>{job_medals[i]}</div>
+                <h3 style='color: white; margin: 15px 0;'>{job['title']}</h3>
+                <div style='font-size: 36px; font-weight: bold; margin: 10px 0;'>{job['score']*100:.1f}%</div>
+                <p style='font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.4;'>{job['description']}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # TOP 3 Blocs
     st.markdown("<h2 style='color: #333; text-align: center;'>🏆 Vos 3 Domaines d'Excellence</h2>", unsafe_allow_html=True)
     
     top_3 = sorted(block_scores.items(), key=lambda x: x[1], reverse=True)[:3]
@@ -249,7 +294,7 @@ if st.session_state.show_results and st.session_state.analysis_results:
         st.session_state.analysis_results = None
         st.rerun()
     
-    st.stop()  # Arrête l'exécution pour ne pas afficher le questionnaire
+    st.stop()
 
 # Description du questionnaire
 st.markdown("""
@@ -306,7 +351,7 @@ for code, label, color in BLOCKS:
             key=yesno_key
         )
         
-        # 4) Tâches - CHOIX MULTIPLES (NOUVEAU)
+        # 4) Tâches - CHOIX MULTIPLES
         tasks_key = f"{code}_tasks"
         responses[tasks_key] = st.multiselect(
             "🎯 Cochez toutes les tâches que vous maîtrisez :",
@@ -351,11 +396,11 @@ if st.button("🚀 Soumettre et Analyser", type="primary", use_container_width=T
         # Analyse SBERT
         with st.spinner("🤖 Analyse sémantique SBERT en cours..."):
             try:
-                block_scores = analyze_user_profile()
+                results = analyze_user_profile()
                 
-                if block_scores:
+                if results:
                     # Stocker les résultats
-                    st.session_state.analysis_results = block_scores
+                    st.session_state.analysis_results = results
                     st.session_state.show_results = True
                     st.rerun()
                 else:

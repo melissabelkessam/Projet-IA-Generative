@@ -2,6 +2,12 @@ import json
 import os
 from datetime import datetime
 import streamlit as st
+import sys
+import pandas as pd
+
+# Import du moteur SBERT
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from src.sbert_engine import analyze_user_profile
 
 # =========================
 # Config
@@ -20,33 +26,32 @@ BLOCKS = [
     ("bloc9", "⚙️ MLOps", "#bcbd22"),
 ]
 
-MULTI_CHOICE_OPTIONS = {
-    "bloc1": ["Nettoyage", "EDA", "Visualisation", "Feature engineering", "Autre"],
-    "bloc2": ["Régression", "Classification", "Clustering", "Recommandation", "Autre"],
-    "bloc3": ["Tokenization", "Classification texte", "Embeddings", "RAG", "Autre"],
-    "bloc4": ["Probabilités", "Tests", "Régression", "Optimisation", "Autre"],
-    "bloc5": ["Spark", "Kafka", "Hadoop", "Databricks", "Autre"],
-    "bloc6": ["Dashboard", "Storytelling", "KPI", "Présentation", "Autre"],
-    "bloc7": ["RGPD", "Qualité", "Traçabilité", "Biais IA", "Autre"],
-    "bloc8": ["JOIN/CTE", "Window functions", "Modélisation", "Optimisation", "Autre"],
-    "bloc9": ["CI/CD", "Déploiement", "Monitoring", "MLflow", "Autre"],
+# Tâches par bloc (choix multiples)
+TASKS_OPTIONS = {
+    "bloc1": ["Aucune de ces tâches", "Nettoyage de données", "Analyse exploratoire (EDA)", "Visualisation", "Feature engineering", "Autre"],
+    "bloc2": ["Aucune de ces tâches", "Régression", "Classification", "Clustering", "Systèmes de recommandation", "Autre"],
+    "bloc3": ["Aucune de ces tâches", "Tokenization", "Classification de texte", "Embeddings", "RAG (Retrieval-Augmented Generation)", "Autre"],
+    "bloc4": ["Aucune de ces tâches", "Probabilités", "Tests statistiques", "Régression statistique", "Optimisation mathématique", "Autre"],
+    "bloc5": ["Aucune de ces tâches", "Apache Spark", "Kafka", "Hadoop", "Databricks", "Autre"],
+    "bloc6": ["Aucune de ces tâches", "Création de dashboards", "Data storytelling", "Définition de KPIs", "Présentations business", "Autre"],
+    "bloc7": ["Aucune de ces tâches", "RGPD / Conformité", "Qualité des données", "Traçabilité", "Détection de biais IA", "Autre"],
+    "bloc8": ["Aucune de ces tâches", "Requêtes complexes (JOIN, CTE)", "Window functions", "Modélisation de bases de données", "Optimisation de requêtes", "Autre"],
+    "bloc9": ["Aucune de ces tâches", "CI/CD pour ML", "Déploiement de modèles", "Monitoring de modèles", "MLflow / DVC", "Autre"],
 }
 
-CHECKBOX_OPTIONS = {
+# Outils par bloc (cases à cocher)
+TOOLS_OPTIONS = {
     "bloc1": ["Pandas", "NumPy", "Matplotlib", "Plotly"],
     "bloc2": ["scikit-learn", "XGBoost", "PyTorch", "TensorFlow"],
     "bloc3": ["spaCy", "NLTK", "Transformers", "SentenceTransformers"],
     "bloc4": ["Statsmodels", "SciPy", "SymPy", "R"],
     "bloc5": ["AWS", "GCP", "Azure", "Docker"],
-    "bloc6": ["PowerBI", "Tableau", "Excel", "Slides"],
-    "bloc7": ["Data Catalog", "RBAC", "Audit logs", "Anonymisation"],
+    "bloc6": ["PowerBI", "Tableau", "Excel", "Google Slides"],
+    "bloc7": ["Data Catalog", "RBAC", "Audit logs", "Outils d'anonymisation"],
     "bloc8": ["PostgreSQL", "MySQL", "SQLite", "MongoDB"],
     "bloc9": ["MLflow", "DVC", "Airflow", "FastAPI"],
 }
 
-# =========================
-# CSS Styling
-# =========================
 # =========================
 # CSS Styling
 # =========================
@@ -57,7 +62,7 @@ st.markdown("""
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     
-    /* Titre principal - NOIR pour contraste */
+    /* Titre principal */
     h1 {
         color: #1a1a1a !important;
         background-color: rgba(255, 255, 255, 0.95);
@@ -86,7 +91,7 @@ st.markdown("""
         margin: 10px 0;
     }
     
-    /* Bouton submit personnalisé */
+    /* Bouton submit */
     .stButton > button {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
@@ -111,14 +116,40 @@ st.markdown("""
         margin: 30px 0;
     }
     
-    /* Fix pour les labels */
+    /* Labels */
     label {
         color: #333 !important;
         font-weight: 500;
     }
+    
+    /* Bloc résultats */
+    .results-container {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        margin: 20px 0;
+    }
+    
+    .medal-card {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 25px;
+        border-radius: 15px;
+        margin: 15px 0;
+        color: white;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
 </style>
 """, unsafe_allow_html=True)
 
+# =========================
+# Session State
+# =========================
+if 'show_results' not in st.session_state:
+    st.session_state.show_results = False
+if 'analysis_results' not in st.session_state:
+    st.session_state.analysis_results = None
 
 # =========================
 # Helpers
@@ -140,12 +171,87 @@ def append_to_json_array(path: str, row: dict):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # =========================
-# UI
+# UI PRINCIPALE
 # =========================
 st.set_page_config(page_title="AISCA - Questionnaire", layout="wide", initial_sidebar_state="collapsed")
 
 st.title("🎯 AISCA - Cartographie des Compétences")
 
+# Si les résultats doivent être affichés
+if st.session_state.show_results and st.session_state.analysis_results:
+    
+    block_names = {
+        1: "📊 Data Analysis",
+        2: "🤖 Machine Learning",
+        3: "💬 NLP",
+        4: "📈 Statistics & Mathematics",
+        5: "☁️ Cloud & Big Data",
+        6: "💼 Business & Data Communication",
+        7: "🛡️ Data Governance & Ethics",
+        8: "🗄️ SQL & Databases",
+        9: "⚙️ MLOps"
+    }
+    
+    block_scores = st.session_state.analysis_results
+    
+    # Titre des résultats
+    st.markdown("""
+    <div class='results-container'>
+        <h1 style='text-align: center; color: #667eea; margin-bottom: 30px;'>
+            🎯 VOS RÉSULTATS D'ANALYSE SÉMANTIQUE
+        </h1>
+    """, unsafe_allow_html=True)
+    
+    # TOP 3
+    st.markdown("<h2 style='color: #333; text-align: center;'>🏆 Vos 3 Domaines d'Excellence</h2>", unsafe_allow_html=True)
+    
+    top_3 = sorted(block_scores.items(), key=lambda x: x[1], reverse=True)[:3]
+    medals = ["🥇", "🥈", "🥉"]
+    
+    cols = st.columns(3)
+    for i, (block_id, score) in enumerate(top_3):
+        with cols[i]:
+            st.markdown(f"""
+            <div class='medal-card'>
+                <div style='font-size: 60px;'>{medals[i]}</div>
+                <h3 style='color: white; margin: 10px 0;'>{block_names[block_id]}</h3>
+                <div style='font-size: 40px; font-weight: bold; margin: 15px 0;'>{score*100:.1f}%</div>
+                <p style='font-size: 14px; opacity: 0.9;'>Similarité : {score:.4f}</p>
+            </div>
+            """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    # Tous les scores
+    st.markdown("<h2 style='color: #333; text-align: center;'>📊 Tous vos Scores par Bloc</h2>", unsafe_allow_html=True)
+    
+    scores_data = []
+    for block_id, score in sorted(block_scores.items(), key=lambda x: x[1], reverse=True):
+        scores_data.append({
+            "Bloc": block_names[block_id],
+            "Score": score,
+            "Pourcentage": f"{score * 100:.1f}%"
+        })
+    
+    df_scores = pd.DataFrame(scores_data)
+    
+    # Graphique
+    st.bar_chart(df_scores.set_index("Bloc")["Score"], height=400)
+    
+    # Tableau
+    st.dataframe(df_scores, use_container_width=True, hide_index=True)
+    
+    st.markdown("</div>", unsafe_allow_html=True)
+    
+    # Bouton pour recommencer
+    if st.button("🔄 Faire un nouveau questionnaire", type="primary", use_container_width=True):
+        st.session_state.show_results = False
+        st.session_state.analysis_results = None
+        st.rerun()
+    
+    st.stop()  # Arrête l'exécution pour ne pas afficher le questionnaire
+
+# Description du questionnaire
 st.markdown("""
 <div style='background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 30px;'>
     <h3 style='color: #667eea; margin-top: 0;'>📋 Objectif du questionnaire</h3>
@@ -174,15 +280,15 @@ for code, label, color in BLOCKS:
     st.markdown(f"<h2 style='background-color: {color};'>{label}</h2>", unsafe_allow_html=True)
     
     with st.container():
-        # 1) Likert
+        # 1) Likert - 0 à 5
         likert_key = f"{code}_likert"
         responses[likert_key] = st.slider(
             f"📊 Niveau global en **{label}**",
-            1, 5, 3, key=likert_key,
-            help="1 = Débutant, 5 = Expert"
+            0, 5, 2, key=likert_key,
+            help="0 = Aucune compétence, 1 = Débutant, 5 = Expert"
         )
         
-        # 2) Texte libre (IMPORTANT)
+        # 2) Texte libre (OBLIGATOIRE)
         text_key = f"{code}_text"
         responses[text_key] = st.text_area(
             f"✍️ Décrivez un projet ou une expérience liée à **{label}**",
@@ -200,20 +306,20 @@ for code, label, color in BLOCKS:
             key=yesno_key
         )
         
-        # 4) Choix multiple
-        choice_key = f"{code}_choice"
-        responses[choice_key] = st.selectbox(
-            "🎯 Sélectionnez ce qui vous correspond le plus :",
-            MULTI_CHOICE_OPTIONS[code],
-            key=choice_key
+        # 4) Tâches - CHOIX MULTIPLES (NOUVEAU)
+        tasks_key = f"{code}_tasks"
+        responses[tasks_key] = st.multiselect(
+            "🎯 Cochez toutes les tâches que vous maîtrisez :",
+            TASKS_OPTIONS[code],
+            key=tasks_key
         )
         
-        # 5) Cases à cocher
-        checks_key = f"{code}_checks"
-        responses[checks_key] = st.multiselect(
+        # 5) Outils - Cases à cocher
+        tools_key = f"{code}_tools"
+        responses[tools_key] = st.multiselect(
             "🛠️ Outils et technologies maîtrisés :",
-            CHECKBOX_OPTIONS[code],
-            key=checks_key
+            TOOLS_OPTIONS[code],
+            key=tools_key
         )
         
         if responses[text_key] == "":
@@ -224,13 +330,14 @@ for code, label, color in BLOCKS:
 # Bouton de soumission
 st.markdown("<br>", unsafe_allow_html=True)
 
-if st.button("🚀 Soumettre et sauvegarder", type="primary", use_container_width=True):
+if st.button("🚀 Soumettre et Analyser", type="primary", use_container_width=True):
     if missing_text_blocks:
         st.error(
             f"❌ Veuillez remplir au moins **1 texte libre** pour chaque bloc.\n\n"
             f"**Blocs manquants :** {', '.join(missing_text_blocks)}"
         )
     else:
+        # Sauvegarde
         payload = {
             "user_id": int(user_id),
             "user_name": user_name,
@@ -238,5 +345,21 @@ if st.button("🚀 Soumettre et sauvegarder", type="primary", use_container_widt
             "responses": responses,
         }
         append_to_json_array(SAVE_PATH, payload)
-        st.success("✅ Réponses sauvegardées avec succès !")
+        st.success("✅ Réponses sauvegardées !")
         st.balloons()
+        
+        # Analyse SBERT
+        with st.spinner("🤖 Analyse sémantique SBERT en cours..."):
+            try:
+                block_scores = analyze_user_profile()
+                
+                if block_scores:
+                    # Stocker les résultats
+                    st.session_state.analysis_results = block_scores
+                    st.session_state.show_results = True
+                    st.rerun()
+                else:
+                    st.error("❌ Erreur lors de l'analyse")
+            except Exception as e:
+                st.error(f"❌ Erreur : {str(e)}")
+                st.exception(e)

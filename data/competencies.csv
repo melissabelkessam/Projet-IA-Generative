@@ -1,3 +1,4 @@
+CompetencyID,Competency,BlockID,BlockName,Description
 C001,data cleaning,1,Data Analysis,Nettoyer les données brutes
 C002,data validation,1,Data Analysis,Valider la qualité des données
 C003,missing data handling,1,Data Analysis,Gérer les valeurs manquantes

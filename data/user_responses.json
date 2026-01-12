@@ -69,5 +69,537 @@
         "MLflow"
       ]
     }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T16:06:20.500604Z",
+    "responses": {
+      "bloc1_likert": 3,
+      "bloc1_text": "projet dev data",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Nettoyage",
+      "bloc1_checks": [
+        "Plotly"
+      ],
+      "bloc2_likert": 5,
+      "bloc2_text": "projet dev data",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Régression",
+      "bloc2_checks": [
+        "PyTorch"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "projet dev data",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "Tokenization",
+      "bloc3_checks": [
+        "NLTK"
+      ],
+      "bloc4_likert": 3,
+      "bloc4_text": "projet dev data",
+      "bloc4_yesno": "Oui",
+      "bloc4_choice": "Probabilités",
+      "bloc4_checks": [
+        "R"
+      ],
+      "bloc5_likert": 5,
+      "bloc5_text": "projet dev data",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Spark",
+      "bloc5_checks": [
+        "GCP"
+      ],
+      "bloc6_likert": 4,
+      "bloc6_text": "projet dev data",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [
+        "Tableau"
+      ],
+      "bloc7_likert": 3,
+      "bloc7_text": "projet dev data",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "RGPD",
+      "bloc7_checks": [
+        "Audit logs"
+      ],
+      "bloc8_likert": 3,
+      "bloc8_text": "projet dev data",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [
+        "MongoDB"
+      ],
+      "bloc9_likert": 3,
+      "bloc9_text": "projet dev data",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": [
+        "FastAPI"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T20:46:45.691650Z",
+    "responses": {
+      "bloc1_likert": 3,
+      "bloc1_text": "projet data analyst",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Nettoyage",
+      "bloc1_checks": [
+        "NumPy"
+      ],
+      "bloc2_likert": 3,
+      "bloc2_text": "projet data analyst",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Régression",
+      "bloc2_checks": [
+        "TensorFlow"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "non jamais",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "Tokenization",
+      "bloc3_checks": [
+        "SentenceTransformers"
+      ],
+      "bloc4_likert": 3,
+      "bloc4_text": "projet data analyst",
+      "bloc4_yesno": "Oui",
+      "bloc4_choice": "Probabilités",
+      "bloc4_checks": [
+        "SciPy",
+        "SymPy"
+      ],
+      "bloc5_likert": 3,
+      "bloc5_text": "projet data analyst",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Spark",
+      "bloc5_checks": [
+        "GCP"
+      ],
+      "bloc6_likert": 3,
+      "bloc6_text": "non jamais",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [
+        "Tableau"
+      ],
+      "bloc7_likert": 4,
+      "bloc7_text": "projet data analyst",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "RGPD",
+      "bloc7_checks": [
+        "RBAC"
+      ],
+      "bloc8_likert": 5,
+      "bloc8_text": "projet data analyst",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [
+        "PostgreSQL",
+        "MySQL"
+      ],
+      "bloc9_likert": 5,
+      "bloc9_text": "projet data analyst",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": [
+        "DVC"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:00:12.963094Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet dev data",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Nettoyage",
+      "bloc1_checks": [
+        "Pandas"
+      ],
+      "bloc2_likert": 5,
+      "bloc2_text": "projet dev data",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Régression",
+      "bloc2_checks": [
+        "XGBoost"
+      ],
+      "bloc3_likert": 1,
+      "bloc3_text": "non",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "Tokenization",
+      "bloc3_checks": [
+        "SentenceTransformers"
+      ],
+      "bloc4_likert": 4,
+      "bloc4_text": "etude scolaire",
+      "bloc4_yesno": "Oui",
+      "bloc4_choice": "Probabilités",
+      "bloc4_checks": [
+        "Statsmodels",
+        "R"
+      ],
+      "bloc5_likert": 1,
+      "bloc5_text": "nn",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Spark",
+      "bloc5_checks": [
+        "Azure"
+      ],
+      "bloc6_likert": 5,
+      "bloc6_text": "projet dev data",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [
+        "Excel",
+        "Slides",
+        "PowerBI",
+        "Tableau"
+      ],
+      "bloc7_likert": 2,
+      "bloc7_text": "projet dev data",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "RGPD",
+      "bloc7_checks": [
+        "Data Catalog"
+      ],
+      "bloc8_likert": 4,
+      "bloc8_text": "projet dev data",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [
+        "MySQL"
+      ],
+      "bloc9_likert": 2,
+      "bloc9_text": "non",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": [
+        "DVC"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:02:54.250757Z",
+    "responses": {
+      "bloc1_likert": 3,
+      "bloc1_text": "projet dev data",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Nettoyage",
+      "bloc1_checks": [],
+      "bloc2_likert": 1,
+      "bloc2_text": "non",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Régression",
+      "bloc2_checks": [],
+      "bloc3_likert": 1,
+      "bloc3_text": "non",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "Tokenization",
+      "bloc3_checks": [],
+      "bloc4_likert": 1,
+      "bloc4_text": "non",
+      "bloc4_yesno": "Oui",
+      "bloc4_choice": "Probabilités",
+      "bloc4_checks": [],
+      "bloc5_likert": 1,
+      "bloc5_text": "non",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Spark",
+      "bloc5_checks": [],
+      "bloc6_likert": 1,
+      "bloc6_text": "non",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [],
+      "bloc7_likert": 1,
+      "bloc7_text": "non",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "RGPD",
+      "bloc7_checks": [],
+      "bloc8_likert": 1,
+      "bloc8_text": "non",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [],
+      "bloc9_likert": 1,
+      "bloc9_text": "non",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": []
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:11:25.898764Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet data en alternance",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Nettoyage",
+      "bloc1_checks": [
+        "NumPy",
+        "Pandas",
+        "Matplotlib"
+      ],
+      "bloc2_likert": 1,
+      "bloc2_text": "base en ça",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Classification",
+      "bloc2_checks": [
+        "scikit-learn"
+      ],
+      "bloc3_likert": 4,
+      "bloc3_text": "projet data",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "RAG",
+      "bloc3_checks": [
+        "Transformers"
+      ],
+      "bloc4_likert": 5,
+      "bloc4_text": "ecole",
+      "bloc4_yesno": "Non",
+      "bloc4_choice": "Régression",
+      "bloc4_checks": [
+        "SymPy"
+      ],
+      "bloc5_likert": 2,
+      "bloc5_text": "jsp",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Hadoop",
+      "bloc5_checks": [
+        "GCP",
+        "Azure"
+      ],
+      "bloc6_likert": 2,
+      "bloc6_text": "jsp",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [],
+      "bloc7_likert": 0,
+      "bloc7_text": "jsp",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "Aucun / Je ne connais pas",
+      "bloc7_checks": [],
+      "bloc8_likert": 3,
+      "bloc8_text": "projet data",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [
+        "MySQL"
+      ],
+      "bloc9_likert": 2,
+      "bloc9_text": "projet dev",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": [
+        "MLflow",
+        "FastAPI"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:25:47.057796Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet data",
+      "bloc1_yesno": "Oui",
+      "bloc1_tasks": [
+        "Nettoyage de données",
+        "Visualisation",
+        "Feature engineering"
+      ],
+      "bloc1_tools": [
+        "Pandas",
+        "Matplotlib",
+        "Plotly"
+      ],
+      "bloc2_likert": 2,
+      "bloc2_text": "projet data",
+      "bloc2_yesno": "Oui",
+      "bloc2_tasks": [
+        "Régression",
+        "Clustering"
+      ],
+      "bloc2_tools": [
+        "PyTorch"
+      ],
+      "bloc3_likert": 2,
+      "bloc3_text": "projet data",
+      "bloc3_yesno": "Oui",
+      "bloc3_tasks": [
+        "RAG (Retrieval-Augmented Generation)"
+      ],
+      "bloc3_tools": [
+        "Transformers"
+      ],
+      "bloc4_likert": 3,
+      "bloc4_text": "projet data",
+      "bloc4_yesno": "Oui",
+      "bloc4_tasks": [
+        "Probabilités",
+        "Tests statistiques"
+      ],
+      "bloc4_tools": [
+        "SciPy"
+      ],
+      "bloc5_likert": 2,
+      "bloc5_text": "projet data",
+      "bloc5_yesno": "Oui",
+      "bloc5_tasks": [
+        "Apache Spark"
+      ],
+      "bloc5_tools": [
+        "Azure"
+      ],
+      "bloc6_likert": 3,
+      "bloc6_text": "projet data",
+      "bloc6_yesno": "Oui",
+      "bloc6_tasks": [
+        "Data storytelling"
+      ],
+      "bloc6_tools": [
+        "Google Slides",
+        "Tableau",
+        "PowerBI",
+        "Excel"
+      ],
+      "bloc7_likert": 0,
+      "bloc7_text": "projet data",
+      "bloc7_yesno": "Non",
+      "bloc7_tasks": [
+        "Aucune de ces tâches"
+      ],
+      "bloc7_tools": [],
+      "bloc8_likert": 2,
+      "bloc8_text": "projet data",
+      "bloc8_yesno": "Oui",
+      "bloc8_tasks": [
+        "Window functions"
+      ],
+      "bloc8_tools": [
+        "SQLite",
+        "MongoDB"
+      ],
+      "bloc9_likert": 3,
+      "bloc9_text": "projet data",
+      "bloc9_yesno": "Oui",
+      "bloc9_tasks": [
+        "CI/CD pour ML"
+      ],
+      "bloc9_tools": [
+        "Airflow"
+      ]
+    }
+  },
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T21:30:05.208661Z",
+    "responses": {
+      "bloc1_likert": 5,
+      "bloc1_text": "projet data",
+      "bloc1_yesno": "Oui",
+      "bloc1_tasks": [
+        "Visualisation",
+        "Nettoyage de données",
+        "Feature engineering"
+      ],
+      "bloc1_tools": [
+        "Pandas",
+        "Matplotlib",
+        "NumPy"
+      ],
+      "bloc2_likert": 2,
+      "bloc2_text": "projet data",
+      "bloc2_yesno": "Oui",
+      "bloc2_tasks": [
+        "Classification"
+      ],
+      "bloc2_tools": [
+        "scikit-learn"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "projet data",
+      "bloc3_yesno": "Oui",
+      "bloc3_tasks": [
+        "RAG (Retrieval-Augmented Generation)",
+        "Tokenization",
+        "Classification de texte"
+      ],
+      "bloc3_tools": [
+        "Transformers"
+      ],
+      "bloc4_likert": 5,
+      "bloc4_text": "lecole",
+      "bloc4_yesno": "Oui",
+      "bloc4_tasks": [
+        "Régression statistique",
+        "Optimisation mathématique",
+        "Probabilités",
+        "Tests statistiques"
+      ],
+      "bloc4_tools": [
+        "SymPy",
+        "R"
+      ],
+      "bloc5_likert": 2,
+      "bloc5_text": "projet data",
+      "bloc5_yesno": "Oui",
+      "bloc5_tasks": [
+        "Databricks"
+      ],
+      "bloc5_tools": [
+        "AWS"
+      ],
+      "bloc6_likert": 2,
+      "bloc6_text": "projet data",
+      "bloc6_yesno": "Oui",
+      "bloc6_tasks": [
+        "Création de dashboards",
+        "Data storytelling"
+      ],
+      "bloc6_tools": [
+        "Excel",
+        "PowerBI",
+        "Tableau",
+        "Google Slides"
+      ],
+      "bloc7_likert": 1,
+      "bloc7_text": "jsp",
+      "bloc7_yesno": "Non",
+      "bloc7_tasks": [],
+      "bloc7_tools": [],
+      "bloc8_likert": 4,
+      "bloc8_text": "projet data",
+      "bloc8_yesno": "Oui",
+      "bloc8_tasks": [
+        "Requêtes complexes (JOIN, CTE)"
+      ],
+      "bloc8_tools": [
+        "MySQL"
+      ],
+      "bloc9_likert": 2,
+      "bloc9_text": "projet data",
+      "bloc9_yesno": "Oui",
+      "bloc9_tasks": [
+        "CI/CD pour ML"
+      ],
+      "bloc9_tools": [
+        "FastAPI"
+      ]
+    }
   }
 ]

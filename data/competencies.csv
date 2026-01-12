@@ -1,0 +1,900 @@
+C001,data cleaning,1,Data Analysis,Nettoyer les données brutes
+C002,data validation,1,Data Analysis,Valider la qualité des données
+C003,missing data handling,1,Data Analysis,Gérer les valeurs manquantes
+C004,outlier detection,1,Data Analysis,Détecter les valeurs aberrantes
+C005,data normalization,1,Data Analysis,Normaliser les données
+C006,data standardization,1,Data Analysis,Standardiser les distributions
+C007,data transformation,1,Data Analysis,Transformer les variables
+C008,data encoding,1,Data Analysis,Encoder les variables catégorielles
+C009,one-hot encoding,1,Data Analysis,Encoder avec one-hot encoding
+C010,label encoding,1,Data Analysis,Encoder avec label encoding
+C011,data visualization matplotlib,1,Data Analysis,Créer des graphiques avec matplotlib
+C012,data visualization seaborn,1,Data Analysis,Visualiser avec seaborn
+C013,data visualization plotly,1,Data Analysis,Graphiques interactifs avec plotly
+C014,scatter plots,1,Data Analysis,Créer des nuages de points
+C015,line plots,1,Data Analysis,Créer des graphiques linéaires
+C016,bar charts,1,Data Analysis,Créer des diagrammes en barres
+C017,histograms,1,Data Analysis,Créer des histogrammes
+C018,box plots,1,Data Analysis,Créer des boîtes à moustaches
+C019,heatmaps,1,Data Analysis,Créer des cartes de chaleur
+C020,correlation matrix,1,Data Analysis,Matrices de corrélation
+C021,Python pandas basics,1,Data Analysis,Bases de pandas
+C022,pandas dataframe,1,Data Analysis,Manipuler des DataFrames
+C023,pandas series,1,Data Analysis,Travailler avec des Series
+C024,pandas indexing,1,Data Analysis,Indexation et sélection
+C025,pandas groupby,1,Data Analysis,Grouper les données
+C026,pandas merge,1,Data Analysis,Fusionner des DataFrames
+C027,pandas join,1,Data Analysis,Joindre des tables
+C028,pandas concat,1,Data Analysis,Concaténer des DataFrames
+C029,pandas pivot tables,1,Data Analysis,Tableaux croisés dynamiques
+C030,pandas time series,1,Data Analysis,Séries temporelles
+C031,Python numpy basics,1,Data Analysis,Bases de numpy
+C032,numpy arrays,1,Data Analysis,Tableaux numpy
+C033,numpy operations,1,Data Analysis,Opérations vectorielles
+C034,numpy broadcasting,1,Data Analysis,Broadcasting numpy
+C035,numpy linear algebra,1,Data Analysis,Algèbre linéaire avec numpy
+C036,numpy random,1,Data Analysis,Génération de nombres aléatoires
+C037,SQL SELECT,1,Data Analysis,Requêtes SELECT
+C038,SQL WHERE,1,Data Analysis,Filtrage avec WHERE
+C039,SQL JOIN,1,Data Analysis,Jointures de tables
+C040,SQL GROUP BY,1,Data Analysis,Agrégation avec GROUP BY
+C041,SQL HAVING,1,Data Analysis,Filtrage des agrégats
+C042,SQL ORDER BY,1,Data Analysis,Tri des résultats
+C043,SQL subqueries,1,Data Analysis,Sous-requêtes SQL
+C044,SQL window functions,1,Data Analysis,Fonctions fenêtrées
+C045,SQL CTEs,1,Data Analysis,Common Table Expressions
+C046,SQL indexes,1,Data Analysis,Optimisation avec index
+C047,SQL transactions,1,Data Analysis,Gestion des transactions
+C048,PostgreSQL,1,Data Analysis,Base de données PostgreSQL
+C049,MySQL,1,Data Analysis,Base de données MySQL
+C050,SQLite,1,Data Analysis,Base de données SQLite
+C051,descriptive statistics,1,Data Analysis,Statistiques descriptives
+C052,mean median mode,1,Data Analysis,Moyenne médiane mode
+C053,variance standard deviation,1,Data Analysis,Variance et écart-type
+C054,percentiles quartiles,1,Data Analysis,Percentiles et quartiles
+C055,skewness kurtosis,1,Data Analysis,Asymétrie et aplatissement
+C056,probability distributions,1,Data Analysis,Distributions de probabilité
+C057,normal distribution,1,Data Analysis,Loi normale
+C058,binomial distribution,1,Data Analysis,Loi binomiale
+C059,poisson distribution,1,Data Analysis,Loi de Poisson
+C060,hypothesis testing,1,Data Analysis,Tests d'hypothèses
+C061,t-test,1,Data Analysis,Test de Student
+C062,chi-square test,1,Data Analysis,Test du chi-deux
+C063,ANOVA,1,Data Analysis,Analyse de variance
+C064,p-value interpretation,1,Data Analysis,Interprétation des p-values
+C065,confidence intervals,1,Data Analysis,Intervalles de confiance
+C066,correlation analysis,1,Data Analysis,Analyse de corrélation
+C067,Pearson correlation,1,Data Analysis,Corrélation de Pearson
+C068,Spearman correlation,1,Data Analysis,Corrélation de Spearman
+C069,regression analysis basics,1,Data Analysis,Bases de l'analyse de régression
+C070,Excel formulas,1,Data Analysis,Formules Excel avancées
+C071,Excel VLOOKUP,1,Data Analysis,Fonction VLOOKUP
+C072,Excel INDEX MATCH,1,Data Analysis,Fonctions INDEX et MATCH
+C073,Excel pivot tables,1,Data Analysis,Tableaux croisés dynamiques Excel
+C074,Excel conditional formatting,1,Data Analysis,Mise en forme conditionnelle
+C075,Excel macros,1,Data Analysis,Macros VBA
+C076,Excel Power Query,1,Data Analysis,Power Query pour ETL
+C077,data exploration,1,Data Analysis,Exploration exploratoire de données
+C078,data profiling,1,Data Analysis,Profilage des données
+C079,data quality metrics,1,Data Analysis,Métriques de qualité
+C080,data completeness,1,Data Analysis,Complétude des données
+C081,data consistency,1,Data Analysis,Cohérence des données
+C082,data accuracy,1,Data Analysis,Exactitude des données
+C083,ETL processes,1,Data Analysis,Processus ETL
+C084,data extraction,1,Data Analysis,Extraction de données
+C085,data transformation pipelines,1,Data Analysis,Pipelines de transformation
+C086,data loading,1,Data Analysis,Chargement de données
+C087,PowerBI basics,1,Data Analysis,Bases de PowerBI
+C088,PowerBI dashboards,1,Data Analysis,Tableaux de bord PowerBI
+C089,Tableau basics,1,Data Analysis,Bases de Tableau
+C090,Tableau visualizations,1,Data Analysis,Visualisations Tableau
+C091,data warehousing concepts,1,Data Analysis,Concepts d'entrepôt de données
+C092,star schema,1,Data Analysis,Schéma en étoile
+C093,snowflake schema,1,Data Analysis,Schéma en flocon
+C094,data modeling,1,Data Analysis,Modélisation de données
+C095,database design,1,Data Analysis,Conception de bases de données
+C096,data governance,1,Data Analysis,Gouvernance des données
+C097,data lineage,1,Data Analysis,Traçabilité des données
+C098,data cataloging,1,Data Analysis,Catalogage des données
+C099,A/B testing,1,Data Analysis,Tests A/B
+C100,statistical significance,1,Data Analysis,Significativité statistique
+C101,linear regression simple,2,Machine Learning,Régression linéaire simple
+C102,linear regression multiple,2,Machine Learning,Régression linéaire multiple
+C103,polynomial regression,2,Machine Learning,Régression polynomiale
+C104,ridge regression,2,Machine Learning,Régression Ridge L2
+C105,lasso regression,2,Machine Learning,Régression Lasso L1
+C106,elastic net,2,Machine Learning,Elastic Net régularisation
+C107,logistic regression binary,2,Machine Learning,Régression logistique binaire
+C108,logistic regression multiclass,2,Machine Learning,Régression logistique multiclasse
+C109,softmax regression,2,Machine Learning,Régression softmax
+C110,decision trees classification,2,Machine Learning,Arbres de décision classification
+C111,decision trees regression,2,Machine Learning,Arbres de décision régression
+C112,tree pruning,2,Machine Learning,Élagage des arbres
+C113,random forest classification,2,Machine Learning,Forêt aléatoire classification
+C114,random forest regression,2,Machine Learning,Forêt aléatoire régression
+C115,bagging,2,Machine Learning,Bootstrap aggregating
+C116,boosting,2,Machine Learning,Algorithmes de boosting
+C117,AdaBoost,2,Machine Learning,Adaptive Boosting
+C118,gradient boosting,2,Machine Learning,Gradient Boosting
+C119,XGBoost,2,Machine Learning,eXtreme Gradient Boosting
+C120,LightGBM,2,Machine Learning,Light Gradient Boosting Machine
+C121,CatBoost,2,Machine Learning,Categorical Boosting
+C122,SVM linear,2,Machine Learning,Support Vector Machine linéaire
+C123,SVM kernel,2,Machine Learning,SVM avec noyaux
+C124,SVM RBF kernel,2,Machine Learning,Noyau RBF pour SVM
+C125,SVM polynomial kernel,2,Machine Learning,Noyau polynomial pour SVM
+C126,KNN classification,2,Machine Learning,K-Nearest Neighbors classification
+C127,KNN regression,2,Machine Learning,K-Nearest Neighbors régression
+C128,distance metrics,2,Machine Learning,Métriques de distance
+C129,euclidean distance,2,Machine Learning,Distance euclidienne
+C130,manhattan distance,2,Machine Learning,Distance de Manhattan
+C131,naive bayes,2,Machine Learning,Classificateur de Bayes naïf
+C132,gaussian naive bayes,2,Machine Learning,Bayes naïf gaussien
+C133,multinomial naive bayes,2,Machine Learning,Bayes naïf multinomial
+C134,K-means clustering,2,Machine Learning,Clustering K-means
+C135,hierarchical clustering,2,Machine Learning,Clustering hiérarchique
+C136,DBSCAN,2,Machine Learning,Density-Based Spatial Clustering
+C137,agglomerative clustering,2,Machine Learning,Clustering agglomératif
+C138,divisive clustering,2,Machine Learning,Clustering divisif
+C139,PCA dimension reduction,2,Machine Learning,Réduction par ACP
+C140,t-SNE,2,Machine Learning,t-Distributed Stochastic Neighbor Embedding
+C141,LDA topic modeling,2,Machine Learning,Latent Dirichlet Allocation
+C142,SVD decomposition,2,Machine Learning,Singular Value Decomposition
+C143,feature scaling,2,Machine Learning,Mise à l'échelle des features
+C144,min-max normalization,2,Machine Learning,Normalisation min-max
+C145,z-score standardization,2,Machine Learning,Standardisation z-score
+C146,feature selection,2,Machine Learning,Sélection de features
+C147,filter methods,2,Machine Learning,Méthodes de filtrage
+C148,wrapper methods,2,Machine Learning,Méthodes wrapper
+C149,embedded methods,2,Machine Learning,Méthodes embarquées
+C150,feature importance,2,Machine Learning,Importance des features
+C151,recursive feature elimination,2,Machine Learning,Élimination récursive de features
+C152,train test split,2,Machine Learning,Division train/test
+C153,cross validation,2,Machine Learning,Validation croisée
+C154,k-fold cross validation,2,Machine Learning,Validation croisée k-fold
+C155,stratified k-fold,2,Machine Learning,K-fold stratifié
+C156,leave-one-out CV,2,Machine Learning,Validation leave-one-out
+C157,accuracy metric,2,Machine Learning,Métrique accuracy
+C158,precision metric,2,Machine Learning,Métrique précision
+C159,recall metric,2,Machine Learning,Métrique rappel
+C160,F1 score,2,Machine Learning,Score F1
+C161,ROC curve,2,Machine Learning,Courbe ROC
+C162,AUC score,2,Machine Learning,Area Under Curve
+C163,confusion matrix,2,Machine Learning,Matrice de confusion
+C164,classification report,2,Machine Learning,Rapport de classification
+C165,mean squared error,2,Machine Learning,Erreur quadratique moyenne
+C166,root mean squared error,2,Machine Learning,RMSE
+C167,mean absolute error,2,Machine Learning,Erreur absolue moyenne
+C168,R-squared,2,Machine Learning,Coefficient de détermination
+C169,adjusted R-squared,2,Machine Learning,R-carré ajusté
+C170,grid search,2,Machine Learning,Recherche en grille
+C171,random search,2,Machine Learning,Recherche aléatoire
+C172,bayesian optimization,2,Machine Learning,Optimisation bayésienne
+C173,hyperparameter tuning,2,Machine Learning,Optimisation hyperparamètres
+C174,learning curves,2,Machine Learning,Courbes d'apprentissage
+C175,bias variance tradeoff,2,Machine Learning,Compromis biais-variance
+C176,overfitting detection,2,Machine Learning,Détection du surapprentissage
+C177,underfitting detection,2,Machine Learning,Détection du sous-apprentissage
+C178,regularization techniques,2,Machine Learning,Techniques de régularisation
+C179,dropout regularization,2,Machine Learning,Dropout pour régularisation
+C180,early stopping,2,Machine Learning,Arrêt anticipé
+C181,neural networks basics,2,Machine Learning,Bases des réseaux de neurones
+C182,perceptron,2,Machine Learning,Perceptron simple
+C183,multilayer perceptron,2,Machine Learning,Perceptron multicouche
+C184,activation functions,2,Machine Learning,Fonctions d'activation
+C185,sigmoid activation,2,Machine Learning,Fonction sigmoïde
+C186,tanh activation,2,Machine Learning,Fonction tangente hyperbolique
+C187,ReLU activation,2,Machine Learning,Rectified Linear Unit
+C188,leaky ReLU,2,Machine Learning,Leaky ReLU
+C189,backpropagation,2,Machine Learning,Rétropropagation du gradient
+C190,gradient descent,2,Machine Learning,Descente de gradient
+C191,stochastic gradient descent,2,Machine Learning,SGD stochastique
+C192,mini-batch gradient descent,2,Machine Learning,Descente par mini-lots
+C193,Adam optimizer,2,Machine Learning,Optimiseur Adam
+C194,RMSprop optimizer,2,Machine Learning,Optimiseur RMSprop
+C195,momentum optimizer,2,Machine Learning,Optimiseur avec momentum
+C196,batch normalization,2,Machine Learning,Normalisation par batch
+C197,ensemble learning,2,Machine Learning,Apprentissage d'ensemble
+C198,voting classifier,2,Machine Learning,Classificateur par vote
+C199,stacking models,2,Machine Learning,Empilement de modèles
+C200,blending models,2,Machine Learning,Mélange de modèles
+C201,text preprocessing,3,NLP,Prétraitement de texte
+C202,text cleaning,3,NLP,Nettoyage de texte
+C203,lowercasing,3,NLP,Conversion en minuscules
+C204,punctuation removal,3,NLP,Suppression de ponctuation
+C205,special characters removal,3,NLP,Suppression caractères spéciaux
+C206,whitespace normalization,3,NLP,Normalisation des espaces
+C207,text tokenization,3,NLP,Tokenisation de texte
+C208,word tokenization,3,NLP,Tokenisation par mots
+C209,sentence tokenization,3,NLP,Tokenisation par phrases
+C210,subword tokenization,3,NLP,Tokenisation en sous-mots
+C211,stopwords removal,3,NLP,Suppression des mots vides
+C212,stopwords nltk,3,NLP,Stopwords avec NLTK
+C213,stopwords spacy,3,NLP,Stopwords avec spaCy
+C214,stemming,3,NLP,Racinisation des mots
+C215,porter stemmer,3,NLP,Algorithme de Porter
+C216,snowball stemmer,3,NLP,Algorithme Snowball
+C217,lemmatization,3,NLP,Lemmatisation
+C218,lemmatization nltk,3,NLP,Lemmatisation avec NLTK
+C219,lemmatization spacy,3,NLP,Lemmatisation avec spaCy
+C220,part of speech tagging,3,NLP,Étiquetage grammatical POS
+C221,POS tagging nltk,3,NLP,POS tagging avec NLTK
+C222,POS tagging spacy,3,NLP,POS tagging avec spaCy
+C223,named entity recognition,3,NLP,Reconnaissance d'entités nommées
+C224,NER spacy,3,NLP,NER avec spaCy
+C225,NER transformers,3,NLP,NER avec transformers
+C226,dependency parsing,3,NLP,Analyse syntaxique de dépendance
+C227,constituency parsing,3,NLP,Analyse syntaxique constituante
+C228,bag of words,3,NLP,Sac de mots BoW
+C229,TF-IDF,3,NLP,Term Frequency Inverse Document Frequency
+C230,n-grams,3,NLP,N-grammes de mots
+C231,bigrams,3,NLP,Bigrammes
+C232,trigrams,3,NLP,Trigrammes
+C233,word embeddings basics,3,NLP,Bases des embeddings de mots
+C234,Word2Vec,3,NLP,Word2Vec embeddings
+C235,Word2Vec CBOW,3,NLP,Continuous Bag of Words
+C236,Word2Vec Skip-gram,3,NLP,Skip-gram model
+C237,GloVe embeddings,3,NLP,Global Vectors for Word Representation
+C238,FastText embeddings,3,NLP,FastText de Facebook
+C239,contextual embeddings,3,NLP,Embeddings contextuels
+C240,ELMo embeddings,3,NLP,Embeddings from Language Models
+C241,BERT embeddings,3,NLP,BERT embeddings contextuels
+C242,sentence embeddings,3,NLP,Embeddings de phrases
+C243,Doc2Vec,3,NLP,Document embeddings
+C244,Universal Sentence Encoder,3,NLP,Encodeur universel de phrases
+C245,BERT architecture,3,NLP,Architecture BERT
+C246,BERT pretraining,3,NLP,Pré-entraînement BERT
+C247,BERT fine-tuning,3,NLP,Fine-tuning de BERT
+C248,RoBERTa,3,NLP,Robustly optimized BERT
+C249,ALBERT,3,NLP,A Lite BERT
+C250,DistilBERT,3,NLP,BERT distillé
+C251,GPT architecture,3,NLP,Architecture GPT
+C252,GPT-2,3,NLP,Generative Pre-trained Transformer 2
+C253,GPT-3,3,NLP,Generative Pre-trained Transformer 3
+C254,transformer architecture,3,NLP,Architecture Transformer
+C255,attention mechanism,3,NLP,Mécanisme d'attention
+C256,self-attention,3,NLP,Auto-attention
+C257,multi-head attention,3,NLP,Attention multi-têtes
+C258,positional encoding,3,NLP,Encodage positionnel
+C259,encoder decoder architecture,3,NLP,Architecture encodeur-décodeur
+C260,sequence to sequence,3,NLP,Modèles seq2seq
+C261,Hugging Face transformers,3,NLP,Librairie Transformers
+C262,tokenizers library,3,NLP,Librairie Tokenizers
+C263,datasets library,3,NLP,Librairie Datasets
+C264,sentiment analysis,3,NLP,Analyse de sentiments
+C265,sentiment classification,3,NLP,Classification de sentiments
+C266,aspect-based sentiment,3,NLP,Sentiment par aspect
+C267,emotion detection,3,NLP,Détection d'émotions
+C268,text classification,3,NLP,Classification de texte
+C269,multiclass text classification,3,NLP,Classification multiclasse
+C270,multilabel text classification,3,NLP,Classification multi-étiquettes
+C271,intent classification,3,NLP,Classification d'intentions
+C272,topic modeling,3,NLP,Modélisation de sujets
+C273,LDA topic modeling,3,NLP,Latent Dirichlet Allocation
+C274,LSA topic modeling,3,NLP,Latent Semantic Analysis
+C275,text summarization,3,NLP,Résumé automatique de texte
+C276,extractive summarization,3,NLP,Résumé extractif
+C277,abstractive summarization,3,NLP,Résumé abstractif
+C278,question answering,3,NLP,Systèmes de questions-réponses
+C279,QA extractive,3,NLP,QA extractif
+C280,QA generative,3,NLP,QA génératif
+C281,machine translation,3,NLP,Traduction automatique
+C282,neural machine translation,3,NLP,Traduction neuronale
+C283,language modeling,3,NLP,Modélisation de langage
+C284,text generation,3,NLP,Génération de texte
+C285,chatbot development,3,NLP,Développement de chatbots
+C286,dialogue systems,3,NLP,Systèmes de dialogue
+C287,information extraction,3,NLP,Extraction d'information
+C288,relation extraction,3,NLP,Extraction de relations
+C289,coreference resolution,3,NLP,Résolution de coréférence
+C290,semantic similarity,3,NLP,Similarité sémantique
+C291,cosine similarity text,3,NLP,Similarité cosinus pour textes
+C292,semantic search,3,NLP,Recherche sémantique
+C293,text matching,3,NLP,Appariement de textes
+C294,paraphrase detection,3,NLP,Détection de paraphrases
+C295,text augmentation,3,NLP,Augmentation de données textuelles
+C296,language detection,3,NLP,Détection de langue
+C297,spell checking,3,NLP,Correction orthographique
+C298,grammar checking,3,NLP,Vérification grammaticale
+C299,text normalization,3,NLP,Normalisation de texte
+C300,multilingual NLP,3,NLP,NLP multilingue
+C301,probability theory basics,4,Statistics & Mathematics,Bases de la théorie des probabilités
+C302,conditional probability,4,Statistics & Mathematics,Probabilités conditionnelles
+C303,bayes theorem,4,Statistics & Mathematics,Théorème de Bayes
+C304,probability distributions theory,4,Statistics & Mathematics,Théorie des distributions
+C305,discrete distributions,4,Statistics & Mathematics,Distributions discrètes
+C306,continuous distributions,4,Statistics & Mathematics,Distributions continues
+C307,uniform distribution,4,Statistics & Mathematics,Distribution uniforme
+C308,bernoulli distribution,4,Statistics & Mathematics,Distribution de Bernoulli
+C309,binomial distribution,4,Statistics & Mathematics,Distribution binomiale
+C310,geometric distribution,4,Statistics & Mathematics,Distribution géométrique
+C311,negative binomial,4,Statistics & Mathematics,Binomiale négative
+C312,poisson distribution,4,Statistics & Mathematics,Distribution de Poisson
+C313,exponential distribution,4,Statistics & Mathematics,Distribution exponentielle
+C314,normal distribution gaussian,4,Statistics & Mathematics,Distribution normale gaussienne
+C315,standard normal distribution,4,Statistics & Mathematics,Loi normale centrée réduite
+C316,log-normal distribution,4,Statistics & Mathematics,Distribution log-normale
+C317,chi-square distribution,4,Statistics & Mathematics,Distribution du chi-deux
+C318,student t distribution,4,Statistics & Mathematics,Distribution de Student
+C319,F distribution,4,Statistics & Mathematics,Distribution de Fisher
+C320,gamma distribution,4,Statistics & Mathematics,Distribution gamma
+C321,beta distribution,4,Statistics & Mathematics,Distribution bêta
+C322,weibull distribution,4,Statistics & Mathematics,Distribution de Weibull
+C323,central limit theorem,4,Statistics & Mathematics,Théorème central limite
+C324,law of large numbers,4,Statistics & Mathematics,Loi des grands nombres
+C325,sampling distributions,4,Statistics & Mathematics,Distributions d'échantillonnage
+C326,sampling methods,4,Statistics & Mathematics,Méthodes d'échantillonnage
+C327,random sampling,4,Statistics & Mathematics,Échantillonnage aléatoire
+C328,stratified sampling,4,Statistics & Mathematics,Échantillonnage stratifié
+C329,cluster sampling,4,Statistics & Mathematics,Échantillonnage par grappes
+C330,systematic sampling,4,Statistics & Mathematics,Échantillonnage systématique
+C331,bootstrap methods,4,Statistics & Mathematics,Méthodes bootstrap
+C332,jackknife methods,4,Statistics & Mathematics,Méthodes jackknife
+C333,point estimation,4,Statistics & Mathematics,Estimation ponctuelle
+C334,interval estimation,4,Statistics & Mathematics,Estimation par intervalle
+C335,maximum likelihood estimation,4,Statistics & Mathematics,Estimation du maximum de vraisemblance
+C336,method of moments,4,Statistics & Mathematics,Méthode des moments
+C337,hypothesis testing framework,4,Statistics & Mathematics,Cadre des tests d'hypothèses
+C338,null hypothesis,4,Statistics & Mathematics,Hypothèse nulle
+C339,alternative hypothesis,4,Statistics & Mathematics,Hypothèse alternative
+C340,type I error,4,Statistics & Mathematics,Erreur de type I
+C341,type II error,4,Statistics & Mathematics,Erreur de type II
+C342,statistical power,4,Statistics & Mathematics,Puissance statistique
+C343,significance level,4,Statistics & Mathematics,Niveau de significativité
+C344,one-sample t-test,4,Statistics & Mathematics,Test t à un échantillon
+C345,two-sample t-test,4,Statistics & Mathematics,Test t à deux échantillons
+C346,paired t-test,4,Statistics & Mathematics,Test t apparié
+C347,z-test,4,Statistics & Mathematics,Test z
+C348,chi-square test independence,4,Statistics & Mathematics,Test d'indépendance du chi-deux
+C349,chi-square goodness of fit,4,Statistics & Mathematics,Test d'adéquation du chi-deux
+C350,F-test variance,4,Statistics & Mathematics,Test F pour variances
+C351,one-way ANOVA,4,Statistics & Mathematics,ANOVA à un facteur
+C352,two-way ANOVA,4,Statistics & Mathematics,ANOVA à deux facteurs
+C353,MANOVA,4,Statistics & Mathematics,ANOVA multivariée
+C354,Kruskal-Wallis test,4,Statistics & Mathematics,Test de Kruskal-Wallis
+C355,Mann-Whitney U test,4,Statistics & Mathematics,Test U de Mann-Whitney
+C356,Wilcoxon signed-rank test,4,Statistics & Mathematics,Test de Wilcoxon
+C357,non-parametric tests,4,Statistics & Mathematics,Tests non paramétriques
+C358,linear algebra basics,4,Statistics & Mathematics,Bases d'algèbre linéaire
+C359,vectors operations,4,Statistics & Mathematics,Opérations sur vecteurs
+C360,matrices operations,4,Statistics & Mathematics,Opérations sur matrices
+C361,matrix multiplication,4,Statistics & Mathematics,Multiplication matricielle
+C362,matrix transpose,4,Statistics & Mathematics,Transposée de matrice
+C363,matrix inverse,4,Statistics & Mathematics,Inverse de matrice
+C364,determinant calculation,4,Statistics & Mathematics,Calcul de déterminant
+C365,eigenvalues eigenvectors,4,Statistics & Mathematics,Valeurs et vecteurs propres
+C366,matrix decomposition,4,Statistics & Mathematics,Décomposition matricielle
+C367,LU decomposition,4,Statistics & Mathematics,Décomposition LU
+C368,QR decomposition,4,Statistics & Mathematics,Décomposition QR
+C369,singular value decomposition,4,Statistics & Mathematics,Décomposition en valeurs singulières
+C370,vector spaces,4,Statistics & Mathematics,Espaces vectoriels
+C371,linear independence,4,Statistics & Mathematics,Indépendance linéaire
+C372,basis vectors,4,Statistics & Mathematics,Vecteurs de base
+C373,orthogonality,4,Statistics & Mathematics,Orthogonalité
+C374,calculus basics,4,Statistics & Mathematics,Bases de calcul
+C375,derivatives,4,Statistics & Mathematics,Dérivées
+C376,partial derivatives,4,Statistics & Mathematics,Dérivées partielles
+C377,gradient vectors,4,Statistics & Mathematics,Vecteurs gradient
+C378,chain rule,4,Statistics & Mathematics,Règle de dérivation en chaîne
+C379,optimization theory,4,Statistics & Mathematics,Théorie de l'optimisation
+C380,convex optimization,4,Statistics & Mathematics,Optimisation convexe
+C381,lagrange multipliers,4,Statistics & Mathematics,Multiplicateurs de Lagrange
+C382,KKT conditions,4,Statistics & Mathematics,Conditions de Karush-Kuhn-Tucker
+C383,numerical methods,4,Statistics & Mathematics,Méthodes numériques
+C384,newton method,4,Statistics & Mathematics,Méthode de Newton
+C385,quasi-newton methods,4,Statistics & Mathematics,Méthodes quasi-Newton
+C386,conjugate gradient,4,Statistics & Mathematics,Gradient conjugué
+C387,time series analysis,4,Statistics & Mathematics,Analyse de séries temporelles
+C388,stationarity,4,Statistics & Mathematics,Stationnarité
+C389,autocorrelation,4,Statistics & Mathematics,Autocorrélation
+C390,ARIMA models,4,Statistics & Mathematics,Modèles ARIMA
+C391,exponential smoothing,4,Statistics & Mathematics,Lissage exponentiel
+C392,multivariate statistics,4,Statistics & Mathematics,Statistiques multivariées
+C393,covariance matrix,4,Statistics & Mathematics,Matrice de covariance
+C394,mahalanobis distance,4,Statistics & Mathematics,Distance de Mahalanobis
+C395,canonical correlation,4,Statistics & Mathematics,Corrélation canonique
+C396,discriminant analysis,4,Statistics & Mathematics,Analyse discriminante
+C397,factor analysis,4,Statistics & Mathematics,Analyse factorielle
+C398,information theory,4,Statistics & Mathematics,Théorie de l'information
+C399,entropy,4,Statistics & Mathematics,Entropie
+C400,mutual information,4,Statistics & Mathematics,Information mutuelle
+C401,AWS basics,5,Cloud & Big Data,Bases d'Amazon Web Services
+C402,AWS EC2,5,Cloud & Big Data,Elastic Compute Cloud instances
+C403,AWS S3,5,Cloud & Big Data,Simple Storage Service
+C404,AWS Lambda,5,Cloud & Big Data,Serverless computing
+C405,AWS RDS,5,Cloud & Big Data,Relational Database Service
+C406,AWS DynamoDB,5,Cloud & Big Data,NoSQL database service
+C407,AWS Redshift,5,Cloud & Big Data,Data warehouse service
+C408,AWS EMR,5,Cloud & Big Data,Elastic MapReduce for Big Data
+C409,AWS Glue,5,Cloud & Big Data,ETL service
+C410,AWS Athena,5,Cloud & Big Data,Query service for S3
+C411,AWS Kinesis,5,Cloud & Big Data,Real-time data streaming
+C412,AWS SageMaker,5,Cloud & Big Data,Machine Learning platform
+C413,AWS IAM,5,Cloud & Big Data,Identity and Access Management
+C414,AWS CloudWatch,5,Cloud & Big Data,Monitoring and logging
+C415,AWS CloudFormation,5,Cloud & Big Data,Infrastructure as Code
+C416,Google Cloud Platform basics,5,Cloud & Big Data,Bases de GCP
+C417,GCP Compute Engine,5,Cloud & Big Data,Virtual machines GCP
+C418,GCP Cloud Storage,5,Cloud & Big Data,Object storage GCP
+C419,GCP BigQuery,5,Cloud & Big Data,Data warehouse GCP
+C420,GCP Dataflow,5,Cloud & Big Data,Stream and batch processing
+C421,GCP Dataproc,5,Cloud & Big Data,Managed Spark and Hadoop
+C422,GCP Pub/Sub,5,Cloud & Big Data,Messaging service
+C423,GCP AI Platform,5,Cloud & Big Data,ML platform GCP
+C424,GCP Cloud Functions,5,Cloud & Big Data,Serverless GCP
+C425,GCP Cloud SQL,5,Cloud & Big Data,Managed relational databases
+C426,Azure basics,5,Cloud & Big Data,Bases de Microsoft Azure
+C427,Azure Virtual Machines,5,Cloud & Big Data,VMs Azure
+C428,Azure Blob Storage,5,Cloud & Big Data,Object storage Azure
+C429,Azure Data Lake,5,Cloud & Big Data,Data lake storage
+C430,Azure Synapse Analytics,5,Cloud & Big Data,Analytics service Azure
+C431,Azure Databricks,5,Cloud & Big Data,Apache Spark platform
+C432,Azure HDInsight,5,Cloud & Big Data,Managed Hadoop clusters
+C433,Azure Stream Analytics,5,Cloud & Big Data,Real-time analytics
+C434,Azure Machine Learning,5,Cloud & Big Data,ML platform Azure
+C435,Azure Functions,5,Cloud & Big Data,Serverless Azure
+C436,Docker basics,5,Cloud & Big Data,Bases de Docker
+C437,Docker containers,5,Cloud & Big Data,Création de conteneurs
+C438,Dockerfile,5,Cloud & Big Data,Fichiers de configuration Docker
+C439,Docker images,5,Cloud & Big Data,Gestion d'images Docker
+C440,Docker Compose,5,Cloud & Big Data,Multi-container applications
+C441,Kubernetes basics,5,Cloud & Big Data,Bases de Kubernetes
+C442,Kubernetes pods,5,Cloud & Big Data,Gestion des pods
+C443,Kubernetes deployments,5,Cloud & Big Data,Déploiements Kubernetes
+C444,Kubernetes services,5,Cloud & Big Data,Services réseau Kubernetes
+C445,Kubernetes ConfigMaps,5,Cloud & Big Data,Configuration management
+C446,Kubernetes secrets,5,Cloud & Big Data,Gestion des secrets
+C447,Helm charts,5,Cloud & Big Data,Package manager Kubernetes
+C448,Apache Hadoop basics,5,Cloud & Big Data,Bases de Hadoop
+C449,HDFS,5,Cloud & Big Data,Hadoop Distributed File System
+C450,MapReduce,5,Cloud & Big Data,Paradigme de traitement distribué
+C451,YARN,5,Cloud & Big Data,Yet Another Resource Negotiator
+C452,Apache Spark basics,5,Cloud & Big Data,Bases d'Apache Spark
+C453,Spark RDD,5,Cloud & Big Data,Resilient Distributed Datasets
+C454,Spark DataFrame,5,Cloud & Big Data,DataFrames Spark
+C455,Spark SQL,5,Cloud & Big Data,SQL queries in Spark
+C456,Spark Streaming,5,Cloud & Big Data,Stream processing Spark
+C457,PySpark,5,Cloud & Big Data,Python API for Spark
+C458,Spark MLlib,5,Cloud & Big Data,Machine Learning library Spark
+C459,Apache Kafka basics,5,Cloud & Big Data,Bases d'Apache Kafka
+C460,Kafka producers,5,Cloud & Big Data,Producteurs de messages
+C461,Kafka consumers,5,Cloud & Big Data,Consommateurs de messages
+C462,Kafka topics,5,Cloud & Big Data,Topics et partitions
+C463,Kafka streams,5,Cloud & Big Data,Stream processing Kafka
+C464,Apache Hive,5,Cloud & Big Data,Data warehouse Hadoop
+C465,HiveQL,5,Cloud & Big Data,SQL-like queries Hive
+C466,Apache Pig,5,Cloud & Big Data,Data flow language
+C467,Apache HBase,5,Cloud & Big Data,NoSQL database Hadoop
+C468,Apache Cassandra,5,Cloud & Big Data,Distributed NoSQL database
+C469,MongoDB,5,Cloud & Big Data,Document-oriented database
+C470,MongoDB queries,5,Cloud & Big Data,Requêtes MongoDB
+C471,MongoDB aggregation,5,Cloud & Big Data,Pipeline d'agrégation
+C472,Redis,5,Cloud & Big Data,In-memory data store
+C473,Elasticsearch,5,Cloud & Big Data,Search and analytics engine
+C474,Elasticsearch queries,5,Cloud & Big Data,Requêtes Elasticsearch
+C475,Kibana,5,Cloud & Big Data,Visualization platform
+C476,Apache Airflow,5,Cloud & Big Data,Workflow orchestration
+C477,Airflow DAGs,5,Cloud & Big Data,Directed Acyclic Graphs
+C478,Airflow operators,5,Cloud & Big Data,Task operators Airflow
+C479,Luigi pipelines,5,Cloud & Big Data,Python workflow manager
+C480,Prefect,5,Cloud & Big Data,Modern workflow orchestration
+C481,data partitioning,5,Cloud & Big Data,Partitionnement de données
+C482,data sharding,5,Cloud & Big Data,Sharding horizontal
+C483,data replication,5,Cloud & Big Data,Réplication de données
+C484,distributed computing,5,Cloud & Big Data,Calcul distribué
+C485,parallel processing,5,Cloud & Big Data,Traitement parallèle
+C486,batch processing,5,Cloud & Big Data,Traitement par lots
+C487,stream processing,5,Cloud & Big Data,Traitement en flux continu
+C488,lambda architecture,5,Cloud & Big Data,Architecture lambda
+C489,kappa architecture,5,Cloud & Big Data,Architecture kappa
+C490,data lake architecture,5,Cloud & Big Data,Architecture data lake
+C491,data lakehouse,5,Cloud & Big Data,Lakehouse architecture
+C492,Delta Lake,5,Cloud & Big Data,Storage layer for data lakes
+C493,Apache Iceberg,5,Cloud & Big Data,Table format for big data
+C494,cloud security,5,Cloud & Big Data,Sécurité dans le cloud
+C495,cloud cost optimization,5,Cloud & Big Data,Optimisation des coûts cloud
+C496,serverless architecture,5,Cloud & Big Data,Architecture serverless
+C497,microservices architecture,5,Cloud & Big Data,Architecture microservices
+C498,API Gateway,5,Cloud & Big Data,Gestion d'API
+C499,load balancing,5,Cloud & Big Data,Équilibrage de charge
+C500,auto-scaling,5,Cloud & Big Data,Mise à l'échelle automatique
+C501,business acumen,6,Business & Data Communication,Compréhension du contexte business
+C502,business strategy,6,Business & Data Communication,Stratégie d'entreprise
+C503,business model analysis,6,Business & Data Communication,Analyse de modèles économiques
+C504,value proposition,6,Business & Data Communication,Proposition de valeur
+C505,stakeholder management,6,Business & Data Communication,Gestion des parties prenantes
+C506,requirement gathering,6,Business & Data Communication,Collecte des besoins
+C507,business requirements documentation,6,Business & Data Communication,Documentation des exigences business
+C508,user stories,6,Business & Data Communication,Rédaction de user stories
+C509,use case analysis,6,Business & Data Communication,Analyse de cas d'usage
+C510,process mapping,6,Business & Data Communication,Cartographie des processus
+C511,business process modeling,6,Business & Data Communication,Modélisation de processus métier
+C512,BPMN notation,6,Business & Data Communication,Business Process Model Notation
+C513,workflow optimization,6,Business & Data Communication,Optimisation des flux de travail
+C514,KPI definition,6,Business & Data Communication,Définition d'indicateurs clés
+C515,metrics development,6,Business & Data Communication,Développement de métriques
+C516,OKR framework,6,Business & Data Communication,Objectives and Key Results
+C517,balanced scorecard,6,Business & Data Communication,Tableau de bord équilibré
+C518,ROI calculation,6,Business & Data Communication,Calcul du retour sur investissement
+C519,cost-benefit analysis,6,Business & Data Communication,Analyse coûts-bénéfices
+C520,business case development,6,Business & Data Communication,Développement de business case
+C521,data storytelling,6,Business & Data Communication,Narration avec les données
+C522,data visualization for executives,6,Business & Data Communication,Visualisation pour dirigeants
+C523,executive dashboards,6,Business & Data Communication,Tableaux de bord exécutifs
+C524,presentation design,6,Business & Data Communication,Conception de présentations
+C525,PowerPoint advanced,6,Business & Data Communication,PowerPoint avancé
+C526,Google Slides,6,Business & Data Communication,Présentations Google Slides
+C527,Prezi presentations,6,Business & Data Communication,Présentations Prezi
+C528,infographics design,6,Business & Data Communication,Conception d'infographies
+C529,data-driven storytelling,6,Business & Data Communication,Narration guidée par les données
+C530,narrative structure,6,Business & Data Communication,Structure narrative
+C531,audience analysis,6,Business & Data Communication,Analyse de l'audience
+C532,message tailoring,6,Business & Data Communication,Adaptation du message
+C533,public speaking,6,Business & Data Communication,Prise de parole en public
+C534,presentation delivery,6,Business & Data Communication,Livraison de présentations
+C535,technical writing,6,Business & Data Communication,Rédaction technique
+C536,documentation writing,6,Business & Data Communication,Rédaction de documentation
+C537,report writing,6,Business & Data Communication,Rédaction de rapports
+C538,executive summary writing,6,Business & Data Communication,Rédaction de résumés exécutifs
+C539,email communication,6,Business & Data Communication,Communication par email
+C540,professional communication,6,Business & Data Communication,Communication professionnelle
+C541,meeting facilitation,6,Business & Data Communication,Animation de réunions
+C542,workshop facilitation,6,Business & Data Communication,Animation d'ateliers
+C543,brainstorming techniques,6,Business & Data Communication,Techniques de brainstorming
+C544,design thinking,6,Business & Data Communication,Pensée design
+C545,agile methodology,6,Business & Data Communication,Méthodologie agile
+C546,scrum framework,6,Business & Data Communication,Framework Scrum
+C547,sprint planning,6,Business & Data Communication,Planification de sprints
+C548,daily standup,6,Business & Data Communication,Réunions quotidiennes
+C549,sprint retrospective,6,Business & Data Communication,Rétrospectives de sprint
+C550,kanban method,6,Business & Data Communication,Méthode Kanban
+C551,project management basics,6,Business & Data Communication,Bases de gestion de projet
+C552,project charter,6,Business & Data Communication,Charte de projet
+C553,project scope definition,6,Business & Data Communication,Définition du périmètre
+C554,work breakdown structure,6,Business & Data Communication,Structure de découpage du travail
+C555,Gantt charts,6,Business & Data Communication,Diagrammes de Gantt
+C556,PERT charts,6,Business & Data Communication,Diagrammes PERT
+C557,risk management,6,Business & Data Communication,Gestion des risques
+C558,risk assessment,6,Business & Data Communication,Évaluation des risques
+C559,issue tracking,6,Business & Data Communication,Suivi des problèmes
+C560,JIRA usage,6,Business & Data Communication,Utilisation de JIRA
+C561,Trello usage,6,Business & Data Communication,Utilisation de Trello
+C562,Asana usage,6,Business & Data Communication,Utilisation d'Asana
+C563,Microsoft Project,6,Business & Data Communication,Gestion de projet Microsoft
+C564,change management,6,Business & Data Communication,Gestion du changement
+C565,organizational change,6,Business & Data Communication,Changement organisationnel
+C566,communication planning,6,Business & Data Communication,Planification de communication
+C567,stakeholder communication,6,Business & Data Communication,Communication avec parties prenantes
+C568,conflict resolution,6,Business & Data Communication,Résolution de conflits
+C569,negotiation skills,6,Business & Data Communication,Compétences de négociation
+C570,persuasion techniques,6,Business & Data Communication,Techniques de persuasion
+C571,influence strategies,6,Business & Data Communication,Stratégies d'influence
+C572,team collaboration,6,Business & Data Communication,Collaboration en équipe
+C573,cross-functional collaboration,6,Business & Data Communication,Collaboration inter-fonctionnelle
+C574,remote work communication,6,Business & Data Communication,Communication à distance
+C575,virtual meeting management,6,Business & Data Communication,Gestion de réunions virtuelles
+C576,Zoom facilitation,6,Business & Data Communication,Animation sur Zoom
+C577,Microsoft Teams usage,6,Business & Data Communication,Utilisation de Teams
+C578,Slack communication,6,Business & Data Communication,Communication sur Slack
+C579,client relationship management,6,Business & Data Communication,Gestion de relation client
+C580,customer feedback analysis,6,Business & Data Communication,Analyse de feedback client
+C581,survey design,6,Business & Data Communication,Conception d'enquêtes
+C582,interview techniques,6,Business & Data Communication,Techniques d'entretien
+C583,focus group facilitation,6,Business & Data Communication,Animation de groupes de discussion
+C584,active listening,6,Business & Data Communication,Écoute active
+C585,empathy in communication,6,Business & Data Communication,Empathie dans la communication
+C586,feedback delivery,6,Business & Data Communication,Délivrance de feedback
+C587,constructive criticism,6,Business & Data Communication,Critique constructive
+C588,data-driven decision making,6,Business & Data Communication,Décisions guidées par les données
+C589,critical thinking,6,Business & Data Communication,Pensée critique
+C590,problem-solving frameworks,6,Business & Data Communication,Cadres de résolution de problèmes
+C591,root cause analysis,6,Business & Data Communication,Analyse de cause racine
+C592,5 whys technique,6,Business & Data Communication,Technique des 5 pourquoi
+C593,fishbone diagram,6,Business & Data Communication,Diagramme d'Ishikawa
+C594,SWOT analysis,6,Business & Data Communication,Analyse SWOT
+C595,PESTEL analysis,6,Business & Data Communication,Analyse PESTEL
+C596,Porter five forces,6,Business & Data Communication,5 forces de Porter
+C597,competitive analysis,6,Business & Data Communication,Analyse concurrentielle
+C598,market research,6,Business & Data Communication,Étude de marché
+C599,trend analysis,6,Business & Data Communication,Analyse de tendances
+C600,industry knowledge,6,Business & Data Communication,Connaissance sectorielle
+C601,data governance framework,7,Data Governance & Ethics,Cadre de gouvernance des données
+C602,data governance policy,7,Data Governance & Ethics,Politique de gouvernance
+C603,data stewardship,7,Data Governance & Ethics,Intendance des données
+C604,data ownership,7,Data Governance & Ethics,Propriété des données
+C605,data custodianship,7,Data Governance & Ethics,Garde des données
+C606,data quality management,7,Data Governance & Ethics,Gestion de la qualité des données
+C607,data quality dimensions,7,Data Governance & Ethics,Dimensions de qualité
+C608,data accuracy,7,Data Governance & Ethics,Exactitude des données
+C609,data completeness,7,Data Governance & Ethics,Complétude des données
+C610,data consistency,7,Data Governance & Ethics,Cohérence des données
+C611,data timeliness,7,Data Governance & Ethics,Actualité des données
+C612,data validity,7,Data Governance & Ethics,Validité des données
+C613,data uniqueness,7,Data Governance & Ethics,Unicité des données
+C614,data quality metrics,7,Data Governance & Ethics,Métriques de qualité
+C615,data quality monitoring,7,Data Governance & Ethics,Surveillance de la qualité
+C616,data quality improvement,7,Data Governance & Ethics,Amélioration de la qualité
+C617,master data management,7,Data Governance & Ethics,Gestion des données de référence
+C618,reference data management,7,Data Governance & Ethics,Gestion des référentiels
+C619,metadata management,7,Data Governance & Ethics,Gestion des métadonnées
+C620,data catalog,7,Data Governance & Ethics,Catalogue de données
+C621,data dictionary,7,Data Governance & Ethics,Dictionnaire de données
+C622,business glossary,7,Data Governance & Ethics,Glossaire métier
+C623,data lineage,7,Data Governance & Ethics,Traçabilité des données
+C624,data lineage tracking,7,Data Governance & Ethics,Suivi de la lignée
+C625,impact analysis,7,Data Governance & Ethics,Analyse d'impact
+C626,data classification,7,Data Governance & Ethics,Classification des données
+C627,data categorization,7,Data Governance & Ethics,Catégorisation des données
+C628,sensitive data identification,7,Data Governance & Ethics,Identification des données sensibles
+C629,PII identification,7,Data Governance & Ethics,Identification des données personnelles
+C630,data privacy regulations,7,Data Governance & Ethics,Réglementations sur la vie privée
+C631,GDPR compliance,7,Data Governance & Ethics,Conformité RGPD
+C632,CCPA compliance,7,Data Governance & Ethics,Conformité CCPA
+C633,HIPAA compliance,7,Data Governance & Ethics,Conformité HIPAA
+C634,data protection laws,7,Data Governance & Ethics,Lois sur la protection des données
+C635,privacy by design,7,Data Governance & Ethics,Vie privée dès la conception
+C636,privacy impact assessment,7,Data Governance & Ethics,Analyse d'impact vie privée
+C637,consent management,7,Data Governance & Ethics,Gestion du consentement
+C638,data subject rights,7,Data Governance & Ethics,Droits des personnes concernées
+C639,right to access,7,Data Governance & Ethics,Droit d'accès
+C640,right to erasure,7,Data Governance & Ethics,Droit à l'effacement
+C641,right to portability,7,Data Governance & Ethics,Droit à la portabilité
+C642,data breach management,7,Data Governance & Ethics,Gestion des violations de données
+C643,breach notification,7,Data Governance & Ethics,Notification de violation
+C644,incident response,7,Data Governance & Ethics,Réponse aux incidents
+C645,data security principles,7,Data Governance & Ethics,Principes de sécurité des données
+C646,data encryption,7,Data Governance & Ethics,Chiffrement des données
+C647,encryption at rest,7,Data Governance & Ethics,Chiffrement au repos
+C648,encryption in transit,7,Data Governance & Ethics,Chiffrement en transit
+C649,access control,7,Data Governance & Ethics,Contrôle d'accès
+C650,role-based access control,7,Data Governance & Ethics,Contrôle d'accès basé sur les rôles
+C651,least privilege principle,7,Data Governance & Ethics,Principe du moindre privilège
+C652,authentication mechanisms,7,Data Governance & Ethics,Mécanismes d'authentification
+C653,multi-factor authentication,7,Data Governance & Ethics,Authentification multi-facteurs
+C654,authorization protocols,7,Data Governance & Ethics,Protocoles d'autorisation
+C655,data masking,7,Data Governance & Ethics,Masquage de données
+C656,data anonymization,7,Data Governance & Ethics,Anonymisation des données
+C657,data pseudonymization,7,Data Governance & Ethics,Pseudonymisation des données
+C658,data minimization,7,Data Governance & Ethics,Minimisation des données
+C659,data retention policies,7,Data Governance & Ethics,Politiques de conservation
+C660,data archiving,7,Data Governance & Ethics,Archivage des données
+C661,data disposal,7,Data Governance & Ethics,Élimination sécurisée des données
+C662,audit trails,7,Data Governance & Ethics,Pistes d'audit
+C663,logging mechanisms,7,Data Governance & Ethics,Mécanismes de journalisation
+C664,compliance monitoring,7,Data Governance & Ethics,Surveillance de la conformité
+C665,regulatory reporting,7,Data Governance & Ethics,Rapports réglementaires
+C666,data ethics principles,7,Data Governance & Ethics,Principes d'éthique des données
+C667,ethical AI,7,Data Governance & Ethics,IA éthique
+C668,algorithmic fairness,7,Data Governance & Ethics,Équité algorithmique
+C669,bias detection,7,Data Governance & Ethics,Détection de biais
+C670,bias mitigation,7,Data Governance & Ethics,Atténuation des biais
+C671,fairness metrics,7,Data Governance & Ethics,Métriques d'équité
+C672,demographic parity,7,Data Governance & Ethics,Parité démographique
+C673,equal opportunity,7,Data Governance & Ethics,Égalité des chances
+C674,model explainability,7,Data Governance & Ethics,Explicabilité des modèles
+C675,model interpretability,7,Data Governance & Ethics,Interprétabilité des modèles
+C676,transparency principles,7,Data Governance & Ethics,Principes de transparence
+C677,accountability frameworks,7,Data Governance & Ethics,Cadres de responsabilité
+C678,ethical review boards,7,Data Governance & Ethics,Comités d'éthique
+C679,impact assessment ethical,7,Data Governance & Ethics,Évaluation d'impact éthique
+C680,stakeholder engagement ethics,7,Data Governance & Ethics,Engagement des parties prenantes éthique
+C681,human oversight,7,Data Governance & Ethics,Supervision humaine
+C682,human in the loop,7,Data Governance & Ethics,Humain dans la boucle
+C683,contestability mechanisms,7,Data Governance & Ethics,Mécanismes de contestation
+C684,redress mechanisms,7,Data Governance & Ethics,Mécanismes de recours
+C685,data sovereignty,7,Data Governance & Ethics,Souveraineté des données
+C686,cross-border data transfer,7,Data Governance & Ethics,Transfert transfrontalier
+C687,data localization,7,Data Governance & Ethics,Localisation des données
+C688,vendor management,7,Data Governance & Ethics,Gestion des fournisseurs
+C689,third-party risk assessment,7,Data Governance & Ethics,Évaluation des risques tiers
+C690,data sharing agreements,7,Data Governance & Ethics,Accords de partage de données
+C691,data usage agreements,7,Data Governance & Ethics,Accords d'utilisation
+C692,service level agreements,7,Data Governance & Ethics,Accords de niveau de service
+C693,compliance auditing,7,Data Governance & Ethics,Audit de conformité
+C694,internal audits,7,Data Governance & Ethics,Audits internes
+C695,external audits,7,Data Governance & Ethics,Audits externes
+C696,certification standards,7,Data Governance & Ethics,Normes de certification
+C697,ISO 27001,7,Data Governance & Ethics,Norme de sécurité ISO 27001
+C698,SOC 2 compliance,7,Data Governance & Ethics,Conformité SOC 2
+C699,risk management framework,7,Data Governance & Ethics,Cadre de gestion des risques
+C700,continuous compliance,7,Data Governance & Ethics,Conformité continue
+C701,SQL basics,8,SQL & Databases,Bases du langage SQL
+C702,SELECT statement,8,SQL & Databases,Instruction SELECT
+C703,WHERE clause,8,SQL & Databases,Clause WHERE pour filtrage
+C704,ORDER BY clause,8,SQL & Databases,Tri des résultats
+C705,LIMIT clause,8,SQL & Databases,Limitation du nombre de résultats
+C706,DISTINCT keyword,8,SQL & Databases,Sélection de valeurs uniques
+C707,aggregate functions,8,SQL & Databases,Fonctions d'agrégation
+C708,COUNT function,8,SQL & Databases,Fonction COUNT
+C709,SUM function,8,SQL & Databases,Fonction SUM
+C710,AVG function,8,SQL & Databases,Fonction AVG
+C711,MIN MAX functions,8,SQL & Databases,Fonctions MIN et MAX
+C712,GROUP BY clause,8,SQL & Databases,Regroupement de données
+C713,HAVING clause,8,SQL & Databases,Filtrage après agrégation
+C714,INNER JOIN,8,SQL & Databases,Jointure interne
+C715,LEFT JOIN,8,SQL & Databases,Jointure gauche
+C716,RIGHT JOIN,8,SQL & Databases,Jointure droite
+C717,FULL OUTER JOIN,8,SQL & Databases,Jointure externe complète
+C718,CROSS JOIN,8,SQL & Databases,Produit cartésien
+C719,SELF JOIN,8,SQL & Databases,Auto-jointure
+C720,UNION operator,8,SQL & Databases,Opérateur UNION
+C721,UNION ALL,8,SQL & Databases,UNION avec doublons
+C722,INTERSECT operator,8,SQL & Databases,Intersection d'ensembles
+C723,EXCEPT operator,8,SQL & Databases,Différence d'ensembles
+C724,subqueries,8,SQL & Databases,Sous-requêtes
+C725,correlated subqueries,8,SQL & Databases,Sous-requêtes corrélées
+C726,EXISTS operator,8,SQL & Databases,Opérateur EXISTS
+C727,IN operator,8,SQL & Databases,Opérateur IN
+C728,CASE statement,8,SQL & Databases,Expression CASE
+C729,COALESCE function,8,SQL & Databases,Fonction COALESCE
+C730,NULLIF function,8,SQL & Databases,Fonction NULLIF
+C731,string functions,8,SQL & Databases,Fonctions de chaînes
+C732,CONCAT function,8,SQL & Databases,Concaténation de chaînes
+C733,SUBSTRING function,8,SQL & Databases,Extraction de sous-chaînes
+C734,UPPER LOWER functions,8,SQL & Databases,Conversion de casse
+C735,TRIM function,8,SQL & Databases,Suppression d'espaces
+C736,LENGTH function,8,SQL & Databases,Longueur de chaîne
+C737,REPLACE function,8,SQL & Databases,Remplacement de texte
+C738,date functions,8,SQL & Databases,Fonctions de date
+C739,NOW function,8,SQL & Databases,Date et heure actuelles
+C740,DATE_FORMAT function,8,SQL & Databases,Formatage de dates
+C741,DATE_ADD DATE_SUB,8,SQL & Databases,Addition et soustraction de dates
+C742,DATEDIFF function,8,SQL & Databases,Différence entre dates
+C743,EXTRACT function,8,SQL & Databases,Extraction de parties de date
+C744,window functions,8,SQL & Databases,Fonctions fenêtrées
+C745,ROW_NUMBER function,8,SQL & Databases,Numérotation de lignes
+C746,RANK function,8,SQL & Databases,Fonction RANK
+C747,DENSE_RANK function,8,SQL & Databases,Fonction DENSE_RANK
+C748,NTILE function,8,SQL & Databases,Partitionnement en groupes
+C749,LAG LEAD functions,8,SQL & Databases,Accès aux lignes précédentes/suivantes
+C750,FIRST_VALUE LAST_VALUE,8,SQL & Databases,Première et dernière valeur
+C751,PARTITION BY clause,8,SQL & Databases,Partitionnement de fenêtres
+C752,OVER clause,8,SQL & Databases,Clause OVER pour fenêtres
+C753,common table expressions CTE,8,SQL & Databases,Expressions de table commune
+C754,WITH clause,8,SQL & Databases,Clause WITH pour CTE
+C755,recursive CTE,8,SQL & Databases,CTE récursives
+C756,views creation,8,SQL & Databases,Création de vues
+C757,materialized views,8,SQL & Databases,Vues matérialisées
+C758,stored procedures,8,SQL & Databases,Procédures stockées
+C759,functions creation,8,SQL & Databases,Création de fonctions
+C760,triggers,8,SQL & Databases,Déclencheurs
+C761,INSERT statement,8,SQL & Databases,Insertion de données
+C762,UPDATE statement,8,SQL & Databases,Mise à jour de données
+C763,DELETE statement,8,SQL & Databases,Suppression de données
+C764,MERGE statement,8,SQL & Databases,Fusion de données
+C765,transactions,8,SQL & Databases,Gestion de transactions
+C766,COMMIT statement,8,SQL & Databases,Validation de transaction
+C767,ROLLBACK statement,8,SQL & Databases,Annulation de transaction
+C768,SAVEPOINT,8,SQL & Databases,Points de sauvegarde
+C769,ACID properties,8,SQL & Databases,Propriétés ACID
+C770,isolation levels,8,SQL & Databases,Niveaux d'isolation
+C771,database design,8,SQL & Databases,Conception de bases de données
+C772,entity relationship diagrams,8,SQL & Databases,Diagrammes entité-relation
+C773,normalization,8,SQL & Databases,Normalisation de bases de données
+C774,first normal form,8,SQL & Databases,Première forme normale
+C775,second normal form,8,SQL & Databases,Deuxième forme normale
+C776,third normal form,8,SQL & Databases,Troisième forme normale
+C777,BCNF,8,SQL & Databases,Forme normale de Boyce-Codd
+C778,denormalization,8,SQL & Databases,Dénormalisation
+C779,primary keys,8,SQL & Databases,Clés primaires
+C780,foreign keys,8,SQL & Databases,Clés étrangères
+C781,unique constraints,8,SQL & Databases,Contraintes d'unicité
+C782,check constraints,8,SQL & Databases,Contraintes de vérification
+C783,NOT NULL constraint,8,SQL & Databases,Contrainte NOT NULL
+C784,DEFAULT values,8,SQL & Databases,Valeurs par défaut
+C785,indexes creation,8,SQL & Databases,Création d'index
+C786,clustered indexes,8,SQL & Databases,Index groupés
+C787,non-clustered indexes,8,SQL & Databases,Index non groupés
+C788,composite indexes,8,SQL & Databases,Index composites
+C789,index optimization,8,SQL & Databases,Optimisation d'index
+C790,query optimization,8,SQL & Databases,Optimisation de requêtes
+C791,execution plans,8,SQL & Databases,Plans d'exécution
+C792,EXPLAIN statement,8,SQL & Databases,Analyse de requêtes
+C793,query performance tuning,8,SQL & Databases,Tuning de performance
+C794,database partitioning,8,SQL & Databases,Partitionnement de bases de données
+C795,horizontal partitioning,8,SQL & Databases,Partitionnement horizontal
+C796,vertical partitioning,8,SQL & Databases,Partitionnement vertical
+C797,backup strategies,8,SQL & Databases,Stratégies de sauvegarde
+C798,restore procedures,8,SQL & Databases,Procédures de restauration
+C799,replication,8,SQL & Databases,Réplication de bases de données
+C800,high availability,8,SQL & Databases,Haute disponibilité
+C801,MLOps fundamentals,9,MLOps,Fondamentaux de MLOps
+C802,ML lifecycle management,9,MLOps,Gestion du cycle de vie ML
+C803,model development,9,MLOps,Développement de modèles
+C804,model versioning,9,MLOps,Versionnement de modèles
+C805,experiment tracking,9,MLOps,Suivi d'expériences
+C806,MLflow basics,9,MLOps,Bases de MLflow
+C807,MLflow tracking,9,MLOps,Suivi avec MLflow
+C808,MLflow projects,9,MLOps,Projets MLflow
+C809,MLflow models,9,MLOps,Modèles MLflow
+C810,MLflow registry,9,MLOps,Registre de modèles MLflow
+C811,DVC data version control,9,MLOps,Versionnement de données avec DVC
+C812,Weights and Biases,9,MLOps,Plateforme W&B
+C813,Neptune AI,9,MLOps,Plateforme Neptune
+C814,Comet ML,9,MLOps,Plateforme Comet
+C815,model registry,9,MLOps,Registre de modèles
+C816,model metadata,9,MLOps,Métadonnées de modèles
+C817,model lineage,9,MLOps,Traçabilité de modèles
+C818,feature store,9,MLOps,Magasin de features
+C819,feature engineering pipeline,9,MLOps,Pipeline d'ingénierie des features
+C820,feature serving,9,MLOps,Service de features
+C821,Feast feature store,9,MLOps,Feature store Feast
+C822,Tecton feature platform,9,MLOps,Plateforme Tecton
+C823,model deployment,9,MLOps,Déploiement de modèles
+C824,model serving,9,MLOps,Service de modèles
+C825,REST API deployment,9,MLOps,Déploiement via API REST
+C826,Flask API,9,MLOps,API Flask pour modèles
+C827,FastAPI,9,MLOps,Framework FastAPI
+C828,model containerization,9,MLOps,Conteneurisation de modèles
+C829,Docker for ML,9,MLOps,Docker pour ML
+C830,Kubernetes for ML,9,MLOps,Kubernetes pour ML
+C831,model orchestration,9,MLOps,Orchestration de modèles
+C832,Kubeflow,9,MLOps,Plateforme Kubeflow
+C833,Kubeflow pipelines,9,MLOps,Pipelines Kubeflow
+C834,TFX TensorFlow Extended,9,MLOps,TensorFlow Extended
+C835,model monitoring,9,MLOps,Surveillance de modèles
+C836,model performance monitoring,9,MLOps,Surveillance de performance
+C837,data drift detection,9,MLOps,Détection de dérive de données
+C838,concept drift detection,9,MLOps,Détection de dérive conceptuelle
+C839,model decay detection,9,MLOps,Détection de dégradation
+C840,alerting systems,9,MLOps,Systèmes d'alerte
+C841,model retraining triggers,9,MLOps,Déclencheurs de réentraînement
+C842,automated retraining,9,MLOps,Réentraînement automatisé
+C843,A/B testing models,9,MLOps,Tests A/B de modèles
+C844,canary deployment,9,MLOps,Déploiement canari
+C845,blue-green deployment,9,MLOps,Déploiement bleu-vert
+C846,shadow deployment,9,MLOps,Déploiement fantôme
+C847,model validation,9,MLOps,Validation de modèles
+C848,model testing,9,MLOps,Tests de modèles
+C849,unit testing ML code,9,MLOps,Tests unitaires pour ML
+C850,integration testing ML,9,MLOps,Tests d'intégration ML
+C851,model assertions,9,MLOps,Assertions sur modèles
+C852,CI/CD for ML,9,MLOps,CI/CD pour ML
+C853,continuous integration,9,MLOps,Intégration continue
+C854,continuous delivery,9,MLOps,Livraison continue
+C855,continuous training,9,MLOps,Entraînement continu
+C856,Jenkins for ML,9,MLOps,Jenkins pour ML
+C857,GitHub Actions ML,9,MLOps,GitHub Actions pour ML
+C858,GitLab CI/CD ML,9,MLOps,GitLab CI/CD pour ML
+C859,model governance,9,MLOps,Gouvernance de modèles
+C860,model documentation,9,MLOps,Documentation de modèles
+C861,model cards,9,MLOps,Fiches de modèles
+C862,model explainability ops,9,MLOps,Explicabilité en production
+C863,SHAP in production,9,MLOps,SHAP en production
+C864,LIME in production,9,MLOps,LIME en production
+C865,model bias monitoring,9,MLOps,Surveillance des biais
+C866,fairness in production,9,MLOps,Équité en production
+C867,model security,9,MLOps,Sécurité des modèles
+C868,adversarial attack detection,9,MLOps,Détection d'attaques adverses
+C869,model robustness testing,9,MLOps,Tests de robustesse
+C870,model privacy,9,MLOps,Confidentialité des modèles
+C871,federated learning,9,MLOps,Apprentissage fédéré
+C872,differential privacy,9,MLOps,Confidentialité différentielle
+C873,infrastructure as code,9,MLOps,Infrastructure as Code
+C874,Terraform for ML,9,MLOps,Terraform pour ML
+C875,CloudFormation ML,9,MLOps,CloudFormation pour ML
+C876,model optimization,9,MLOps,Optimisation de modèles
+C877,model compression,9,MLOps,Compression de modèles
+C878,model quantization,9,MLOps,Quantification de modèles
+C879,model pruning,9,MLOps,Élagage de modèles
+C880,knowledge distillation,9,MLOps,Distillation de connaissances
+C881,edge deployment,9,MLOps,Déploiement en périphérie
+C882,TensorFlow Lite,9,MLOps,TensorFlow Lite pour mobile
+C883,ONNX format,9,MLOps,Format ONNX
+C884,model serving platforms,9,MLOps,Plateformes de service
+C885,TensorFlow Serving,9,MLOps,TensorFlow Serving
+C886,TorchServe,9,MLOps,PyTorch Serving
+C887,Seldon Core,9,MLOps,Plateforme Seldon
+C888,KServe,9,MLOps,Service de modèles Kubernetes
+C889,BentoML,9,MLOps,Framework BentoML
+C890,batch prediction,9,MLOps,Prédiction par lots
+C891,real-time prediction,9,MLOps,Prédiction en temps réel
+C892,streaming prediction,9,MLOps,Prédiction en flux
+C893,model latency optimization,9,MLOps,Optimisation de latence
+C894,model throughput optimization,9,MLOps,Optimisation du débit
+C895,cost optimization ML,9,MLOps,Optimisation des coûts ML
+C896,resource allocation,9,MLOps,Allocation de ressources
+C897,scalability ML systems,9,MLOps,Scalabilité des systèmes ML
+C898,distributed training,9,MLOps,Entraînement distribué
+C899,multi-GPU training,9,MLOps,Entraînement multi-GPU
+C900,MLOps best practices,9,MLOps,Meilleures pratiques MLOps

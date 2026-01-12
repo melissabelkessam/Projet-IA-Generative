@@ -6,21 +6,20 @@ import streamlit as st
 # =========================
 # Config
 # =========================
-SAVE_PATH = "data/user_responses.json"
+SAVE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "user_responses.json")
 
 BLOCKS = [
-    ("bloc1", "Data Analysis"),
-    ("bloc2", "Machine Learning"),
-    ("bloc3", "NLP"),
-    ("bloc4", "Statistics & Mathematics"),
-    ("bloc5", "Cloud & Big Data"),
-    ("bloc6", "Business & Data Communication"),
-    ("bloc7", "Data Governance & Ethics"),
-    ("bloc8", "SQL & Databases"),
-    ("bloc9", "MLOps"),
+    ("bloc1", "📊 Data Analysis", "#1f77b4"),
+    ("bloc2", "🤖 Machine Learning", "#ff7f0e"),
+    ("bloc3", "💬 NLP", "#2ca02c"),
+    ("bloc4", "📈 Statistics & Mathematics", "#d62728"),
+    ("bloc5", "☁️ Cloud & Big Data", "#9467bd"),
+    ("bloc6", "💼 Business & Data Communication", "#8c564b"),
+    ("bloc7", "🛡️ Data Governance & Ethics", "#e377c2"),
+    ("bloc8", "🗄️ SQL & Databases", "#7f7f7f"),
+    ("bloc9", "⚙️ MLOps", "#bcbd22"),
 ]
 
-# Options (tu peux modifier)
 MULTI_CHOICE_OPTIONS = {
     "bloc1": ["Nettoyage", "EDA", "Visualisation", "Feature engineering", "Autre"],
     "bloc2": ["Régression", "Classification", "Clustering", "Recommandation", "Autre"],
@@ -46,6 +45,82 @@ CHECKBOX_OPTIONS = {
 }
 
 # =========================
+# CSS Styling
+# =========================
+# =========================
+# CSS Styling
+# =========================
+st.markdown("""
+<style>
+    /* Arrière-plan général */
+    .main {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    
+    /* Titre principal - NOIR pour contraste */
+    h1 {
+        color: #1a1a1a !important;
+        background-color: rgba(255, 255, 255, 0.95);
+        text-align: center;
+        padding: 20px;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Sous-titres des blocs */
+    h2 {
+        color: white !important;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 30px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-weight: bold;
+    }
+    
+    /* Conteneur des questions */
+    .stTextArea, .stSlider, .stRadio, .stSelectbox, .stMultiSelect {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 10px;
+        border-radius: 8px;
+        margin: 10px 0;
+    }
+    
+    /* Bouton submit personnalisé */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 15px 40px;
+        border-radius: 50px;
+        border: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+    
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    
+    /* Divider */
+    hr {
+        border: 1px solid rgba(255,255,255,0.3);
+        margin: 30px 0;
+    }
+    
+    /* Fix pour les labels */
+    label {
+        color: #333 !important;
+        font-weight: 500;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+
+# =========================
 # Helpers
 # =========================
 def ensure_file(path: str):
@@ -58,115 +133,110 @@ def append_to_json_array(path: str, row: dict):
     ensure_file(path)
     with open(path, "r", encoding="utf-8") as f:
         data = json.load(f)
-
     if not isinstance(data, list):
         data = [data]
-
     data.append(row)
-
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 # =========================
 # UI
 # =========================
-st.set_page_config(page_title="AISCA - Questionnaire", layout="wide")
-st.title("📋 Questionnaire Streamlit (Étape 2)")
+st.set_page_config(page_title="AISCA - Questionnaire", layout="wide", initial_sidebar_state="collapsed")
 
-st.markdown(
-    """
-**Objectif :** Collecter des réponses *numériques + textuelles* pour l’analyse sémantique (SBERT).  
-⚠️ Les **questions ouvertes (texte libre)** sont **essentielles**.
-"""
-)
+st.title("🎯 AISCA - Cartographie des Compétences")
 
-# ✅ Correction: pas de "else" après un "with"
+st.markdown("""
+<div style='background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 30px;'>
+    <h3 style='color: #667eea; margin-top: 0;'>📋 Objectif du questionnaire</h3>
+    <p style='color: #333; font-size: 16px;'>
+        Ce questionnaire analyse vos compétences pour vous recommander les <strong>3 métiers les plus adaptés</strong> à votre profil.
+    </p>
+    <p style='color: #d62728; font-size: 14px;'>
+        ⚠️ <strong>Important :</strong> Remplissez au moins les <strong>questions de texte libre</strong> pour une analyse sémantique précise.
+    </p>
+</div>
+""", unsafe_allow_html=True)
+
 user_id = 1
 user_name = ""
 
-with st.expander("Infos utilisateur (optionnel)"):
-    user_id = st.number_input("user_id", min_value=1, value=1, step=1)
-    user_name = st.text_input("Nom / pseudo", "")
+with st.expander("👤 Informations utilisateur (optionnel)"):
+    user_id = st.number_input("ID utilisateur", min_value=1, value=1, step=1)
+    user_name = st.text_input("Nom / Pseudo", "")
 
-st.divider()
+st.markdown("---")
 
 responses = {}
-
-# Pour vérifier qu'il y a bien un texte libre par bloc
 missing_text_blocks = []
 
-for code, label in BLOCKS:
-    st.subheader(f"=== {label} ===")
+for code, label, color in BLOCKS:
+    st.markdown(f"<h2 style='background-color: {color};'>{label}</h2>", unsafe_allow_html=True)
+    
+    with st.container():
+        # 1) Likert
+        likert_key = f"{code}_likert"
+        responses[likert_key] = st.slider(
+            f"📊 Niveau global en **{label}**",
+            1, 5, 3, key=likert_key,
+            help="1 = Débutant, 5 = Expert"
+        )
+        
+        # 2) Texte libre (IMPORTANT)
+        text_key = f"{code}_text"
+        responses[text_key] = st.text_area(
+            f"✍️ Décrivez un projet ou une expérience liée à **{label}**",
+            placeholder="Ex: J'ai travaillé sur un projet de... J'ai utilisé les outils... Le résultat était...",
+            key=text_key,
+            height=100
+        ).strip()
+        
+        # 3) Oui / Non
+        yesno_key = f"{code}_yesno"
+        responses[yesno_key] = st.radio(
+            "✅ Avez-vous déjà réalisé un projet concret dans ce domaine ?",
+            ["Oui", "Non"],
+            horizontal=True,
+            key=yesno_key
+        )
+        
+        # 4) Choix multiple
+        choice_key = f"{code}_choice"
+        responses[choice_key] = st.selectbox(
+            "🎯 Sélectionnez ce qui vous correspond le plus :",
+            MULTI_CHOICE_OPTIONS[code],
+            key=choice_key
+        )
+        
+        # 5) Cases à cocher
+        checks_key = f"{code}_checks"
+        responses[checks_key] = st.multiselect(
+            "🛠️ Outils et technologies maîtrisés :",
+            CHECKBOX_OPTIONS[code],
+            key=checks_key
+        )
+        
+        if responses[text_key] == "":
+            missing_text_blocks.append(label)
+    
+    st.markdown("---")
 
-    # 1) Likert
-    likert_key = f"{code}_likert"
-    responses[likert_key] = st.slider(
-        f"1) (Likert 1–5) Évalue ton niveau global en **{label}**",
-        1, 5, 3, key=likert_key
-    )
+# Bouton de soumission
+st.markdown("<br>", unsafe_allow_html=True)
 
-    # 2) Texte libre (IMPORTANT)
-    text_key = f"{code}_text"
-    responses[text_key] = st.text_area(
-        f"2) (Texte libre) Décris un projet / expérience lié(e) à **{label}** (contexte, outils, résultats)",
-        placeholder="Ex: J’ai travaillé sur ... j’ai utilisé ... le résultat était ...",
-        key=text_key
-    ).strip()
-
-    # 3) Oui / Non
-    yesno_key = f"{code}_yesno"
-    responses[yesno_key] = st.radio(
-        "3) (Oui/Non) As-tu déjà fait un projet concret dans ce domaine ?",
-        ["Oui", "Non"],
-        horizontal=True,
-        key=yesno_key
-    )
-
-    # 4) Choix multiple (single)
-    choice_key = f"{code}_choice"
-    responses[choice_key] = st.selectbox(
-        "4) (Choix multiple) Sélectionne ce qui te correspond le plus :",
-        MULTI_CHOICE_OPTIONS[code],
-        key=choice_key
-    )
-
-    # 5) Cases à cocher (multi-select)
-    checks_key = f"{code}_checks"
-    responses[checks_key] = st.multiselect(
-        "5) (Cases à cocher) Coche les outils / notions que tu maîtrises :",
-        CHECKBOX_OPTIONS[code],
-        key=checks_key
-    )
-
-    if responses[text_key] == "":
-        missing_text_blocks.append(label)
-
-    st.divider()
-
-st.subheader("💾 Sauvegarde des réponses")
-
-col1, col2 = st.columns([1, 1])
-
-with col1:
-    st.caption("Format enregistré dans `data/user_responses.json`")
-
-with col2:
-    if st.button("✅ Soumettre et sauvegarder"):
-        if missing_text_blocks:
-            st.error(
-                "Tu dois remplir au moins **1 texte libre** pour chaque bloc. Manquants : "
-                + ", ".join(missing_text_blocks)
-            )
-        else:
-            payload = {
-                "user_id": int(user_id),
-                "user_name": user_name,
-                "submitted_at": datetime.utcnow().isoformat() + "Z",
-                "responses": responses,
-            }
-            append_to_json_array(SAVE_PATH, payload)
-            st.success("Sauvegardé ✅ (data/user_responses.json)")
-
-# st.caption("Aperçu (debug) :")
-# st.json({"user_id": user_id, "user_name": user_name, "responses": responses})
-
+if st.button("🚀 Soumettre et sauvegarder", type="primary", use_container_width=True):
+    if missing_text_blocks:
+        st.error(
+            f"❌ Veuillez remplir au moins **1 texte libre** pour chaque bloc.\n\n"
+            f"**Blocs manquants :** {', '.join(missing_text_blocks)}"
+        )
+    else:
+        payload = {
+            "user_id": int(user_id),
+            "user_name": user_name,
+            "submitted_at": datetime.utcnow().isoformat() + "Z",
+            "responses": responses,
+        }
+        append_to_json_array(SAVE_PATH, payload)
+        st.success("✅ Réponses sauvegardées avec succès !")
+        st.balloons()

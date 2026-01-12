@@ -1,1 +1,73 @@
-[]
+[
+  {
+    "user_id": 1,
+    "user_name": "",
+    "submitted_at": "2026-01-12T15:04:24.203941Z",
+    "responses": {
+      "bloc1_likert": 4,
+      "bloc1_text": "projet data dev",
+      "bloc1_yesno": "Oui",
+      "bloc1_choice": "Visualisation",
+      "bloc1_checks": [
+        "Matplotlib",
+        "Plotly"
+      ],
+      "bloc2_likert": 2,
+      "bloc2_text": "projet data dev",
+      "bloc2_yesno": "Oui",
+      "bloc2_choice": "Clustering",
+      "bloc2_checks": [
+        "XGBoost"
+      ],
+      "bloc3_likert": 3,
+      "bloc3_text": "projet data dev",
+      "bloc3_yesno": "Oui",
+      "bloc3_choice": "Tokenization",
+      "bloc3_checks": [
+        "NLTK"
+      ],
+      "bloc4_likert": 3,
+      "bloc4_text": "projet data dev",
+      "bloc4_yesno": "Oui",
+      "bloc4_choice": "Probabilités",
+      "bloc4_checks": [
+        "SciPy"
+      ],
+      "bloc5_likert": 3,
+      "bloc5_text": "projet data dev",
+      "bloc5_yesno": "Oui",
+      "bloc5_choice": "Spark",
+      "bloc5_checks": [
+        "AWS"
+      ],
+      "bloc6_likert": 3,
+      "bloc6_text": "projet data dev",
+      "bloc6_yesno": "Oui",
+      "bloc6_choice": "Dashboard",
+      "bloc6_checks": [
+        "Slides"
+      ],
+      "bloc7_likert": 3,
+      "bloc7_text": "projet data dev",
+      "bloc7_yesno": "Oui",
+      "bloc7_choice": "RGPD",
+      "bloc7_checks": [
+        "RBAC"
+      ],
+      "bloc8_likert": 3,
+      "bloc8_text": "projet data dev",
+      "bloc8_yesno": "Oui",
+      "bloc8_choice": "JOIN/CTE",
+      "bloc8_checks": [
+        "MySQL"
+      ],
+      "bloc9_likert": 3,
+      "bloc9_text": "projet data dev",
+      "bloc9_yesno": "Oui",
+      "bloc9_choice": "CI/CD",
+      "bloc9_checks": [
+        "MLflow"
+      ]
+    }
+  }
+]

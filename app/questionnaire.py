@@ -5,9 +5,10 @@ import streamlit as st
 import sys
 import pandas as pd
 
-# Import du moteur SBERT
+# Import du moteur SBERT + GEMINI
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from src.sbert_engine import analyze_user_profile
+from src.gemini_generator import generate_ai_insights
 
 # =========================
 # Config
@@ -53,7 +54,7 @@ TOOLS_OPTIONS = {
 }
 
 # =========================
-# CSS Styling
+# CSS Styling - VERSION AMÉLIORÉE
 # =========================
 st.markdown("""
 <style>
@@ -73,7 +74,7 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
     
-    /* Sous-titres des blocs */
+    /* Sous-titres des blocs de questions (BLANCS sur fond coloré) */
     h2 {
         color: white !important;
         padding: 15px;
@@ -81,6 +82,19 @@ st.markdown("""
         margin-top: 30px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         font-weight: bold;
+    }
+    
+    /* NOUVEAU : Titres dans la zone de résultats (COLORÉS sur fond blanc) */
+    .results-container h2,
+    .results-container h3,
+    .ai-section h2,
+    .ai-section h3,
+    .ai-content h2,
+    .ai-content h3 {
+        color: #667eea !important;
+        background: none !important;
+        text-shadow: none !important;
+        padding: 10px 0 !important;
     }
     
     /* Conteneur des questions */
@@ -139,6 +153,56 @@ st.markdown("""
         color: white;
         text-align: center;
         box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    
+    /* Cartes de section pour Plan et Bio */
+    .ai-section {
+        background: white;
+        border: 3px solid #667eea;
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .ai-title {
+        color: #667eea !important;
+        font-size: 28px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #667eea;
+        padding-bottom: 15px;
+    }
+    
+    .ai-content {
+        color: #333 !important;
+        font-size: 16px;
+        line-height: 1.8;
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        border-left: 5px solid #667eea;
+    }
+    
+    /* IMPORTANT : Forcer tous les éléments markdown dans ai-content à être colorés */
+    .ai-content p,
+    .ai-content li,
+    .ai-content strong,
+    .ai-content em {
+        color: #333 !important;
+    }
+    
+    .bio-box {
+        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+        border-left: 5px solid #667eea;
+        padding: 25px;
+        border-radius: 10px;
+        color: #333 !important;
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.6;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -221,7 +285,7 @@ if st.session_state.show_results and st.session_state.analysis_results:
     </div>
     """, unsafe_allow_html=True)
     
-    # NOUVEAU : Afficher les 3 métiers recommandés
+    # Afficher les 3 métiers recommandés
     st.markdown("<h2 style='color: #333; text-align: center; margin-bottom: 20px;'>💼 Vos 3 Métiers Recommandés</h2>", unsafe_allow_html=True)
     
     job_medals = ["🥇", "🥈", "🥉"]
@@ -246,6 +310,44 @@ if st.session_state.show_results and st.session_state.analysis_results:
             """, unsafe_allow_html=True)
     
     st.markdown("<br>", unsafe_allow_html=True)
+    
+    # ==========================================
+    # ÉTAPE 6 : PLAN DE PROGRESSION + BIO - VERSION AMÉLIORÉE
+    # ==========================================
+    if 'ai_insights' in results:
+        ai_insights = results['ai_insights']
+        
+        # Plan de progression - NOUVEAU DESIGN
+        st.markdown("""
+        <div class='ai-section'>
+            <div style='text-align: center; font-size: 60px; margin-bottom: 10px;'>📋</div>
+            <div class='ai-title'>Votre Plan de Progression Personnalisé</div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='ai-content'>
+            {ai_insights['career_plan']}
+        </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Biographie professionnelle - NOUVEAU DESIGN
+        st.markdown("""
+        <div class='ai-section'>
+            <div style='text-align: center; font-size: 60px; margin-bottom: 10px;'>✍️</div>
+            <div class='ai-title'>Votre Biographie Professionnelle</div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f"""
+        <div class='bio-box'>
+            💼 {ai_insights['professional_bio']}
+        </div>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("<br><br>", unsafe_allow_html=True)
     
     # TOP 3 Blocs
     st.markdown("<h2 style='color: #333; text-align: center;'>🏆 Vos 3 Domaines d'Excellence</h2>", unsafe_allow_html=True)
@@ -399,6 +501,11 @@ if st.button("🚀 Soumettre et Analyser", type="primary", use_container_width=T
                 results = analyze_user_profile()
                 
                 if results:
+                    # ÉTAPE 6 : APPEL GEMINI
+                    with st.spinner("🤖 Génération IA avec Gemini en cours..."):
+                        ai_insights = generate_ai_insights(results)
+                        results['ai_insights'] = ai_insights
+                    
                     # Stocker les résultats
                     st.session_state.analysis_results = results
                     st.session_state.show_results = True

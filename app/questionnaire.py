@@ -1,517 +1,926 @@
-import json
-import os
-from datetime import datetime
+"""
+AISCA - Questionnaire de Cartographie des Compétences
+Projet Master Expert en Ingénierie de Données
+Interface moderne et professionnelle
+"""
+
 import streamlit as st
-import sys
-import pandas as pd
+import json
+from datetime import datetime
 
-# Import du moteur SBERT + GEMINI
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-from src.sbert_engine import analyze_user_profile
-from src.gemini_generator import generate_ai_insights
 
-# =========================
-# Config
-# =========================
-SAVE_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "user_responses.json")
 
-BLOCKS = [
-    ("bloc1", "📊 Data Analysis", "#1f77b4"),
-    ("bloc2", "🤖 Machine Learning", "#ff7f0e"),
-    ("bloc3", "💬 NLP", "#2ca02c"),
-    ("bloc4", "📈 Statistics & Mathematics", "#d62728"),
-    ("bloc5", "☁️ Cloud & Big Data", "#9467bd"),
-    ("bloc6", "💼 Business & Data Communication", "#8c564b"),
-    ("bloc7", "🛡️ Data Governance & Ethics", "#e377c2"),
-    ("bloc8", "🗄️ SQL & Databases", "#7f7f7f"),
-    ("bloc9", "⚙️ MLOps", "#bcbd22"),
-]
-
-# Tâches par bloc (choix multiples)
-TASKS_OPTIONS = {
-    "bloc1": ["Aucune de ces tâches", "Nettoyage de données", "Analyse exploratoire (EDA)", "Visualisation", "Feature engineering", "Autre"],
-    "bloc2": ["Aucune de ces tâches", "Régression", "Classification", "Clustering", "Systèmes de recommandation", "Autre"],
-    "bloc3": ["Aucune de ces tâches", "Tokenization", "Classification de texte", "Embeddings", "RAG (Retrieval-Augmented Generation)", "Autre"],
-    "bloc4": ["Aucune de ces tâches", "Probabilités", "Tests statistiques", "Régression statistique", "Optimisation mathématique", "Autre"],
-    "bloc5": ["Aucune de ces tâches", "Apache Spark", "Kafka", "Hadoop", "Databricks", "Autre"],
-    "bloc6": ["Aucune de ces tâches", "Création de dashboards", "Data storytelling", "Définition de KPIs", "Présentations business", "Autre"],
-    "bloc7": ["Aucune de ces tâches", "RGPD / Conformité", "Qualité des données", "Traçabilité", "Détection de biais IA", "Autre"],
-    "bloc8": ["Aucune de ces tâches", "Requêtes complexes (JOIN, CTE)", "Window functions", "Modélisation de bases de données", "Optimisation de requêtes", "Autre"],
-    "bloc9": ["Aucune de ces tâches", "CI/CD pour ML", "Déploiement de modèles", "Monitoring de modèles", "MLflow / DVC", "Autre"],
-}
-
-# Outils par bloc (cases à cocher)
-TOOLS_OPTIONS = {
-    "bloc1": ["Pandas", "NumPy", "Matplotlib", "Plotly"],
-    "bloc2": ["scikit-learn", "XGBoost", "PyTorch", "TensorFlow"],
-    "bloc3": ["spaCy", "NLTK", "Transformers", "SentenceTransformers"],
-    "bloc4": ["Statsmodels", "SciPy", "SymPy", "R"],
-    "bloc5": ["AWS", "GCP", "Azure", "Docker"],
-    "bloc6": ["PowerBI", "Tableau", "Excel", "Google Slides"],
-    "bloc7": ["Data Catalog", "RBAC", "Audit logs", "Outils d'anonymisation"],
-    "bloc8": ["PostgreSQL", "MySQL", "SQLite", "MongoDB"],
-    "bloc9": ["MLflow", "DVC", "Airflow", "FastAPI"],
-}
-
-# =========================
-# CSS Styling - VERSION AMÉLIORÉE
-# =========================
+# CSS MODERNE ET PROFESSIONNEL - Lisible sur TOUS les fonds
 st.markdown("""
-<style>
-    /* Arrière-plan général */
+    <style>
+    /* Import de Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+    
+    /* Style global */
+    * {
+        font-family: 'Inter', sans-serif;
+    }
+    
+    /* Container principal */
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
     
-    /* Titre principal */
-    h1 {
-        color: #1a1a1a !important;
-        background-color: rgba(255, 255, 255, 0.95);
-        text-align: center;
-        padding: 20px;
+    /* Header principal */
+    .main-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2.5rem;
         border-radius: 15px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
     }
     
-    /* Sous-titres des blocs de questions (BLANCS sur fond coloré) */
-    h2 {
-        color: white !important;
-        padding: 15px;
-        border-radius: 10px;
-        margin-top: 30px;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        font-weight: bold;
+    .main-header h1 {
+        color: #ffffff !important;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
     
-    /* NOUVEAU : Titres dans la zone de résultats (COLORÉS sur fond blanc) */
-    .results-container h2,
-    .results-container h3,
-    .ai-section h2,
-    .ai-section h3,
-    .ai-content h2,
-    .ai-content h3 {
-        color: #667eea !important;
-        background: none !important;
-        text-shadow: none !important;
-        padding: 10px 0 !important;
+    .main-header p {
+        color: #e0e7ff !important;
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+        font-weight: 300;
     }
     
-    /* Conteneur des questions */
-    .stTextArea, .stSlider, .stRadio, .stSelectbox, .stMultiSelect {
-        background-color: rgba(255, 255, 255, 0.95);
-        padding: 10px;
-        border-radius: 8px;
-        margin: 10px 0;
+    /* Progress bar container */
+    .progress-container {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(245, 87, 108, 0.2);
     }
     
-    /* Bouton submit */
-    .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        font-size: 20px;
-        font-weight: bold;
-        padding: 15px 40px;
-        border-radius: 50px;
-        border: none;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    .progress-text {
+        color: #ffffff !important;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+    }
+    
+    /* Bloc de questions - Card style */
+    .block-card {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        box-shadow: 0 8px 25px rgba(79, 172, 254, 0.25);
+    }
+    
+    .block-card h2 {
+        color: #ffffff !important;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    }
+    
+    /* Questions container */
+    .question-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border-radius: 12px;
+        margin: 1.5rem 0;
+        border-left: 5px solid #667eea;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+    
+    .question-label {
+        color: #1a202c !important;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: block;
+    }
+    
+    .question-subtitle {
+        color: #4a5568 !important;
+        font-size: 0.95rem;
+        font-weight: 400;
+        margin-top: 0.3rem;
+        font-style: italic;
+    }
+    
+    /* Inputs styling */
+    .stTextArea textarea {
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+        padding: 1rem !important;
+        font-size: 1rem !important;
+        background-color: #ffffff !important;
+        color: #1a202c !important;
         transition: all 0.3s ease;
-        width: 100%;
+    }
+    
+    .stTextArea textarea:focus {
+        border-color: #667eea !important;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    }
+    
+    /* Radio buttons et checkboxes */
+    .stRadio > label, .stCheckbox > label {
+        color: #2d3748 !important;
+        font-weight: 500 !important;
+        font-size: 1rem !important;
+    }
+    
+    .stRadio > div, .stCheckbox > div {
+        background-color: #f7fafc;
+        padding: 0.8rem;
+        border-radius: 8px;
+        margin: 0.5rem 0;
+    }
+    
+    /* Multiselect styling */
+    .stMultiSelect > div > div {
+        background-color: #ffffff !important;
+        border: 2px solid #e2e8f0 !important;
+        border-radius: 8px !important;
+    }
+    
+    .stMultiSelect label {
+        color: #1a202c !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Slider Likert */
+    .stSlider > div > div > div {
+        background: linear-gradient(90deg, #f093fb 0%, #667eea 100%) !important;
+    }
+    
+    .stSlider label {
+        color: #1a202c !important;
+        font-weight: 600 !important;
+        font-size: 1.05rem !important;
+    }
+    
+    /* Boutons de navigation */
+    .nav-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+    
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        font-weight: 600 !important;
+        padding: 0.8rem 2rem !important;
+        border-radius: 10px !important;
+        border: none !important;
+        font-size: 1.05rem !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
     }
     
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4) !important;
     }
     
-    /* Divider */
-    hr {
-        border: 1px solid rgba(255,255,255,0.3);
-        margin: 30px 0;
+    /* Success message */
+    .success-container {
+        background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        padding: 2.5rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(132, 250, 176, 0.3);
     }
     
-    /* Labels */
-    label {
-        color: #333 !important;
+    .success-container h2 {
+        color: #ffffff !important;
+        font-size: 2rem;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .success-container p {
+        color: #ffffff !important;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+    }
+    
+    /* Info boxes */
+    .info-box {
+        background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        padding: 1.2rem;
+        border-radius: 10px;
+        margin: 1rem 0;
+        border-left: 4px solid #667eea;
+    }
+    
+    .info-box p {
+        color: #2d3748 !important;
+        margin: 0;
         font-weight: 500;
     }
     
-    /* Bloc résultats */
-    .results-container {
-        background: white;
-        padding: 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        margin: 20px 0;
-    }
+    /* Hide Streamlit branding */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
     
-    .medal-card {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        padding: 25px;
-        border-radius: 15px;
-        margin: 15px 0;
-        color: white;
-        text-align: center;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    }
-    
-    /* Cartes de section pour Plan et Bio */
-    .ai-section {
-        background: white;
-        border: 3px solid #667eea;
-        border-radius: 15px;
-        padding: 30px;
-        margin: 30px 0;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    .ai-title {
-        color: #667eea !important;
-        font-size: 28px;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 20px;
-        border-bottom: 3px solid #667eea;
-        padding-bottom: 15px;
-    }
-    
-    .ai-content {
-        color: #333 !important;
-        font-size: 16px;
-        line-height: 1.8;
-        background: #f8f9fa;
-        padding: 25px;
-        border-radius: 10px;
-        border-left: 5px solid #667eea;
-    }
-    
-    /* IMPORTANT : Forcer tous les éléments markdown dans ai-content à être colorés */
-    .ai-content p,
-    .ai-content li,
-    .ai-content strong,
-    .ai-content em {
-        color: #333 !important;
-    }
-    
-    .bio-box {
-        background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
-        border-left: 5px solid #667eea;
-        padding: 25px;
-        border-radius: 10px;
-        color: #333 !important;
-        font-size: 18px;
-        font-style: italic;
-        line-height: 1.6;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-</style>
-""", unsafe_allow_html=True)
-
-# =========================
-# Session State
-# =========================
-if 'show_results' not in st.session_state:
-    st.session_state.show_results = False
-if 'analysis_results' not in st.session_state:
-    st.session_state.analysis_results = None
-
-# =========================
-# Helpers
-# =========================
-def ensure_file(path: str):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    if not os.path.exists(path):
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump([], f, ensure_ascii=False, indent=2)
-
-def append_to_json_array(path: str, row: dict):
-    ensure_file(path)
-    with open(path, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    if not isinstance(data, list):
-        data = [data]
-    data.append(row)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-# =========================
-# UI PRINCIPALE
-# =========================
-st.set_page_config(page_title="AISCA - Questionnaire", layout="wide", initial_sidebar_state="collapsed")
-
-st.title("🎯 AISCA - Cartographie des Compétences")
-
-# Si les résultats doivent être affichés
-if st.session_state.show_results and st.session_state.analysis_results:
-    
-    block_names = {
-        1: "📊 Data Analysis",
-        2: "🤖 Machine Learning",
-        3: "💬 NLP",
-        4: "📈 Statistics & Mathematics",
-        5: "☁️ Cloud & Big Data",
-        6: "💼 Business & Data Communication",
-        7: "🛡️ Data Governance & Ethics",
-        8: "🗄️ SQL & Databases",
-        9: "⚙️ MLOps"
-    }
-    
-    # Récupérer les résultats
-    results = st.session_state.analysis_results
-    block_scores = results['block_scores']
-    coverage_score = results['coverage_score']
-    recommended_jobs = results['recommended_jobs']
-    
-    # Titre des résultats
-    st.markdown("""
-    <div class='results-container'>
-        <h1 style='text-align: center; color: #667eea; margin-bottom: 20px;'>
-            🎯 VOS RÉSULTATS D'ANALYSE SÉMANTIQUE
-        </h1>
-    """, unsafe_allow_html=True)
-    
-    # Afficher le Coverage Score global
-    st.markdown(f"""
-    <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                padding: 30px; 
-                border-radius: 15px; 
-                text-align: center; 
-                color: white;
-                margin-bottom: 30px;
-                box-shadow: 0 8px 25px rgba(0,0,0,0.2);'>
-        <h2 style='margin: 0; color: white;'>📈 SCORE DE COUVERTURE GLOBAL</h2>
-        <div style='font-size: 72px; font-weight: bold; margin: 20px 0;'>{coverage_score*100:.1f}%</div>
-        <p style='font-size: 18px; margin: 0; opacity: 0.9;'>Coverage Score : {coverage_score:.4f}</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    # Afficher les 3 métiers recommandés
-    st.markdown("<h2 style='color: #333; text-align: center; margin-bottom: 20px;'>💼 Vos 3 Métiers Recommandés</h2>", unsafe_allow_html=True)
-    
-    job_medals = ["🥇", "🥈", "🥉"]
-    job_cols = st.columns(3)
-    
-    for i, job in enumerate(recommended_jobs):
-        with job_cols[i]:
-            st.markdown(f"""
-            <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                        padding: 20px;
-                        border-radius: 15px;
-                        color: white;
-                        text-align: center;
-                        margin: 10px 0;
-                        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-                        min-height: 280px;'>
-                <div style='font-size: 48px;'>{job_medals[i]}</div>
-                <h3 style='color: white; margin: 15px 0;'>{job['title']}</h3>
-                <div style='font-size: 36px; font-weight: bold; margin: 10px 0;'>{job['score']*100:.1f}%</div>
-                <p style='font-size: 13px; opacity: 0.9; margin-top: 10px; line-height: 1.4;'>{job['description']}</p>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # ==========================================
-    # ÉTAPE 6 : PLAN DE PROGRESSION + BIO - VERSION AMÉLIORÉE
-    # ==========================================
-    if 'ai_insights' in results:
-        ai_insights = results['ai_insights']
-        
-        # Plan de progression - NOUVEAU DESIGN
-        st.markdown("""
-        <div class='ai-section'>
-            <div style='text-align: center; font-size: 60px; margin-bottom: 10px;'>📋</div>
-            <div class='ai-title'>Votre Plan de Progression Personnalisé</div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown(f"""
-        <div class='ai-content'>
-            {ai_insights['career_plan']}
-        </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown("<br>", unsafe_allow_html=True)
-        
-        # Biographie professionnelle - NOUVEAU DESIGN
-        st.markdown("""
-        <div class='ai-section'>
-            <div style='text-align: center; font-size: 60px; margin-bottom: 10px;'>✍️</div>
-            <div class='ai-title'>Votre Biographie Professionnelle</div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown(f"""
-        <div class='bio-box'>
-            💼 {ai_insights['professional_bio']}
-        </div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown("<br><br>", unsafe_allow_html=True)
-    
-    # TOP 3 Blocs
-    st.markdown("<h2 style='color: #333; text-align: center;'>🏆 Vos 3 Domaines d'Excellence</h2>", unsafe_allow_html=True)
-    
-    top_3 = sorted(block_scores.items(), key=lambda x: x[1], reverse=True)[:3]
-    medals = ["🥇", "🥈", "🥉"]
-    
-    cols = st.columns(3)
-    for i, (block_id, score) in enumerate(top_3):
-        with cols[i]:
-            st.markdown(f"""
-            <div class='medal-card'>
-                <div style='font-size: 60px;'>{medals[i]}</div>
-                <h3 style='color: white; margin: 10px 0;'>{block_names[block_id]}</h3>
-                <div style='font-size: 40px; font-weight: bold; margin: 15px 0;'>{score*100:.1f}%</div>
-                <p style='font-size: 14px; opacity: 0.9;'>Similarité : {score:.4f}</p>
-            </div>
-            """, unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Tous les scores
-    st.markdown("<h2 style='color: #333; text-align: center;'>📊 Tous vos Scores par Bloc</h2>", unsafe_allow_html=True)
-    
-    scores_data = []
-    for block_id, score in sorted(block_scores.items(), key=lambda x: x[1], reverse=True):
-        scores_data.append({
-            "Bloc": block_names[block_id],
-            "Score": score,
-            "Pourcentage": f"{score * 100:.1f}%"
-        })
-    
-    df_scores = pd.DataFrame(scores_data)
-    
-    # Graphique
-    st.bar_chart(df_scores.set_index("Bloc")["Score"], height=400)
-    
-    # Tableau
-    st.dataframe(df_scores, use_container_width=True, hide_index=True)
-    
-    st.markdown("</div>", unsafe_allow_html=True)
-    
-    # Bouton pour recommencer
-    if st.button("🔄 Faire un nouveau questionnaire", type="primary", use_container_width=True):
-        st.session_state.show_results = False
-        st.session_state.analysis_results = None
-        st.rerun()
-    
-    st.stop()
-
-# Description du questionnaire
-st.markdown("""
-<div style='background-color: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-bottom: 30px;'>
-    <h3 style='color: #667eea; margin-top: 0;'>📋 Objectif du questionnaire</h3>
-    <p style='color: #333; font-size: 16px;'>
-        Ce questionnaire analyse vos compétences pour vous recommander les <strong>3 métiers les plus adaptés</strong> à votre profil.
-    </p>
-    <p style='color: #d62728; font-size: 14px;'>
-        ⚠️ <strong>Important :</strong> Remplissez au moins les <strong>questions de texte libre</strong> pour une analyse sémantique précise.
-    </p>
-</div>
-""", unsafe_allow_html=True)
-
-user_id = 1
-user_name = ""
-
-with st.expander("👤 Informations utilisateur (optionnel)"):
-    user_id = st.number_input("ID utilisateur", min_value=1, value=1, step=1)
-    user_name = st.text_input("Nom / Pseudo", "")
-
-st.markdown("---")
-
-responses = {}
-missing_text_blocks = []
-
-for code, label, color in BLOCKS:
-    st.markdown(f"<h2 style='background-color: {color};'>{label}</h2>", unsafe_allow_html=True)
-    
-    with st.container():
-        # 1) Likert - 0 à 5
-        likert_key = f"{code}_likert"
-        responses[likert_key] = st.slider(
-            f"📊 Niveau global en **{label}**",
-            0, 5, 2, key=likert_key,
-            help="0 = Aucune compétence, 1 = Débutant, 5 = Expert"
-        )
-        
-        # 2) Texte libre (OBLIGATOIRE)
-        text_key = f"{code}_text"
-        responses[text_key] = st.text_area(
-            f"✍️ Décrivez un projet ou une expérience liée à **{label}**",
-            placeholder="Ex: J'ai travaillé sur un projet de... J'ai utilisé les outils... Le résultat était...",
-            key=text_key,
-            height=100
-        ).strip()
-        
-        # 3) Oui / Non
-        yesno_key = f"{code}_yesno"
-        responses[yesno_key] = st.radio(
-            "✅ Avez-vous déjà réalisé un projet concret dans ce domaine ?",
-            ["Oui", "Non"],
-            horizontal=True,
-            key=yesno_key
-        )
-        
-        # 4) Tâches - CHOIX MULTIPLES
-        tasks_key = f"{code}_tasks"
-        responses[tasks_key] = st.multiselect(
-            "🎯 Cochez toutes les tâches que vous maîtrisez :",
-            TASKS_OPTIONS[code],
-            key=tasks_key
-        )
-        
-        # 5) Outils - Cases à cocher
-        tools_key = f"{code}_tools"
-        responses[tools_key] = st.multiselect(
-            "🛠️ Outils et technologies maîtrisés :",
-            TOOLS_OPTIONS[code],
-            key=tools_key
-        )
-        
-        if responses[text_key] == "":
-            missing_text_blocks.append(label)
-    
-    st.markdown("---")
-
-# Bouton de soumission
-st.markdown("<br>", unsafe_allow_html=True)
-
-if st.button("🚀 Soumettre et Analyser", type="primary", use_container_width=True):
-    if missing_text_blocks:
-        st.error(
-            f"❌ Veuillez remplir au moins **1 texte libre** pour chaque bloc.\n\n"
-            f"**Blocs manquants :** {', '.join(missing_text_blocks)}"
-        )
-    else:
-        # Sauvegarde
-        payload = {
-            "user_id": int(user_id),
-            "user_name": user_name,
-            "submitted_at": datetime.utcnow().isoformat() + "Z",
-            "responses": responses,
+    /* Responsive */
+    @media (max-width: 768px) {
+        .main-header h1 {
+            font-size: 1.8rem;
         }
-        append_to_json_array(SAVE_PATH, payload)
-        st.success("✅ Réponses sauvegardées !")
-        st.balloons()
+        .block-card h2 {
+            font-size: 1.4rem;
+        }
+        .question-container {
+            padding: 1.5rem;
+        }
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+
+def init_session_state():
+    """Initialiser les variables de session"""
+    if 'responses' not in st.session_state:
+        st.session_state.responses = {
+            'bloc1': {},
+            'bloc2': {},
+            'bloc3': {},
+            'bloc4': {},
+            'bloc5': {}
+        }
+    if 'current_block' not in st.session_state:
+        st.session_state.current_block = 1
+    if 'questionnaire_completed' not in st.session_state:
+        st.session_state.questionnaire_completed = False
+
+
+def display_progress():
+    """Afficher la barre de progression"""
+    progress = (st.session_state.current_block - 1) / 5
+    
+    st.markdown(f"""
+        <div class="progress-container">
+            <p class="progress-text">📊 Progression : Bloc {st.session_state.current_block} sur 5</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.progress(progress)
+
+
+def bloc1_data_analysis():
+    """Bloc 1 : Data Analysis & Visualization"""
+    
+    st.markdown("""
+        <div class="block-card">
+            <h2>🔵 Bloc 1 : Data Analysis & Visualization</h2>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Q1 - Likert
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q1. Évaluez votre niveau de maîtrise en analyse et préparation de données</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Nettoyage, transformation, gestion des valeurs manquantes, visualisation</span>', unsafe_allow_html=True)
+    
+    q1 = st.slider(
+        "",
+        min_value=0,
+        max_value=5,
+        value=st.session_state.responses['bloc1'].get('q1_likert', 0),
+        key='bloc1_q1',
+        help="0 = Aucune connaissance | 5 = Expert"
+    )
+    st.caption("0️⃣ Aucune connaissance — 1️⃣ Débutant — 2️⃣ Notions de base — 3️⃣ Intermédiaire — 4️⃣ Avancé — 5️⃣ Expert")
+    st.session_state.responses['bloc1']['q1_likert'] = q1
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q2 - Texte libre
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q2. Décrivez vos compétences et expériences en Data Analysis</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Parlez de vos projets, méthodes utilisées, insights découverts, outils maîtrisés</span>', unsafe_allow_html=True)
+    
+    q2 = st.text_area(
+        "",
+        value=st.session_state.responses['bloc1'].get('q2_text', ''),
+        height=150,
+        key='bloc1_q2',
+        placeholder="Exemple : J'ai réalisé une analyse exploratoire de données de ventes avec Python et Pandas. J'ai créé des dashboards interactifs avec Plotly pour visualiser les tendances..."
+    )
+    st.session_state.responses['bloc1']['q2_text'] = q2
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q3 - Choix multiple (outils)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q3. Quels outils et bibliothèques de visualisation maîtrisez-vous ?</span>', unsafe_allow_html=True)
+    
+    q3 = st.multiselect(
+        "",
+        options=[
+            "Matplotlib",
+            "Seaborn", 
+            "Plotly",
+            "Tableau",
+            "Power BI",
+            "D3.js",
+            "Altair",
+            "Bokeh",
+            "Aucun"
+        ],
+        default=st.session_state.responses['bloc1'].get('q3_tools', []),
+        key='bloc1_q3'
+    )
+    st.session_state.responses['bloc1']['q3_tools'] = q3
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q4 - Cases à cocher (compétences)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q4. Quelles compétences en Data Analysis possédez-vous ?</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Sélectionnez toutes celles que vous maîtrisez</span>', unsafe_allow_html=True)
+    
+    competences_data_analysis = [
+        "Data cleaning (nettoyage de données)",
+        "Gestion des valeurs manquantes",
+        "Détection et traitement des outliers",
+        "Transformation et normalisation de données",
+        "Manipulation avec Pandas",
+        "Requêtes SQL",
+        "Jointures SQL complexes",
+        "Exploratory Data Analysis (EDA)",
+        "Création de dashboards interactifs",
+        "Storytelling avec les données",
+        "ETL (Extract, Transform, Load)",
+        "Web scraping",
+        "Aucune"
+    ]
+    
+    q4_selected = []
+    for comp in competences_data_analysis:
+        if st.checkbox(
+            comp,
+            value=comp in st.session_state.responses['bloc1'].get('q4_competences', []),
+            key=f'bloc1_q4_{comp}'
+        ):
+            q4_selected.append(comp)
+    
+    st.session_state.responses['bloc1']['q4_competences'] = q4_selected
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def bloc2_ml_supervise():
+    """Bloc 2 : Machine Learning Supervisé"""
+    
+    st.markdown("""
+        <div class="block-card">
+            <h2>🟢 Bloc 2 : Machine Learning Supervisé</h2>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Q5 - Likert
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q5. Évaluez votre niveau de maîtrise en Machine Learning supervisé</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Régression, classification, évaluation de modèles, hyperparamètres</span>', unsafe_allow_html=True)
+    
+    q5 = st.slider(
+        "",
+        min_value=0,
+        max_value=5,
+        value=st.session_state.responses['bloc2'].get('q5_likert', 0),
+        key='bloc2_q5',
+        help="0 = Aucune connaissance | 5 = Expert"
+    )
+    st.caption("0️⃣ Aucune connaissance — 1️⃣ Débutant — 2️⃣ Notions de base — 3️⃣ Intermédiaire — 4️⃣ Avancé — 5️⃣ Expert")
+    st.session_state.responses['bloc2']['q5_likert'] = q5
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q6 - Texte libre
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q6. Décrivez vos compétences et projets en Machine Learning supervisé</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Problème métier, algorithmes testés, évaluation des performances, résultats obtenus</span>', unsafe_allow_html=True)
+    
+    q6 = st.text_area(
+        "",
+        value=st.session_state.responses['bloc2'].get('q6_text', ''),
+        height=150,
+        key='bloc2_q6',
+        placeholder="Exemple : J'ai développé un modèle de prédiction de churn avec Random Forest. J'ai optimisé les hyperparamètres avec GridSearch et obtenu un F1-score de 0.87..."
+    )
+    st.session_state.responses['bloc2']['q6_text'] = q6
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q7 - Choix multiple (outils/bibliothèques)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q7. Quelles bibliothèques et frameworks ML utilisez-vous ?</span>', unsafe_allow_html=True)
+    
+    q7 = st.multiselect(
+        "",
+        options=[
+            "Scikit-learn",
+            "XGBoost",
+            "LightGBM",
+            "CatBoost",
+            "TensorFlow",
+            "Keras",
+            "PyTorch",
+            "MLflow",
+            "Aucune"
+        ],
+        default=st.session_state.responses['bloc2'].get('q7_tools', []),
+        key='bloc2_q7'
+    )
+    st.session_state.responses['bloc2']['q7_tools'] = q7
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q8 - Cases à cocher (algorithmes)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q8. Quels algorithmes de ML supervisé avez-vous déjà implémentés ?</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Sélectionnez tous ceux que vous avez utilisés</span>', unsafe_allow_html=True)
+    
+    algorithmes_ml = [
+        "Régression linéaire",
+        "Régression logistique",
+        "Arbres de décision",
+        "Random Forest",
+        "Gradient Boosting (XGBoost, LightGBM)",
+        "SVM (Support Vector Machines)",
+        "K-Nearest Neighbors (KNN)",
+        "Naive Bayes",
+        "Réseaux de neurones (MLP)",
+        "Optimisation d'hyperparamètres (GridSearch, RandomSearch)",
+        "Validation croisée (Cross-validation)",
+        "Gestion du déséquilibre de classes (SMOTE)",
+        "Feature engineering",
+        "Déploiement de modèles",
+        "Aucun"
+    ]
+    
+    q8_selected = []
+    for algo in algorithmes_ml:
+        if st.checkbox(
+            algo,
+            value=algo in st.session_state.responses['bloc2'].get('q8_algorithmes', []),
+            key=f'bloc2_q8_{algo}'
+        ):
+            q8_selected.append(algo)
+    
+    st.session_state.responses['bloc2']['q8_algorithmes'] = q8_selected
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def bloc3_ml_non_supervise():
+    """Bloc 3 : Machine Learning Non Supervisé"""
+    
+    st.markdown("""
+        <div class="block-card">
+            <h2>🟡 Bloc 3 : Machine Learning Non Supervisé</h2>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Q9 - Likert
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q9. Évaluez votre niveau en Machine Learning non supervisé</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Clustering, réduction de dimensionnalité, détection d\'anomalies</span>', unsafe_allow_html=True)
+    
+    q9 = st.slider(
+        "",
+        min_value=0,
+        max_value=5,
+        value=st.session_state.responses['bloc3'].get('q9_likert', 0),
+        key='bloc3_q9',
+        help="0 = Aucune connaissance | 5 = Expert"
+    )
+    st.caption("0️⃣ Aucune connaissance — 1️⃣ Débutant — 2️⃣ Notions de base — 3️⃣ Intermédiaire — 4️⃣ Avancé — 5️⃣ Expert")
+    st.session_state.responses['bloc3']['q9_likert'] = q9
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q10 - Texte libre
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q10. Décrivez vos expériences avec le ML non supervisé</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Clustering, PCA, détection d\'anomalies, segmentation - objectif, algorithmes, résultats</span>', unsafe_allow_html=True)
+    
+    q10 = st.text_area(
+        "",
+        value=st.session_state.responses['bloc3'].get('q10_text', ''),
+        height=150,
+        key='bloc3_q10',
+        placeholder="Exemple : J'ai segmenté des clients en 5 groupes avec K-means. J'ai utilisé PCA pour visualiser les clusters et la méthode du coude pour choisir k optimal..."
+    )
+    st.session_state.responses['bloc3']['q10_text'] = q10
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q11 - Choix multiple (outils)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q11. Quels outils utilisez-vous pour le ML non supervisé ?</span>', unsafe_allow_html=True)
+    
+    q11 = st.multiselect(
+        "",
+        options=[
+            "Scikit-learn (clustering, PCA)",
+            "UMAP",
+            "t-SNE",
+            "HDBSCAN",
+            "PyOD (détection d'anomalies)",
+            "Isolation Forest",
+            "Autoencodeurs (Keras/PyTorch)",
+            "Aucun"
+        ],
+        default=st.session_state.responses['bloc3'].get('q11_tools', []),
+        key='bloc3_q11'
+    )
+    st.session_state.responses['bloc3']['q11_tools'] = q11
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q12 - Cases à cocher (techniques)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q12. Quelles techniques de ML non supervisé connaissez-vous ?</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Sélectionnez toutes celles que vous maîtrisez</span>', unsafe_allow_html=True)
+    
+    techniques_unsupervised = [
+        "K-means clustering",
+        "Clustering hiérarchique",
+        "DBSCAN",
+        "Gaussian Mixture Models (GMM)",
+        "PCA (Principal Component Analysis)",
+        "t-SNE",
+        "UMAP",
+        "Détection d'anomalies (Isolation Forest, LOF)",
+        "Autoencodeurs",
+        "Méthode du coude (Elbow method)",
+        "Silhouette score",
+        "Segmentation de clients",
+        "Topic modeling (LDA)",
+        "Aucune"
+    ]
+    
+    q12_selected = []
+    for tech in techniques_unsupervised:
+        if st.checkbox(
+            tech,
+            value=tech in st.session_state.responses['bloc3'].get('q12_techniques', []),
+            key=f'bloc3_q12_{tech}'
+        ):
+            q12_selected.append(tech)
+    
+    st.session_state.responses['bloc3']['q12_techniques'] = q12_selected
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def bloc4_nlp():
+    """Bloc 4 : NLP"""
+    
+    st.markdown("""
+        <div class="block-card">
+            <h2>🔴 Bloc 4 : NLP (Natural Language Processing)</h2>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Q13 - Likert
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q13. Évaluez votre niveau en NLP (Natural Language Processing)</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Traitement du langage naturel, embeddings, transformers, analyse de texte</span>', unsafe_allow_html=True)
+    
+    q13 = st.slider(
+        "",
+        min_value=0,
+        max_value=5,
+        value=st.session_state.responses['bloc4'].get('q13_likert', 0),
+        key='bloc4_q13',
+        help="0 = Aucune connaissance | 5 = Expert"
+    )
+    st.caption("0️⃣ Aucune connaissance — 1️⃣ Débutant — 2️⃣ Notions de base — 3️⃣ Intermédiaire — 4️⃣ Avancé — 5️⃣ Expert")
+    st.session_state.responses['bloc4']['q13_likert'] = q13
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q14 - Texte libre
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q14. Décrivez vos compétences et projets en NLP</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Projets réalisés, techniques utilisées (tokenization, embeddings, transformers), cas d\'usage</span>', unsafe_allow_html=True)
+    
+    q14 = st.text_area(
+        "",
+        value=st.session_state.responses['bloc4'].get('q14_text', ''),
+        height=150,
+        key='bloc4_q14',
+        placeholder="Exemple : J'ai développé un système de classification de sentiments avec BERT fine-tuné. J'ai utilisé SBERT pour calculer la similarité sémantique entre documents..."
+    )
+    st.session_state.responses['bloc4']['q14_text'] = q14
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q15 - Choix multiple (outils)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q15. Quels outils et bibliothèques NLP utilisez-vous ?</span>', unsafe_allow_html=True)
+    
+    q15 = st.multiselect(
+        "",
+        options=[
+            "NLTK",
+            "spaCy",
+            "Transformers (Hugging Face)",
+            "Gensim",
+            "Stanford NLP",
+            "TextBlob",
+            "Sentence-Transformers (SBERT)",
+            "fastText",
+            "OpenAI API (GPT)",
+            "LangChain",
+            "Aucun"
+        ],
+        default=st.session_state.responses['bloc4'].get('q15_tools', []),
+        key='bloc4_q15'
+    )
+    st.session_state.responses['bloc4']['q15_tools'] = q15
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q16 - Cases à cocher (compétences NLP)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q16. Quelles compétences NLP possédez-vous ?</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Sélectionnez toutes celles que vous maîtrisez</span>', unsafe_allow_html=True)
+    
+    competences_nlp = [
+        "Tokenization",
+        "Lemmatization / Stemming",
+        "Stopwords removal",
+        "Part-of-Speech tagging",
+        "Named Entity Recognition (NER)",
+        "TF-IDF",
+        "Word embeddings (Word2Vec, GloVe)",
+        "BERT / Transformers",
+        "SBERT (Sentence-BERT)",
+        "Similarité cosinus",
+        "Sentiment analysis",
+        "Text classification",
+        "Question answering",
+        "Text generation",
+        "Chatbots / Systèmes conversationnels",
+        "Résumé automatique de texte",
+        "Traduction automatique",
+        "Topic modeling",
+        "Prompt engineering",
+        "Aucune"
+    ]
+    
+    q16_selected = []
+    for comp in competences_nlp:
+        if st.checkbox(
+            comp,
+            value=comp in st.session_state.responses['bloc4'].get('q16_competences', []),
+            key=f'bloc4_q16_{comp}'
+        ):
+            q16_selected.append(comp)
+    
+    st.session_state.responses['bloc4']['q16_competences'] = q16_selected
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def bloc5_stats_maths():
+    """Bloc 5 : Statistiques & Mathématiques"""
+    
+    st.markdown("""
+        <div class="block-card">
+            <h2>🟣 Bloc 5 : Statistiques & Mathématiques</h2>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Q17 - Likert
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q17. Évaluez votre niveau en statistiques et mathématiques</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Tests d\'hypothèses, probabilités, algèbre linéaire, optimisation</span>', unsafe_allow_html=True)
+    
+    q17 = st.slider(
+        "",
+        min_value=0,
+        max_value=5,
+        value=st.session_state.responses['bloc5'].get('q17_likert', 0),
+        key='bloc5_q17',
+        help="0 = Aucune connaissance | 5 = Expert"
+    )
+    st.caption("0️⃣ Aucune connaissance — 1️⃣ Débutant — 2️⃣ Notions de base — 3️⃣ Intermédiaire — 4️⃣ Avancé — 5️⃣ Expert")
+    st.session_state.responses['bloc5']['q17_likert'] = q17
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q18 - Texte libre
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q18. Décrivez vos compétences en statistiques et mathématiques appliquées</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Tests d\'hypothèses, inférence, optimisation, algèbre linéaire - contexte d\'utilisation</span>', unsafe_allow_html=True)
+    
+    q18 = st.text_area(
+        "",
+        value=st.session_state.responses['bloc5'].get('q18_text', ''),
+        height=150,
+        key='bloc5_q18',
+        placeholder="Exemple : J'ai appliqué des tests t-student et ANOVA pour valider des hypothèses business. J'utilise l'algèbre linéaire pour comprendre PCA et SVD..."
+    )
+    st.session_state.responses['bloc5']['q18_text'] = q18
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q19 - Choix multiple (outils)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q19. Quels outils statistiques et mathématiques utilisez-vous ?</span>', unsafe_allow_html=True)
+    
+    q19 = st.multiselect(
+        "",
+        options=[
+            "NumPy",
+            "SciPy",
+            "Statsmodels",
+            "R / RStudio",
+            "MATLAB",
+            "Jupyter Notebooks",
+            "Excel (analyses statistiques)",
+            "SPSS",
+            "Aucun"
+        ],
+        default=st.session_state.responses['bloc5'].get('q19_tools', []),
+        key='bloc5_q19'
+    )
+    st.session_state.responses['bloc5']['q19_tools'] = q19
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    # Q20 - Cases à cocher (domaines)
+    st.markdown('<div class="question-container">', unsafe_allow_html=True)
+    st.markdown('<span class="question-label">Q20. Quels domaines statistiques et mathématiques maîtrisez-vous ?</span>', unsafe_allow_html=True)
+    st.markdown('<span class="question-subtitle">Sélectionnez tous ceux que vous connaissez</span>', unsafe_allow_html=True)
+    
+    domaines_stats = [
+        "Statistiques descriptives (moyenne, médiane, écart-type)",
+        "Distributions de probabilités (normale, binomiale, Poisson)",
+        "Tests d'hypothèses (t-test, chi-carré, ANOVA)",
+        "Corrélation et régression",
+        "Intervalles de confiance",
+        "Tests non-paramétriques",
+        "Algèbre linéaire (matrices, vecteurs propres)",
+        "Calcul différentiel et optimisation",
+        "Gradient descent",
+        "Séries temporelles (ARIMA, prévisions)",
+        "Statistiques bayésiennes",
+        "Théorème de Bayes",
+        "Monte Carlo / Simulations",
+        "Analyse multivariée",
+        "Bootstrap / Resampling",
+        "Aucun"
+    ]
+    
+    q20_selected = []
+    for dom in domaines_stats:
+        if st.checkbox(
+            dom,
+            value=dom in st.session_state.responses['bloc5'].get('q20_domaines', []),
+            key=f'bloc5_q20_{dom}'
+        ):
+            q20_selected.append(dom)
+    
+    st.session_state.responses['bloc5']['q20_domaines'] = q20_selected
+    st.markdown('</div>', unsafe_allow_html=True)
+
+
+def validate_block_responses(block_num):
+    """Valider les réponses d'un bloc avant de passer au suivant"""
+    block_key = f'bloc{block_num}'
+    responses = st.session_state.responses[block_key]
+    
+    # Vérifier que les questions obligatoires sont remplies
+    if f'q{block_num*4-3}_likert' not in responses:
+        return False, "Veuillez répondre à la question d'évaluation (Likert)"
+    
+    text_key = f'q{block_num*4-2}_text'
+    if text_key not in responses or not responses[text_key].strip():
+        return False, "Veuillez décrire vos compétences dans la zone de texte libre"
+    
+    if len(responses[text_key].strip().split()) < 10:
+        return False, "Votre description doit contenir au moins 10 mots pour une analyse sémantique pertinente"
+    
+    return True, ""
+
+
+def save_responses_to_file():
+    """Sauvegarder les réponses dans un fichier JSON"""
+    import os
+    
+    # Créer le dossier responses s'il n'existe pas
+    os.makedirs('responses', exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"responses/responses_{timestamp}.json"
+    
+    data = {
+        'timestamp': timestamp,
+        'responses': st.session_state.responses
+    }
+    
+    with open(filename, 'w', encoding='utf-8') as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    
+    return filename
+
+
+def main():
+    """Fonction principale"""
+    
+    init_session_state()
+    
+    # Header principal
+    st.markdown("""
+        <div class="main-header">
+            <h1>🎓 AISCA - Évaluation des Compétences Data</h1>
+            <p>Agent Intelligent Sémantique et Génératif pour la Cartographie des Compétences</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Si questionnaire terminé
+    if st.session_state.questionnaire_completed:
+        st.markdown("""
+            <div class="success-container">
+                <h2>✅ Questionnaire Terminé !</h2>
+                <p>Merci d'avoir complété l'évaluation de vos compétences.</p>
+                <p>🚀 Passez à l'étape suivante : Analyse sémantique et recommandation de métiers</p>
+            </div>
+        """, unsafe_allow_html=True)
         
-        # Analyse SBERT
-        with st.spinner("🤖 Analyse sémantique SBERT en cours..."):
-            try:
-                results = analyze_user_profile()
-                
-                if results:
-                    # ÉTAPE 6 : APPEL GEMINI
-                    with st.spinner("🤖 Génération IA avec Gemini en cours..."):
-                        ai_insights = generate_ai_insights(results)
-                        results['ai_insights'] = ai_insights
-                    
-                    # Stocker les résultats
-                    st.session_state.analysis_results = results
-                    st.session_state.show_results = True
+        if st.button("🔄 Recommencer le questionnaire"):
+            st.session_state.responses = {
+                'bloc1': {},
+                'bloc2': {},
+                'bloc3': {},
+                'bloc4': {},
+                'bloc5': {}
+            }
+            st.session_state.current_block = 1
+            st.session_state.questionnaire_completed = False
+            st.rerun()
+        
+        return
+    
+    # Afficher la progression
+    display_progress()
+    
+    # Info box
+    st.markdown("""
+        <div class="info-box">
+            <p>💡 <strong>Conseil :</strong> Soyez précis dans vos réponses textuelles. Plus vous détaillez vos expériences et projets, 
+            plus l'analyse sémantique sera pertinente pour recommander les métiers qui vous correspondent.</p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    # Afficher le bloc actuel
+    current_block = st.session_state.current_block
+    
+    if current_block == 1:
+        bloc1_data_analysis()
+    elif current_block == 2:
+        bloc2_ml_supervise()
+    elif current_block == 3:
+        bloc3_ml_non_supervise()
+    elif current_block == 4:
+        bloc4_nlp()
+    elif current_block == 5:
+        bloc5_stats_maths()
+    
+    # Boutons de navigation
+    st.markdown("<br>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 1, 1])
+    
+    with col1:
+        if current_block > 1:
+            if st.button("⬅️ Bloc Précédent", use_container_width=True):
+                st.session_state.current_block -= 1
+                st.rerun()
+    
+    with col3:
+        if current_block < 5:
+            if st.button("Bloc Suivant ➡️", use_container_width=True, type="primary"):
+                # Valider les réponses
+                is_valid, error_msg = validate_block_responses(current_block)
+                if is_valid:
+                    st.session_state.current_block += 1
                     st.rerun()
                 else:
-                    st.error("❌ Erreur lors de l'analyse")
-            except Exception as e:
-                st.error(f"❌ Erreur : {str(e)}")
-                st.exception(e)
+                    st.error(f"❌ {error_msg}")
+        else:
+            if st.button("✅ Terminer le Questionnaire", use_container_width=True, type="primary"):
+                # Valider le dernier bloc
+                is_valid, error_msg = validate_block_responses(current_block)
+                if is_valid:
+                    # Sauvegarder les réponses
+                    filename = save_responses_to_file()
+                    st.session_state.questionnaire_completed = True
+                    st.success(f"✅ Réponses sauvegardées dans {filename}")
+                    st.rerun()
+                else:
+                    st.error(f"❌ {error_msg}")
+    
+    # Footer
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    st.markdown("""
+        <div style='text-align: center; color: #718096; font-size: 0.9rem;'>
+            <p>AISCA - Projet Master Expert en Ingénierie de Données | EFREI 2025-2026</p>
+        </div>
+    """, unsafe_allow_html=True)
+
+
+if __name__ == "__main__":
+    main()

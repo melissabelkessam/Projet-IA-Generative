@@ -591,19 +591,19 @@ def analysis_page():
         # Récupérer les résultats
         results = analyzer.get_results_summary()
         
-        # Étape 4 : Génération du Plan de Progression (GEMINI)
-        status_text.text("🤖 Génération du plan de progression avec Gemini...")
+        # Étape 4 : Génération du Plan de Progression (OPENAI)
+        status_text.text("🤖 Génération du plan de progression avec OpenAI...")
         progress_bar.progress(70)
         
-        from app import gemini_helper
-        progression_plan = gemini_helper.generate_progression_plan(results)
+        from app import openai_helper
+        progression_plan = openai_helper.generate_progression_plan(results)
         results['progression_plan'] = progression_plan
         
-        # Étape 5 : Génération de la Bio (GEMINI)
-        status_text.text("📝 Génération de la bio professionnelle avec Gemini...")
+        # Étape 5 : Génération de la Bio (OPENAI)
+        status_text.text("📝 Génération de la bio professionnelle avec OpenAI...")
         progress_bar.progress(85)
         
-        professional_bio = gemini_helper.generate_professional_bio(results)
+        professional_bio = openai_helper.generate_professional_bio(results)
         results['professional_bio'] = professional_bio
         
         # Étape 6 : Finalisation

@@ -815,25 +815,27 @@ def display_results(results: Dict, jobs_df: pd.DataFrame, competencies_df: pd.Da
             col1, col2, col3, col4 = st.columns(4)
             
             with col1:
-                st.metric("🧠 SBERT", f"{bloc_data['sbert_score']:.1%}", 
+                st.metric("🧠 SBERT", f"{bloc_data.get('sbert_score', 0):.1%}", 
                          help="Score d'analyse sémantique du texte libre")
             with col2:
-                st.metric("📊 Likert", f"{bloc_data['likert_score']:.1%}",
+                st.metric("📊 Likert", f"{bloc_data.get('likert_score', 0):.1%}",
                          help="Score d'auto-évaluation")
             with col3:
-                st.metric("🔧 Outils", f"{bloc_data['tools_score']:.1%}",
+                st.metric("🔧 Outils", f"{bloc_data.get('tools_score', 0):.1%}",
                          help="Score basé sur les outils sélectionnés")
             with col4:
-                st.metric("☑️ Compétences", f"{bloc_data['checkbox_score']:.1%}",
-                         help="Score basé sur les compétences cochées")
+                # ✅ CORRIGÉ ICI - experience_score au lieu de checkbox_score
+                st.metric("💼 Expérience", f"{bloc_data.get('experience_score', 0):.1%}",
+                         help="Score basé sur l'expérience déclarée")
             
             # Liste des compétences détectées
-            if bloc_data['detected_competencies']:
+            detected_comps = bloc_data.get('detected_competencies', [])
+            if detected_comps:
                 st.markdown("**🎯 Compétences détectées par analyse sémantique:**")
-                for comp in bloc_data['detected_competencies'][:10]:
+                for comp in detected_comps[:10]:
                     st.markdown(f"- `{comp['competency_name']}` (score: {comp['similarity']:.3f})")
     
-    # ========================================
+# ========================================
     # ACTIONS
     # ========================================
     st.markdown("<br><br>", unsafe_allow_html=True)
@@ -841,7 +843,15 @@ def display_results(results: Dict, jobs_df: pd.DataFrame, competencies_df: pd.Da
     col1, col2, col3 = st.columns([1, 2, 1])
     
     with col2:
-        if st.button("🔄 Recommencer l'évaluation", use_container_width=True, type="primary"):
+        # ✅ BOUTON 1 - Retour à la page analyse (Bio + Plan)
+        if st.button("⬅️ Retour au Récapitulatif", use_container_width=True, type="primary"):
+            st.session_state.page = 'analysis'
+            st.rerun()
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # ✅ BOUTON 2 - Recommencer vraiment (Reset tout)
+        if st.button("🔄 Recommencer une Nouvelle Évaluation", use_container_width=True):
             # Reset session state
             for key in list(st.session_state.keys()):
                 del st.session_state[key]

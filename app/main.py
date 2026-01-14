@@ -35,7 +35,6 @@ st.markdown("""
         font-family: 'Inter', sans-serif;
     }
     
-    /* Sidebar styling */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
         padding: 2rem 1rem;
@@ -45,7 +44,6 @@ st.markdown("""
         color: white;
     }
     
-    /* Sidebar elements */
     [data-testid="stSidebar"] h1, 
     [data-testid="stSidebar"] h2, 
     [data-testid="stSidebar"] h3,
@@ -55,7 +53,6 @@ st.markdown("""
         color: white !important;
     }
     
-    /* Navigation buttons in sidebar */
     [data-testid="stSidebar"] .stButton > button {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
@@ -74,13 +71,11 @@ st.markdown("""
         transform: translateX(5px);
     }
     
-    /* Main content background */
     .main {
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         padding: 2rem;
     }
     
-    /* Welcome screen */
     .welcome-hero {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 25px;
@@ -111,7 +106,6 @@ st.markdown("""
         line-height: 1.8;
     }
     
-    /* Feature cards */
     .feature-card {
         background: white;
         border-radius: 20px;
@@ -140,7 +134,6 @@ st.markdown("""
         line-height: 1.6;
     }
     
-    /* Info box */
     .info-box {
         background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
         border-radius: 15px;
@@ -155,7 +148,6 @@ st.markdown("""
         font-weight: 500;
     }
     
-    /* Progress indicator */
     .progress-step {
         background: rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
@@ -179,7 +171,6 @@ st.markdown("""
         border: 2px solid rgba(132, 250, 176, 0.5);
     }
     
-    /* Stats card */
     .stats-card {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         border-radius: 15px;
@@ -202,12 +193,10 @@ st.markdown("""
         letter-spacing: 1px;
     }
     
-    /* Hide Streamlit elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     .stDeployButton {display: none;}
     
-    /* Responsive */
     @media (max-width: 768px) {
         .welcome-hero h1 {
             font-size: 2.5rem;
@@ -225,12 +214,13 @@ def init_session_state():
     if 'page' not in st.session_state:
         st.session_state.page = 'welcome'
     if 'responses' not in st.session_state:
+        # NOUVELLE STRUCTURE - 5 Questions adaptatives
         st.session_state.responses = {
-            'bloc1': {},
-            'bloc2': {},
-            'bloc3': {},
-            'bloc4': {},
-            'bloc5': {}
+            'q1_parcours': '',
+            'q2_domaines': [],
+            'q3_niveaux': {},
+            'q4_outils': [],
+            'q5_experiences': {}
         }
     if 'current_block' not in st.session_state:
         st.session_state.current_block = 1
@@ -247,7 +237,6 @@ def sidebar_navigation():
     with st.sidebar:
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # Logo et titre
         st.markdown("""
             <div style='text-align: center; margin-bottom: 2rem;'>
                 <h1 style='color: white; font-size: 2rem; margin-bottom: 0.5rem;'>🎓 AISCA</h1>
@@ -256,8 +245,6 @@ def sidebar_navigation():
         """, unsafe_allow_html=True)
         
         st.markdown("---")
-        
-        # Progress steps
         st.markdown("### 📋 Progression")
         
         steps = [
@@ -286,8 +273,6 @@ def sidebar_navigation():
             """, unsafe_allow_html=True)
         
         st.markdown("---")
-        
-        # Navigation buttons
         st.markdown("### 🧭 Navigation")
         
         if st.button("🏠 Accueil", use_container_width=True):
@@ -304,8 +289,6 @@ def sidebar_navigation():
                 st.rerun()
         
         st.markdown("---")
-        
-        # Info
         st.markdown("### ℹ️ Informations")
         st.markdown("""
             <div style='color: white; font-size: 0.9rem; line-height: 1.6;'>
@@ -324,25 +307,23 @@ def welcome_page():
         </div>
     """, unsafe_allow_html=True)
     
-    # Description du projet
     st.markdown("""
         <div class="info-box">
             <p>
-                <strong>🎯 Objectif :</strong> Évaluer vos compétences en Data Science à travers un questionnaire 
-                hybride et recommander les métiers les plus adaptés à votre profil grâce à l'analyse sémantique 
+                <strong>🎯 Objectif :</strong> Évaluer vos compétences en Data Science à travers 5 questions adaptatives 
+                et recommander les métiers les plus adaptés à votre profil grâce à l'analyse sémantique 
                 avec SBERT (Sentence-BERT).
             </p>
         </div>
     """, unsafe_allow_html=True)
     
-    # Features en colonnes
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.markdown("""
             <div class="feature-card">
-                <h3>📝 Questionnaire Hybride</h3>
-                <p>5 blocs de compétences avec questions Likert, texte libre, choix multiples et cases à cocher</p>
+                <h3>📝 5 Questions Adaptatives</h3>
+                <p>Questionnaire intelligent qui s'adapte à vos réponses pour mieux évaluer votre profil</p>
             </div>
         """, unsafe_allow_html=True)
     
@@ -362,43 +343,21 @@ def welcome_page():
             </div>
         """, unsafe_allow_html=True)
     
-    # Stats en colonnes
     st.markdown("<br><br>", unsafe_allow_html=True)
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.markdown("""
-            <div class="stats-card">
-                <div class="stats-number">430</div>
-                <div class="stats-label">Compétences</div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="stats-card"><div class="stats-number">430</div><div class="stats-label">Compétences</div></div>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown("""
-            <div class="stats-card">
-                <div class="stats-number">5</div>
-                <div class="stats-label">Blocs</div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="stats-card"><div class="stats-number">5</div><div class="stats-label">Blocs</div></div>', unsafe_allow_html=True)
     
     with col3:
-        st.markdown("""
-            <div class="stats-card">
-                <div class="stats-number">15</div>
-                <div class="stats-label">Métiers</div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="stats-card"><div class="stats-number">15</div><div class="stats-label">Métiers</div></div>', unsafe_allow_html=True)
     
     with col4:
-        st.markdown("""
-            <div class="stats-card">
-                <div class="stats-number">20</div>
-                <div class="stats-label">Questions</div>
-            </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="stats-card"><div class="stats-number">5</div><div class="stats-label">Questions</div></div>', unsafe_allow_html=True)
     
-    # Call to action
     st.markdown("<br><br>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns([1, 2, 1])
     
@@ -406,119 +365,20 @@ def welcome_page():
         if st.button("🚀 Commencer l'Évaluation", use_container_width=True, type="primary"):
             st.session_state.page = 'questionnaire'
             st.rerun()
-    
-    # Details expandables
-    st.markdown("<br><br>", unsafe_allow_html=True)
-    
-    with st.expander("📚 En savoir plus sur la méthodologie"):
-        st.markdown("""
-            ### Méthodologie AISCA
-            
-            **1. Collecte des Réponses**
-            - Questionnaire hybride avec 5 types de questions
-            - 4 questions par bloc de compétences
-            - Collecte de données quantitatives ET qualitatives
-            
-            **2. Analyse Sémantique (SBERT)**
-            - Conversion des réponses textuelles en embeddings
-            - Calcul de similarité cosinus avec 430 compétences
-            - Détection automatique des compétences maîtrisées
-            
-            **3. Calcul du Score**
-            - Formule pondérée : 40% SBERT + 25% Likert + 20% Checkboxes + 15% Outils
-            - Score par bloc (0-1)
-            - Coverage Score global
-            
-            **4. Recommandation de Métiers**
-            - Matching avec 15 profils métiers data
-            - Calcul du score de compatibilité
-            - Sélection des TOP 3 métiers les plus adaptés
-            
-            **5. Visualisation**
-            - Radar chart du profil de compétences
-            - Bar chart des scores par bloc
-            - Gauge du coverage score
-            - Heatmap des compétences détectées
-        """)
-    
-    with st.expander("🎓 Les 5 Blocs de Compétences"):
-        st.markdown("""
-            ### Blocs Évalués
-            
-            **🔵 Bloc 1 : Data Analysis & Visualization**
-            - Nettoyage et préparation des données
-            - Manipulation avec Pandas/NumPy
-            - SQL et bases de données
-            - Visualisation (Matplotlib, Seaborn, Plotly)
-            - Dashboards et storytelling
-            
-            **🟢 Bloc 2 : Machine Learning Supervisé**
-            - Régression et classification
-            - Algorithmes (Random Forest, XGBoost, SVM...)
-            - Optimisation d'hyperparamètres
-            - Évaluation de modèles
-            - Feature engineering
-            
-            **🟡 Bloc 3 : Machine Learning Non Supervisé**
-            - Clustering (K-means, DBSCAN...)
-            - Réduction de dimensionnalité (PCA, t-SNE)
-            - Détection d'anomalies
-            - Segmentation
-            
-            **🔴 Bloc 4 : NLP (Natural Language Processing)**
-            - Prétraitement de texte
-            - Embeddings (Word2Vec, BERT, SBERT)
-            - Transformers
-            - Classification de texte
-            - Analyse de sentiments
-            - Chatbots
-            
-            **🟣 Bloc 5 : Statistiques & Mathématiques**
-            - Tests d'hypothèses
-            - Distributions de probabilités
-            - Algèbre linéaire
-            - Optimisation
-            - Séries temporelles
-        """)
-    
-    with st.expander("💼 Les 15 Métiers Data"):
-        st.markdown("""
-            ### Profils Métiers
-            
-            1. **Data Analyst** - Analyse et visualisation de données
-            2. **Data Scientist** - Modélisation prédictive complète
-            3. **Machine Learning Engineer** - Déploiement ML en production
-            4. **NLP Engineer** - Solutions de traitement du langage
-            5. **Data Engineer** - Pipelines et infrastructure data
-            6. **Business Intelligence Analyst** - Dashboards et reporting
-            7. **AI Research Scientist** - Recherche en IA
-            8. **Deep Learning Engineer** - Réseaux de neurones profonds
-            9. **Computer Vision Engineer** - Traitement d'images
-            10. **MLOps Engineer** - Industrialisation ML
-            11. **Data Architect** - Architecture de données
-            12. **Statistician** - Analyse statistique avancée
-            13. **Quantitative Analyst** - Modèles quantitatifs finance
-            14. **Applied Scientist** - Recherche appliquée
-            15. **Analytics Engineer** - Pipelines analytiques
-        """)
 
 
 def questionnaire_page():
     """Page du questionnaire"""
-    # Si pas encore terminé, afficher le questionnaire
     if not st.session_state.questionnaire_completed:
-        # Importer et lancer le questionnaire
         import sys
         import importlib
         
-        # Recharger le module questionnaire pour éviter les caches
         if 'app.questionnaire' in sys.modules:
             importlib.reload(sys.modules['app.questionnaire'])
         
         from app import questionnaire
         questionnaire.main()
     else:
-        # Questionnaire terminé, afficher le bouton pour l'analyse
         st.success("✅ Questionnaire terminé !")
         
         st.markdown("""
@@ -539,18 +399,19 @@ def questionnaire_page():
         
         with col1:
             if st.button("🔄 Recommencer", use_container_width=True):
-                # Reset
+                # RESET avec nouvelle structure
                 st.session_state.responses = {
-                    'bloc1': {},
-                    'bloc2': {},
-                    'bloc3': {},
-                    'bloc4': {},
-                    'bloc5': {}
+                    'q1_parcours': '',
+                    'q2_domaines': [],
+                    'q3_niveaux': {},
+                    'q4_outils': [],
+                    'q5_experience': ''
                 }
                 st.session_state.current_block = 1
                 st.session_state.questionnaire_completed = False
                 st.session_state.analysis_results = None
                 st.rerun()
+
 
 def analysis_page():
     """Page d'analyse"""
@@ -561,37 +422,48 @@ def analysis_page():
         </div>
     """, unsafe_allow_html=True)
     
-    # Progress bar
     progress_bar = st.progress(0)
     status_text = st.empty()
     
     try:
-        # Étape 1 : Initialisation
+        # ✅ IMPORTS POUR MASQUER LES PRINTS
+        import sys
+        import io
+        
         status_text.text("📥 Initialisation du moteur SBERT...")
         progress_bar.progress(10)
         
         if st.session_state.analyzer is None:
-            st.session_state.analyzer = SemanticAnalyzer(
-                competencies_path='data/competencies.csv',
-                jobs_path='data/jobs.csv'
-            )
+            # Capturer prints de l'init
+            old_stdout = sys.stdout
+            sys.stdout = io.StringIO()
+            try:
+                st.session_state.analyzer = SemanticAnalyzer(
+                    competencies_path='data/competencies.csv',
+                    jobs_path='data/jobs.csv'
+                )
+            finally:
+                sys.stdout = old_stdout
         
         analyzer = st.session_state.analyzer
         
-        # Étape 2 : Analyse des réponses
         status_text.text("🧠 Analyse sémantique des textes libres...")
         progress_bar.progress(30)
         
-        analyzer.analyze_user_responses(st.session_state.responses)
+        # ✅ CAPTURER LES PRINTS DE L'ANALYSE
+        old_stdout = sys.stdout
+        sys.stdout = io.StringIO()
         
-        # Étape 3 : Calcul des scores
-        status_text.text("📊 Calcul des scores par bloc...")
-        progress_bar.progress(50)
+        try:
+            analyzer.analyze_user_responses(st.session_state.responses)
+            
+            status_text.text("📊 Calcul des scores par bloc...")
+            progress_bar.progress(50)
+            
+            results = analyzer.get_results_summary()
+        finally:
+            sys.stdout = old_stdout
         
-        # Récupérer les résultats
-        results = analyzer.get_results_summary()
-        
-        # Étape 4 : Génération du Plan de Progression (OPENAI)
         status_text.text("🤖 Génération du plan de progression avec OpenAI...")
         progress_bar.progress(70)
         
@@ -599,67 +471,49 @@ def analysis_page():
         progression_plan = openai_helper.generate_progression_plan(results)
         results['progression_plan'] = progression_plan
         
-        # Étape 5 : Génération de la Bio (OPENAI)
         status_text.text("📝 Génération de la bio professionnelle avec OpenAI...")
         progress_bar.progress(85)
         
         professional_bio = openai_helper.generate_professional_bio(results)
         results['professional_bio'] = professional_bio
         
-        # Étape 6 : Finalisation
         status_text.text("✅ Analyse terminée !")
         progress_bar.progress(100)
         
-        # Sauvegarder les résultats
         st.session_state.analysis_results = results
         
-        # Sauvegarder dans fichier JSON (dans responses/)
-        analyzer.save_results()
+        # ✅ SAUVEGARDER SANS AFFICHER LE MESSAGE
+        old_stdout = sys.stdout
+        sys.stdout = io.StringIO()
+        try:
+            analyzer.save_results()
+        finally:
+            sys.stdout = old_stdout
         
-        st.success("✅ Analyse terminée ! Résultats sauvegardés dans `responses/`")
+        st.success("✅ Analyse terminée !")
         
-        # Afficher un aperçu
         st.markdown("<br>", unsafe_allow_html=True)
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.metric(
-                "Coverage Score Global",
-                f"{results['coverage_score']:.1%}",
-                help="Score global de vos compétences"
-            )
+            st.metric("Coverage Score Global", f"{results['coverage_score']:.1%}", help="Score global de vos compétences")
         
         with col2:
             top_job = results['recommended_jobs'][0]
-            st.metric(
-                "Métier Recommandé #1",
-                top_job['job_title'],
-                f"{top_job['match_score']:.1f}%"
-            )
+            st.metric("Métier Recommandé #1", top_job['job_title'], f"{top_job['match_score']:.1f}%")
         
         with col3:
-            # Compter les compétences détectées
-            total_comps = sum(
-                len(results['detected_competencies'].get(f'bloc{i}', []))
-                for i in range(1, 6)
-            )
-            st.metric(
-                "Compétences Détectées",
-                total_comps,
-                help="Nombre de compétences identifiées par SBERT"
-            )
+            total_comps = sum(len(results['detected_competencies'].get(f'bloc{i}', [])) for i in range(1, 6))
+            st.metric("Compétences Détectées", total_comps, help="Nombre de compétences identifiées par SBERT")
         
-        # Afficher un aperçu du plan de progression
         st.markdown("<br>", unsafe_allow_html=True)
         st.markdown("### 🎯 Aperçu du Plan de Progression")
         with st.expander("Voir le plan complet", expanded=False):
             st.markdown(progression_plan)
         
-        # Afficher un aperçu de la bio
         st.markdown("### 📝 Votre Bio Professionnelle")
         st.info(professional_bio)
         
-        # Bouton pour voir les résultats
         st.markdown("<br>", unsafe_allow_html=True)
         col1, col2, col3 = st.columns([1, 2, 1])
         
@@ -676,6 +530,10 @@ def analysis_page():
             st.session_state.page = 'questionnaire'
             st.rerun()
 
+
+
+
+
 def results_page():
     """Page de résultats"""
     if st.session_state.analysis_results is None:
@@ -685,30 +543,19 @@ def results_page():
             st.rerun()
         return
     
-    # Import du module results
     from app import results as results_module
     
-    # Charger les données
     jobs_df = pd.read_csv('data/jobs.csv')
     competencies_df = pd.read_csv('data/competencies.csv')
     
-    # Afficher les résultats
-    results_module.display_results(
-        st.session_state.analysis_results,
-        jobs_df,
-        competencies_df
-    )
+    results_module.display_results(st.session_state.analysis_results, jobs_df, competencies_df)
 
 
 def main():
     """Fonction principale"""
-    # Initialiser
     init_session_state()
-    
-    # Sidebar
     sidebar_navigation()
     
-    # Router
     if st.session_state.page == 'welcome':
         welcome_page()
     elif st.session_state.page == 'questionnaire':

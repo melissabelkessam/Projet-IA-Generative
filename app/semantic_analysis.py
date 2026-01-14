@@ -2,6 +2,8 @@
 AISCA - Moteur d'Analyse Sémantique
 Étapes 3 & 4 : Semantic Matching + Calcul de Score
 Utilise SBERT pour analyse sémantique des compétences
+ADAPTÉ POUR 5 QUESTIONS ADAPTATIVES
+VERSION AVEC Q5 EXPÉRIENCES PAR DOMAINE (DICT)
 """
 
 import pandas as pd
@@ -12,6 +14,25 @@ from typing import Dict, List, Tuple
 import warnings
 warnings.filterwarnings('ignore')
 
+def convert_numpy_types(obj):
+    """
+    Convertir récursivement les types NumPy en types Python natifs
+    pour la sérialisation JSON
+    """
+    import numpy as np
+    
+    if isinstance(obj, np.integer):
+        return int(obj)
+    elif isinstance(obj, np.floating):
+        return float(obj)
+    elif isinstance(obj, np.ndarray):
+        return obj.tolist()
+    elif isinstance(obj, dict):
+        return {key: convert_numpy_types(value) for key, value in obj.items()}
+    elif isinstance(obj, list):
+        return [convert_numpy_types(item) for item in obj]
+    else:
+        return obj
 
 class SemanticAnalyzer:
     """
@@ -37,6 +58,24 @@ class SemanticAnalyzer:
         print("📂 Chargement des compétences et métiers...")
         self.competencies_df = pd.read_csv(competencies_path)
         self.jobs_df = pd.read_csv(jobs_path)
+        
+        # Mapping domaines → BlockID
+        self.domain_to_block = {
+            "Data Analysis & Visualization": 1,
+            "Machine Learning Supervisé": 2,
+            "Machine Learning Non Supervisé": 3,
+            "NLP (Natural Language Processing)": 4,
+            "Statistiques & Mathématiques": 5
+        }
+        
+        # Mapping inverse BlockID → Domaine
+        self.block_to_domain = {
+            1: "Data Analysis & Visualization",
+            2: "Machine Learning Supervisé",
+            3: "Machine Learning Non Supervisé",
+            4: "NLP (Natural Language Processing)",
+            5: "Statistiques & Mathématiques"
+        }
         
         # Créer les embeddings des compétences (une seule fois)
         print("🧠 Création des embeddings des compétences...")
@@ -79,21 +118,59 @@ class SemanticAnalyzer:
     def analyze_user_responses(self, responses: Dict):
         """
         Analyser les réponses du questionnaire utilisateur
+        NOUVELLE VERSION POUR 5 QUESTIONS ADAPTATIVES
         
         Args:
-            responses: Dictionnaire des réponses par bloc
+            responses: Dictionnaire des réponses
+                {
+                    'q1_parcours': str,
+                    'q2_domaines': List[str],
+                    'q3_niveaux': Dict[str, int],
+                    'q4_outils': List[str],
+                    'q5_experiences': Dict[str, str]
+                }
         """
         print("\n🔍 ANALYSE DES RÉPONSES UTILISATEUR")
         print("=" * 60)
         
         self.user_responses = responses
         
-        # Analyser chaque bloc
+        # Extraire les données des 5 questions
+        q1_parcours = responses.get('q1_parcours', '')
+        q2_domaines = responses.get('q2_domaines', [])
+        q3_niveaux = responses.get('q3_niveaux', {})
+        q4_outils = responses.get('q4_outils', [])
+        q5_experiences = responses.get('q5_experiences', {})
+        
+        print(f"\n📝 Q1 - Parcours : {len(q1_parcours)} caractères")
+        print(f"📊 Q2 - Domaines sélectionnés : {len(q2_domaines)}")
+        print(f"📈 Q3 - Niveaux évalués : {len(q3_niveaux)}")
+        print(f"🔧 Q4 - Outils maîtrisés : {len(q4_outils)}")
+        print(f"💼 Q5 - Expériences par domaine : {len(q5_experiences)} domaine(s)")
+        
+        # Afficher détails Q5
+        for domain, exp_text in q5_experiences.items():
+            word_count = len(exp_text.split())
+            print(f"    • {domain} : {word_count} mots")
+        
+        # Analyser le texte libre avec SBERT (Q1)
+        print(f"\n{'='*60}")
+        print("🧠 ANALYSE SÉMANTIQUE DU TEXTE LIBRE (Q1)")
+        print(f"{'='*60}")
+        
+        all_similarities = self._analyze_text_sbert(q1_parcours)
+        
+        # Calculer les scores par bloc
         for bloc_id in range(1, 6):
-            bloc_key = f'bloc{bloc_id}'
-            if bloc_key in responses:
-                print(f"\n📊 Analyse du Bloc {bloc_id}...")
-                self._analyze_bloc(bloc_id, responses[bloc_key])
+            print(f"\n📊 Calcul du score Bloc {bloc_id}...")
+            self._calculate_bloc_score(
+                bloc_id, 
+                all_similarities,
+                q2_domaines,
+                q3_niveaux,
+                q4_outils,
+                q5_experiences
+            )
         
         # Calculer le coverage score global
         self._calculate_global_coverage_score()
@@ -105,133 +182,192 @@ class SemanticAnalyzer:
         print("=" * 60)
     
     
-    def _analyze_bloc(self, bloc_id: int, bloc_responses: Dict):
+    def _analyze_text_sbert(self, user_text: str) -> List[Dict]:
         """
-        ÉTAPE 3 & 4 : Analyser un bloc spécifique
-        Calcule le score de similarité sémantique
+        Analyser le texte libre avec SBERT
+        Compare le texte aux 430 compétences
         
         Args:
-            bloc_id: Numéro du bloc (1-5)
-            bloc_responses: Réponses pour ce bloc
+            user_text: Texte libre du parcours utilisateur (Q1)
+            
+        Returns:
+            Liste des similarités pour chaque compétence
         """
-        # Récupérer toutes les compétences du bloc
-        bloc_competencies = self.competencies_df[
+        if not user_text or len(user_text.strip()) == 0:
+            print("⚠️ Texte libre vide, scores SBERT = 0")
+            return []
+        
+        # Encoder le texte utilisateur
+        user_embedding = self.model.encode(user_text, convert_to_tensor=True)
+        
+        # Calculer similarités avec TOUTES les 430 compétences
+        all_similarities = []
+        
+        for idx, comp_id in enumerate(self.competency_ids):
+            comp_embedding = self.competency_embeddings[idx]
+            
+            # Similarité cosinus
+            similarity = util.cos_sim(user_embedding, comp_embedding).item()
+            
+            # Récupérer les infos de la compétence
+            comp_row = self.competencies_df[
+                self.competencies_df['CompetencyID'] == comp_id
+            ].iloc[0]
+            
+            all_similarities.append({
+                'competency_id': comp_id,
+                'competency_name': comp_row['Competency'],
+                'block_id': comp_row['BlockID'],
+                'similarity': similarity
+            })
+        
+        # Filtrer les compétences avec similarité > 0.3
+        detected = [s for s in all_similarities if s['similarity'] > 0.3]
+        
+        print(f"✅ {len(detected)} compétences détectées (seuil > 0.3)")
+        
+        return all_similarities
+    
+    
+    def _calculate_bloc_score(
+        self, 
+        bloc_id: int,
+        all_similarities: List[Dict],
+        q2_domaines: List[str],
+        q3_niveaux: Dict[str, int],
+        q4_outils: List[str],
+        q5_experiences: Dict[str, str]
+    ):
+        """
+        Calculer le score d'un bloc spécifique
+        
+        Args:
+            bloc_id: ID du bloc (1-5)
+            all_similarities: Toutes les similarités SBERT
+            q2_domaines: Domaines cochés en Q2
+            q3_niveaux: Niveaux déclarés en Q3
+            q4_outils: Outils sélectionnés en Q4
+            q5_experiences: Expériences par domaine en Q5 (DICT)
+        """
+        bloc_name = self.competencies_df[
             self.competencies_df['BlockID'] == bloc_id
+        ]['BlockName'].iloc[0]
+        
+        print(f"\n  📦 Bloc {bloc_id} : {bloc_name}")
+        
+        # ===================================
+        # 1. SCORE SBERT (40%)
+        # ===================================
+        bloc_similarities = [
+            s for s in all_similarities 
+            if s['block_id'] == bloc_id
         ]
         
-        # ========================================
-        # ÉTAPE 3.1 : ANALYSE SÉMANTIQUE TEXTE LIBRE
-        # ========================================
-        text_key = f'q{bloc_id*4-2}_text'  # Question texte libre
-        user_text = bloc_responses.get(text_key, '')
+        detected_comps = [s for s in bloc_similarities if s['similarity'] > 0.3]
         
-        sbert_score = 0.0
-        detected_comps = []
+        if detected_comps:
+            top_sims = sorted([s['similarity'] for s in detected_comps], reverse=True)[:10]
+            sbert_score = np.mean(top_sims)
+        else:
+            sbert_score = 0.0
         
-        if user_text and len(user_text.strip()) > 0:
-            # Encoder le texte utilisateur
-            user_embedding = self.model.encode(user_text, convert_to_tensor=True)
+        print(f"    🧠 Score SBERT : {sbert_score:.3f} ({len(detected_comps)} compétences)")
+        
+        # ===================================
+        # 2. SCORE LIKERT (30%)
+        # ===================================
+        likert_score = 0.0
+        for domaine, niveau in q3_niveaux.items():
+            if self.domain_to_block.get(domaine) == bloc_id:
+                likert_score = niveau / 5.0
+                print(f"    📊 Score Likert : {likert_score:.3f} (niveau {niveau}/5)")
+                break        
+        if likert_score == 0.0:
+            print(f"    📊 Score Likert : 0.000 (domaine non sélectionné)")
+        
+        # ===================================
+        # 3. SCORE OUTILS (20%)
+        # ===================================
+        tools_score = min(len(q4_outils) / 8.0, 1.0) if q4_outils else 0.0
+        print(f"    🔧 Score Outils : {tools_score:.3f} ({len(q4_outils)} outils)")
+        
+        # ===================================
+        # 4. BONUS EXPÉRIENCE PAR DOMAINE (10%)
+        # ===================================
+        experience_score = 0.0
+        domain_name = self.block_to_domain.get(bloc_id)
+        
+        if domain_name and domain_name in q5_experiences:
+            experience_text = q5_experiences[domain_name]
+            word_count = len(experience_text.split())
             
-            # Calculer similarités avec toutes les compétences du bloc
-            similarities = []
-            for _, comp_row in bloc_competencies.iterrows():
-                comp_idx = self.competency_ids.index(comp_row['CompetencyID'])
-                comp_embedding = self.competency_embeddings[comp_idx]
+            if word_count < 20:
+                # Texte trop court
+                experience_score = 0.0
+                print(f"    💼 Score Expérience : 0.000 (texte trop court - {word_count} mots)")
+            else:
+                # ✅ ANALYSE SÉMANTIQUE DU TEXTE D'EXPÉRIENCE
+                # Encoder le texte d'expérience
+                exp_embedding = self.model.encode(experience_text, convert_to_tensor=True)
                 
-                # Similarité cosinus
-                similarity = util.cos_sim(user_embedding, comp_embedding).item()
-                similarities.append({
-                    'competency_id': comp_row['CompetencyID'],
-                    'competency_name': comp_row['Competency'],
-                    'similarity': similarity
-                })
-            
-            # Filtrer les compétences avec similarité > 0.3 (seuil)
-            detected_comps = [
-                comp for comp in similarities 
-                if comp['similarity'] > 0.3
-            ]
-            
-            # Score SBERT = moyenne des top similarités
-            if detected_comps:
-                top_similarities = sorted(
-                    [c['similarity'] for c in detected_comps],
-                    reverse=True
-                )[:10]  # Top 10 compétences
-                sbert_score = np.mean(top_similarities)
-            
-            print(f"  📝 Texte libre analysé : {len(detected_comps)} compétences détectées")
-            print(f"  🎯 Score SBERT : {sbert_score:.3f}")
-        
-        # ========================================
-        # ANALYSE LIKERT (Auto-évaluation)
-        # ========================================
-        likert_key = f'q{bloc_id*4-3}_likert'
-        likert_value = bloc_responses.get(likert_key, 0)
-        likert_score = likert_value / 5.0  # Normaliser à [0, 1]
-        
-        print(f"  📊 Score Likert : {likert_score:.3f} (niveau {likert_value}/5)")
-        
-        # ========================================
-        # ANALYSE CHOIX MULTIPLE (OUTILS)
-        # ========================================
-        tools_key = f'q{bloc_id*4-1}_tools'
-        selected_tools = bloc_responses.get(tools_key, [])
-        
-        # Score tools = proportion sélectionnée (hors "Aucun")
-        if selected_tools and "Aucun" not in selected_tools and "Aucune" not in selected_tools:
-            tools_score = min(len(selected_tools) / 6.0, 1.0)  # Max 1.0
+                # Calculer similarités avec les compétences de CE BLOC UNIQUEMENT
+                bloc_similarities = []
+                for idx, comp_id in enumerate(self.competency_ids):
+                    comp_row = self.competencies_df[
+                        self.competencies_df['CompetencyID'] == comp_id
+                    ].iloc[0]
+                    
+                    # Filtrer uniquement les compétences du bloc actuel
+                    if comp_row['BlockID'] == bloc_id:
+                        comp_embedding = self.competency_embeddings[idx]
+                        similarity = util.cos_sim(exp_embedding, comp_embedding).item()
+                        bloc_similarities.append(similarity)
+                
+                # Score de qualité sémantique (moyenne des top 5 similarités)
+                if bloc_similarities:
+                    top_sims = sorted(bloc_similarities, reverse=True)[:5]
+                    semantic_quality = np.mean(top_sims)
+                else:
+                    semantic_quality = 0.0
+                
+                # Score de longueur (max à 50 mots)
+                length_score = min(word_count / 50.0, 1.0)
+                
+                # Score final = 70% qualité sémantique + 30% longueur
+                experience_score = (0.7 * semantic_quality) + (0.3 * length_score)
+                
+                print(f"    💼 Score Expérience : {experience_score:.3f}")
+                print(f"       • Qualité sémantique : {semantic_quality:.3f}")
+                print(f"       • Longueur : {length_score:.3f} ({word_count} mots)")
         else:
-            tools_score = 0.0
-        
-        print(f"  🔧 Score Outils : {tools_score:.3f} ({len(selected_tools)} outils)")
-        
-        # ========================================
-        # ANALYSE CASES COCHÉES (COMPÉTENCES)
-        # ========================================
-        checkbox_key = f'q{bloc_id*4}_competences'
-        if bloc_id == 2:
-            checkbox_key = f'q{bloc_id*4}_algorithmes'
-        elif bloc_id == 3:
-            checkbox_key = f'q{bloc_id*4}_techniques'
-        elif bloc_id == 5:
-            checkbox_key = f'q{bloc_id*4}_domaines'
-        
-        checked_items = bloc_responses.get(checkbox_key, [])
-        
-        if checked_items and "Aucun" not in checked_items and "Aucune" not in checked_items:
-            checkbox_score = min(len(checked_items) / 10.0, 1.0)
-        else:
-            checkbox_score = 0.0
-        
-        print(f"  ☑️  Score Compétences : {checkbox_score:.3f} ({len(checked_items)} items)")
-        
-        # ========================================
-        # ÉTAPE 4 : CALCUL DU SCORE PONDÉRÉ (4 COMPOSANTES)
-        # ========================================
+            experience_score = 0.0
+            print(f"    💼 Score Expérience : 0.000 (pas d'expérience déclarée)")
+        # ===================================
+        # CALCUL FINAL PONDÉRÉ
+        # ===================================
         weights = {
-            'sbert': 0.40,      # 40% - Analyse sémantique
-            'likert': 0.25,     # 25% - Auto-évaluation
-            'checkbox': 0.20,   # 20% - Compétences cochées
-            'tools': 0.15       # 15% - Outils sélectionnés
+            'sbert': 0.40,
+            'likert': 0.30,
+            'tools': 0.20,
+            'experience': 0.10
         }
         
         bloc_score = (
             weights['sbert'] * sbert_score +
             weights['likert'] * likert_score +
-            weights['checkbox'] * checkbox_score +
-            weights['tools'] * tools_score
+            weights['tools'] * tools_score +
+            weights['experience'] * experience_score
         )
         
-        print(f"  ⭐ SCORE FINAL BLOC {bloc_id} : {bloc_score:.3f}")
+        print(f"    ⭐ SCORE FINAL BLOC {bloc_id} : {bloc_score:.3f}")
         
         # Stocker les résultats
         self.block_scores[f'bloc{bloc_id}'] = {
             'score': bloc_score,
             'sbert_score': sbert_score,
             'likert_score': likert_score,
-            'checkbox_score': checkbox_score,
             'tools_score': tools_score,
+            'experience_score': experience_score,
             'detected_competencies': detected_comps
         }
         
@@ -247,7 +383,6 @@ class SemanticAnalyzer:
         print("📊 CALCUL DU COVERAGE SCORE GLOBAL")
         print("=" * 60)
         
-        # Poids par défaut = 1 pour tous les blocs (importance égale)
         weights = {
             'bloc1': 1.0,
             'bloc2': 1.0,
@@ -256,7 +391,6 @@ class SemanticAnalyzer:
             'bloc5': 1.0
         }
         
-        # Calcul avec formule du PDF
         numerator = sum(
             weights[bloc_key] * self.block_scores[bloc_key]['score']
             for bloc_key in self.block_scores
@@ -268,7 +402,6 @@ class SemanticAnalyzer:
         print(f"\n✨ COVERAGE SCORE GLOBAL : {self.coverage_score:.3f}")
         print("=" * 60)
         
-        # Afficher détails
         print("\n📋 Détail des scores par bloc :")
         for bloc_key in sorted(self.block_scores.keys()):
             score = self.block_scores[bloc_key]['score']
@@ -291,7 +424,6 @@ class SemanticAnalyzer:
             job_title = job_row['JobTitle']
             required_comps = job_row['RequiredCompetencies'].split(';')
             
-            # Calculer le score de match pour ce métier
             match_score = self._calculate_job_match(required_comps)
             
             job_scores.append({
@@ -301,10 +433,8 @@ class SemanticAnalyzer:
                 'required_competencies': required_comps
             })
         
-        # Trier par score décroissant
         job_scores.sort(key=lambda x: x['match_score'], reverse=True)
         
-        # TOP 3
         self.recommended_jobs = job_scores[:3]
         
         print("\n🏆 TOP 3 MÉTIERS RECOMMANDÉS :")
@@ -332,7 +462,6 @@ class SemanticAnalyzer:
         for comp_id in required_competencies:
             comp_id = comp_id.strip()
             
-            # Trouver le bloc de cette compétence
             comp_row = self.competencies_df[
                 self.competencies_df['CompetencyID'] == comp_id
             ]
@@ -343,23 +472,19 @@ class SemanticAnalyzer:
             bloc_id = comp_row.iloc[0]['BlockID']
             bloc_key = f'bloc{bloc_id}'
             
-            # Score du bloc correspondant
             if bloc_key in self.block_scores:
                 bloc_score = self.block_scores[bloc_key]['score']
                 
-                # Vérifier si compétence spécifiquement détectée
                 detected_comps = self.detected_competencies.get(bloc_key, [])
                 detected_ids = [c['competency_id'] for c in detected_comps]
                 
                 if comp_id in detected_ids:
-                    # Boost si compétence spécifiquement détectée
                     comp_score = min(bloc_score * 1.2, 1.0)
                 else:
                     comp_score = bloc_score
                 
                 total_score += comp_score
         
-        # Score moyen en pourcentage
         match_percentage = (total_score / len(required_competencies)) * 100
         
         return match_percentage
@@ -390,15 +515,14 @@ class SemanticAnalyzer:
         import os
         from datetime import datetime
         
-        # Créer le dossier responses s'il n'existe pas
         os.makedirs('responses', exist_ok=True)
         
-        # Nom de fichier par défaut avec timestamp
         if filepath is None:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filepath = f"responses/results_{timestamp}.json"
         
         results = self.get_results_summary()
+        results = convert_numpy_types(results)
         
         with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(results, f, ensure_ascii=False, indent=2)
@@ -407,76 +531,46 @@ class SemanticAnalyzer:
 
 
 # ============================================
-# FONCTIONS UTILITAIRES
-# ============================================
-
-def load_responses_from_file(filepath: str) -> Dict:
-    """
-    Charger les réponses depuis un fichier JSON
-    
-    Args:
-        filepath: Chemin vers le fichier de réponses
-        
-    Returns:
-        Dictionnaire des réponses
-    """
-    with open(filepath, 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    
-    return data['responses']
-
-
-# ============================================
 # EXEMPLE D'UTILISATION
 # ============================================
 
 if __name__ == "__main__":
-    # Test du moteur d'analyse
     print("\n" + "=" * 60)
     print("🧪 TEST DU MOTEUR D'ANALYSE SÉMANTIQUE")
     print("=" * 60)
     
-    # Initialiser l'analyseur
     analyzer = SemanticAnalyzer()
     
-    # Exemple de réponses (à remplacer par vraies réponses du questionnaire)
     example_responses = {
-        'bloc1': {
-            'q1_likert': 4,
-            'q2_text': "J'ai une grande expérience en analyse de données avec Python et Pandas. J'ai créé des dashboards interactifs avec Plotly pour visualiser les KPIs de vente.",
-            'q3_tools': ['Matplotlib', 'Seaborn', 'Plotly'],
-            'q4_competences': ['Data cleaning (nettoyage de données)', 'Manipulation avec Pandas', 'Requêtes SQL']
+        'q1_parcours': "J'ai 3 ans d'expérience en Data Science. Je maîtrise Python, Pandas, et NumPy pour l'analyse de données. J'ai créé des dashboards avec Plotly et Matplotlib. En machine learning, j'utilise Scikit-learn, Random Forest, et XGBoost pour des modèles prédictifs. J'ai aussi travaillé sur du NLP avec SBERT et des transformers pour l'analyse de sentiments. Je connais les tests statistiques comme le t-test et ANOVA.",
+        'q2_domaines': [
+            "Data Analysis & Visualization",
+            "Machine Learning Supervisé",
+            "NLP (Natural Language Processing)"
+        ],
+        'q3_niveaux': {
+            "Data Analysis & Visualization": 4,
+            "Machine Learning Supervisé": 3,
+            "NLP (Natural Language Processing)": 4
         },
-        'bloc2': {
-            'q5_likert': 3,
-            'q6_text': "J'ai développé des modèles de prédiction avec Random Forest et XGBoost. J'optimise les hyperparamètres avec GridSearch.",
-            'q7_tools': ['Scikit-learn', 'XGBoost'],
-            'q8_algorithmes': ['Random Forest', 'Gradient Boosting (XGBoost, LightGBM)']
-        },
-        'bloc3': {
-            'q9_likert': 2,
-            'q10_text': "J'ai utilisé K-means pour segmenter des clients et PCA pour visualiser.",
-            'q11_tools': ['Scikit-learn (clustering, PCA)'],
-            'q12_techniques': ['K-means clustering', 'PCA (Principal Component Analysis)']
-        },
-        'bloc4': {
-            'q13_likert': 4,
-            'q14_text': "J'ai développé un chatbot avec SBERT pour analyse sémantique. J'utilise des transformers pour la classification de texte et l'analyse de sentiments.",
-            'q15_tools': ['Transformers (Hugging Face)', 'Sentence-Transformers (SBERT)'],
-            'q16_competences': ['SBERT (Sentence-BERT)', 'BERT / Transformers', 'Sentiment analysis']
-        },
-        'bloc5': {
-            'q17_likert': 3,
-            'q18_text': "Je maîtrise les tests statistiques (t-test, ANOVA) et l'algèbre linéaire pour comprendre les algorithmes ML.",
-            'q19_tools': ['NumPy', 'SciPy'],
-            'q20_domaines': ['Tests d\'hypothèses (t-test, chi-carré, ANOVA)', 'Algèbre linéaire (matrices, vecteurs propres)']
+        'q4_outils': [
+            "Python (Pandas, NumPy)",
+            "Matplotlib / Seaborn",
+            "Plotly",
+            "Scikit-learn",
+            "XGBoost",
+            "Transformers (Hugging Face)",
+            "Sentence-Transformers (SBERT)"
+        ],
+        'q5_experiences': {
+            "Data Analysis & Visualization": "J'ai développé plusieurs dashboards interactifs avec Plotly pour visualiser les KPIs de vente. J'ai également automatisé le nettoyage de données avec Pandas pour traiter 50k+ lignes par jour. Mes projets incluent l'analyse des tendances client et la création de rapports automatisés.",
+            "Machine Learning Supervisé": "J'ai construit des modèles de prédiction de churn avec Random Forest atteignant 87% de précision. J'ai optimisé les hyperparamètres avec GridSearch et déployé les modèles en production avec Flask.",
+            "NLP (Natural Language Processing)": "J'ai développé un système d'analyse de sentiments pour 10k+ avis clients utilisant SBERT et transformers. Le modèle a permis d'identifier automatiquement les thèmes récurrents et d'améliorer la satisfaction client de 15%."
         }
     }
     
-    # Analyser les réponses
     analyzer.analyze_user_responses(example_responses)
     
-    # Afficher les résultats
     results = analyzer.get_results_summary()
     
     print("\n" + "=" * 60)
@@ -484,5 +578,7 @@ if __name__ == "__main__":
     print("=" * 60)
     print(f"Coverage Score Global : {results['coverage_score']:.3f}")
     print(f"Métiers recommandés : {len(results['recommended_jobs'])}")
+    
+    analyzer.save_results()
     
     print("\n✅ Test terminé !")

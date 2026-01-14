@@ -1,11 +1,11 @@
 """
 AISCA - Module OpenAI avec Cache Automatique
 Génération du Plan de Progression et Bio Professionnelle
-VERSION OpenAI - SANS FALLBACK
+VERSION OpenAI v1.0+ - SANS FALLBACK
 Respect strict des consignes : Cache + 1 appel/plan + 1 appel/bio
 """
 
-import openai
+from openai import OpenAI  # ✅ NOUVELLE SYNTAXE
 import json
 import os
 from datetime import datetime
@@ -19,8 +19,8 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if not OPENAI_API_KEY:
     raise ValueError("❌ OPENAI_API_KEY manquante ! Créez un fichier .env avec votre clé.")
 
-# Configurer OpenAI
-openai.api_key = OPENAI_API_KEY
+# ✅ CONFIGURER CLIENT OPENAI (NOUVELLE SYNTAXE)
+client = OpenAI(api_key=OPENAI_API_KEY)
 
 # Chemin du fichier cache
 CACHE_FILE = 'data/openai_cache.json'
@@ -157,8 +157,8 @@ def generate_progression_plan(analysis_results: Dict) -> str:
     prompt += "5. Format : concis, actionnable, professionnel\n\n"
     prompt += "Réponds en français, style professionnel."
     
-    # Appel API OpenAI (SANS try/except - pas de fallback)
-    response = openai.chat.completions.create(
+    # ✅ APPEL API OPENAI (NOUVELLE SYNTAXE)
+    response = client.chat.completions.create(
         model=OPENAI_MODEL,
         messages=[
             {"role": "system", "content": "Tu es un expert en formation Data Science et IA."},
@@ -267,12 +267,12 @@ def generate_professional_bio(analysis_results: Dict) -> str:
     prompt += "7. Terminer par une ouverture vers les opportunités futures\n\n"
     prompt += "Réponds en français, sans titre, 2 paragraphes bien structurés."
     
-    # Appel API OpenAI (SANS try/except - pas de fallback)
-    response = openai.chat.completions.create(
+    # ✅ APPEL API OPENAI (CORRECTION ICI)
+    response = client.chat.completions.create(
         model=OPENAI_MODEL,
         messages=[
             {"role": "system", "content": "Tu es un expert en rédaction de profils professionnels."},
-            {"role": "user", "content": prompt}
+            {"role": "user", "content": prompt}  # ✅ SANS GUILLEMETS sur prompt
         ],
         temperature=0.7,
         max_tokens=500

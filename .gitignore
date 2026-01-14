@@ -1,0 +1,15 @@
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Fichiers sensibles
+.env
+
+# Cache Python
+__pycache__/
+*.pyc
+
+# Données temporaires
+responses/
+data/user_responses.json

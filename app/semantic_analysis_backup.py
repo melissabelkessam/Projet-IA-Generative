@@ -422,24 +422,21 @@ class SemanticAnalyzer:
         print(f"       • Outils détectés dans texte Q1 : {nb_q1}")
         
         # ===================================
-        # 4. BONUS EXPÉRIENCE (10%) - ✅ ANALYSE TOUS LES TEXTES Q5
+        # 4. BONUS EXPÉRIENCE PAR DOMAINE (10%)
         # ===================================
         experience_score = 0.0
-        best_semantic_quality = 0.0
-        best_text_source = None
+        domain_name = self.block_to_domain.get(bloc_id)
         
-        if q5_experiences:
-            # ✅ NOUVEAU : Analyser TOUS les textes d'expérience, peu importe le domaine
-            all_exp_scores = []
+        if domain_name and domain_name in q5_experiences:
+            experience_text = q5_experiences[domain_name]
+            word_count = len(experience_text.split())
             
-            for source_domain, experience_text in q5_experiences.items():
-                word_count = len(experience_text.split())
-                
-                if word_count < 20:
-                    # Texte trop court, on passe
-                    continue
-                
-                # ✅ ANALYSE SÉMANTIQUE : Calculer similarité avec compétences du bloc actuel
+            if word_count < 20:
+                # Texte trop court
+                experience_score = 0.0
+                print(f"    💼 Score Expérience : 0.000 (texte trop court - {word_count} mots)")
+            else:
+                # ✅ ANALYSE SÉMANTIQUE DU TEXTE D'EXPÉRIENCE
                 # Encoder le texte d'expérience
                 exp_embedding = self.model.encode(experience_text, convert_to_tensor=True)
                 
@@ -466,31 +463,14 @@ class SemanticAnalyzer:
                 # Score de longueur (max à 50 mots)
                 length_score = min(word_count / 50.0, 1.0)
                 
-                # Score combiné = 70% qualité sémantique + 30% longueur
-                combined_score = (0.7 * semantic_quality) + (0.3 * length_score)
-                
-                all_exp_scores.append({
-                    'source_domain': source_domain,
-                    'semantic_quality': semantic_quality,
-                    'length_score': length_score,
-                    'combined_score': combined_score,
-                    'word_count': word_count
-                })
-            
-            # Prendre le MEILLEUR score parmi tous les textes
-            if all_exp_scores:
-                best_exp = max(all_exp_scores, key=lambda x: x['combined_score'])
-                experience_score = best_exp['combined_score']
-                best_semantic_quality = best_exp['semantic_quality']
-                best_text_source = best_exp['source_domain']
+                # Score final = 70% qualité sémantique + 30% longueur
+                experience_score = (0.7 * semantic_quality) + (0.3 * length_score)
                 
                 print(f"    💼 Score Expérience : {experience_score:.3f}")
-                print(f"       • Source : {best_text_source}")
-                print(f"       • Qualité sémantique : {best_semantic_quality:.3f}")
-                print(f"       • Longueur : {best_exp['length_score']:.3f} ({best_exp['word_count']} mots)")
-            else:
-                print(f"    💼 Score Expérience : 0.000 (textes trop courts < 20 mots)")
+                print(f"       • Qualité sémantique : {semantic_quality:.3f}")
+                print(f"       • Longueur : {length_score:.3f} ({word_count} mots)")
         else:
+            experience_score = 0.0
             print(f"    💼 Score Expérience : 0.000 (pas d'expérience déclarée)")
         
         # ===================================

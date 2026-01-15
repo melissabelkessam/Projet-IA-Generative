@@ -221,5 +221,31 @@
       ],
       "target_job": "Data Engineer"
     }
+  },
+  "progression_bloc1_0.6_bloc2_0.6_bloc3_0.3_bloc4_0.3_bloc5_0.3_Data_Engineer": {
+    "query": "Tu es un expert en formation Data Science et IA.\n\nAnalyse ce profil de compétences et crée un plan de progression personnalisé.\n\n**Blocs de compétences à améliorer (scores faibles) :**\n- **Statistiques & Mathématiques** : Score actuel 26.0%\n- **NLP (Natural Language Processing)** : Score actuel 26.5%\n- **Machine Learning Non Supervisé** : Score actuel 27.9%\n\n**Métier visé :** Data Engineer\n\n**Consignes :**\n1. Identifie les 2-3 compétences clés à développer en priorité\n2. Propose un plan d'apprentissage en 3 étapes concrètes\n3. Suggère des ressources spécifiques (cours, projets, outils)\n4. Durée estimée : 3-6 mois\n5. Format : concis, actionnable, professionnel\n\nRéponds en français, style professionnel.",
+    "response": "### Plan de progression personnalisé pour devenir Data Engineer\n\n**1. Compétences clés à développer en priorité :**\n- **Statistiques & Mathématiques**\n- **Machine Learning Non Supervisé**\n- **NLP (Natural Language Processing)**\n\n---\n\n**2. Plan d'apprentissage en 3 étapes concrètes :**\n\n**Étape 1 : Renforcement des Fondamentaux en Statistiques & Mathématiques (1-2 mois)**\n- **Objectif :** Acquérir les bases solides nécessaires pour comprendre les algorithmes de machine learning.\n- **Actions :**\n  - Suivre un cours en ligne sur les statistiques et les mathématiques appliquées à la data science. \n  - Pratiquer des exercices sur des plateformes comme Khan Academy ou Coursera.\n- **Ressources :**\n  - **Cours :** \"Statistics for Data Science\" sur Coursera ou \"Mathematics for Data Science\" sur edX.\n  - **Outils :** Utiliser R ou Python (bibliothèques NumPy, SciPy, et Pandas).\n\n---\n\n**Étape 2 : Apprentissage du Machine Learning Non Supervisé (2 mois)**\n- **Objectif :** Comprendre et appliquer les techniques de machine learning non supervisé.\n- **Actions :**\n  - Suivre un cours spécifique sur le machine learning non supervisé et réaliser des projets pratiques.\n  - Travailler sur des jeux de données réels pour appliquer les algorithmes (clustering, réduction de dimensionnalité).\n- **Ressources :**\n  - **Cours :** \"Unsupervised Machine Learning\" sur Udacity ou \"Applied Data Science with Python\" sur Coursera.\n  - **Projets :** Analyser des données avec K-means et PCA sur des plateformes comme Kaggle.\n\n---\n\n**Étape 3 : Introduction au NLP et à ses applications (1-2 mois)**\n- **Objectif :** Comprendre les concepts de base du NLP et leur mise en œuvre dans des projets.\n- **Actions :**\n  - Suivre un cours sur le NLP et réaliser des projets pratiques comme l'analyse de sentiments ou la génération de texte.\n- **Ressources :**\n  - **Cours :** \"Natural Language Processing with Python\" sur Coursera ou \"Deep Learning for NLP\" sur edX.\n  - **Outils :** Utiliser des bibliothèques comme NLTK, SpaCy ou Hugging Face pour des projets pratiques.\n\n---\n\n**Durée estimée : 3-6 mois**\n\nCe plan de progression vous permettra de renforcer vos compétences clés de manière structurée et efficace, vous préparant ainsi à une carrière de Data Engineer. Assurez-vous de suivre vos progrès et d'ajuster votre plan en fonction de votre rythme d'apprentissage.",
+    "timestamp": "2026-01-14T16:28:04.540941",
+    "model_used": "gpt-4o-mini",
+    "profile_summary": {
+      "weak_blocks": [
+        "bloc5",
+        "bloc4",
+        "bloc3"
+      ],
+      "target_job": "Data Engineer"
+    }
+  },
+  "bio_bloc1_0.6_bloc2_0.6_bloc3_0.3_bloc4_0.3_bloc5_0.3_Data_Engineer": {
+    "query": "Tu es un expert en rédaction de profils professionnels.\n\nCrée une bio professionnelle courte et percutante (Executive Summary style).\n\n**Points forts détectés :**\n- Data Analysis & Visualization (65%)\n\n**Profil métier recommandé :** Data Engineer\n**Score de compatibilité :** 74.1%\n\n**Consignes :**\n1. Longueur : 2 paragraphes (6-8 phrases au total)\n2. Paragraphe 1 : Présentation du profil et compétences techniques maîtrisées\n3. Paragraphe 2 : Expérience, projets réalisés et objectifs professionnels\n4. Style : Professionnel, impactant, orienté résultats\n5. Mettre en avant les points forts détectés\n6. Positionner clairement pour le métier recommandé\n7. Terminer par une ouverture vers les opportunités futures\n\nRéponds en français, sans titre, 2 paragraphes bien structurés.",
+    "response": "Passionné par l'analyse de données et la visualisation, je suis un Data Engineer aguerri, maîtrisant des outils et technologies tels que SQL, Python et des plateformes de BI. Mon expertise en data analysis me permet de transformer des données brutes en informations exploitables, facilitant ainsi la prise de décision stratégique au sein des entreprises. Grâce à des compétences avancées en modélisation de données et en gestion de bases de données, je m'assure que les données sont non seulement accessibles, mais également précises et pertinentes.\n\nAu cours de mes précédentes expériences, j'ai mené plusieurs projets d'envergure qui ont permis d'optimiser les processus décisionnels d'équipes pluridisciplinaires. Mon objectif professionnel est de continuer à développer des solutions innovantes pour améliorer l'efficacité opérationnelle et la performance des organisations. Je suis enthousiaste à l'idée de relever de nouveaux défis et d'explorer des opportunités qui me permettront de mettre à profit mes compétences en data engineering et d'apporter une réelle valeur ajoutée à mon futur employeur.",
+    "timestamp": "2026-01-14T16:28:08.735993",
+    "model_used": "gpt-4o-mini",
+    "profile_summary": {
+      "strong_blocks": [
+        "bloc1"
+      ],
+      "target_job": "Data Engineer"
+    }
   }
 }

@@ -1,7 +1,7 @@
 """
-AISCA - Application Principale OPTIMISÉE
+AISCA - Application Principale
 Agent Intelligent Sémantique et Génératif pour la Cartographie des Compétences
-VERSION OPTIMISÉE : Lazy Import + Cache Streamlit pour démarrage rapide
+Navigation et orchestration complète du système
 """
 
 import streamlit as st
@@ -12,7 +12,8 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-# ✅ IMPORTS LÉGERS SEULEMENT (pas de SBERT au démarrage)
+# Imports des modules
+from app.semantic_analysis import SemanticAnalyzer
 import pandas as pd
 from datetime import datetime
 import json
@@ -208,21 +209,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ✅ CACHE STREAMLIT POUR GARDER LE MODÈLE EN MÉMOIRE
-@st.cache_resource(show_spinner=False)
-def load_semantic_analyzer():
-    """
-    Charger le SemanticAnalyzer avec cache Streamlit
-    Le modèle SBERT reste en mémoire entre les reruns
-    """
-    from app.semantic_analysis import SemanticAnalyzer
-    
-    return SemanticAnalyzer(
-        competencies_path='data/competencies.csv',
-        jobs_path='data/jobs.csv'
-    )
-
-
 def init_session_state():
     """Initialiser les variables de session"""
     if 'page' not in st.session_state:
@@ -242,6 +228,8 @@ def init_session_state():
         st.session_state.questionnaire_completed = False
     if 'analysis_results' not in st.session_state:
         st.session_state.analysis_results = None
+    if 'analyzer' not in st.session_state:
+        st.session_state.analyzer = None
 
 
 def sidebar_navigation():
@@ -260,26 +248,31 @@ def sidebar_navigation():
         st.markdown("### 📋 Progression")
         
         steps = [
-            ("🏠 Accueil", "welcome", st.session_state.page == 'welcome'),
-            ("📝 Questionnaire", "questionnaire", st.session_state.questionnaire_completed),
-            ("🔍 Analyse", "analysis", st.session_state.analysis_results is not None),
-            ("📊 Résultats", "results", False)
+            ('welcome', '🏠 Accueil', st.session_state.page == 'welcome'),
+            ('questionnaire', '📝 Questionnaire', st.session_state.questionnaire_completed),
+            ('analysis', '🔍 Analyse', st.session_state.analysis_results is not None),
+            ('results', '📊 Résultats', st.session_state.analysis_results is not None)
         ]
         
-        for label, page, completed in steps:
-            active = st.session_state.page == page
-            step_class = "active" if active else ("completed" if completed else "")
+        for step_id, step_name, completed in steps:
+            if completed:
+                icon = "✅"
+                class_name = "completed"
+            elif st.session_state.page == step_id:
+                icon = "▶️"
+                class_name = "active"
+            else:
+                icon = "⭕"
+                class_name = ""
             
             st.markdown(f"""
-                <div class="progress-step {step_class}">
-                    <span>{'✅' if completed else '🔘'}</span>
-                    <span>{label}</span>
+                <div class='progress-step {class_name}'>
+                    <span>{icon}</span>
+                    <span>{step_name}</span>
                 </div>
             """, unsafe_allow_html=True)
         
         st.markdown("---")
-        
-        # Navigation
         st.markdown("### 🧭 Navigation")
         
         if st.button("🏠 Accueil", use_container_width=True):
@@ -297,16 +290,19 @@ def sidebar_navigation():
         
         st.markdown("---")
         st.markdown("### ℹ️ Informations")
-        st.caption("**AISCA** v2.0")
-        st.caption("Projet Master Expert Data")
-        st.caption("EFREI 2025-2026")
+        st.markdown("""
+            <div style='color: white; font-size: 0.9rem; line-height: 1.6;'>
+                <p><strong>Projet Master</strong><br>Expert en Ingénierie de Données</p>
+                <p><strong>EFREI</strong><br>2025-2026</p>
+            </div>
+        """, unsafe_allow_html=True)
 
 
 def welcome_page():
     """Page d'accueil"""
     st.markdown("""
         <div class="welcome-hero">
-            <h1>🎓 AISCA</h1>
+            <h1>🎓 Bienvenue sur AISCA</h1>
             <p>Agent Intelligent Sémantique et Génératif<br>pour la Cartographie des Compétences</p>
         </div>
     """, unsafe_allow_html=True)
@@ -314,14 +310,12 @@ def welcome_page():
     st.markdown("""
         <div class="info-box">
             <p>
-                <strong>🎯 Objectif :</strong> Évaluer vos compétences en Data Science et IA 
-                via un questionnaire intelligent et vous recommander les métiers les plus adaptés à votre profil.
+                <strong>🎯 Objectif :</strong> Évaluer vos compétences en Data Science à travers 5 questions adaptatives 
+                et recommander les métiers les plus adaptés à votre profil grâce à l'analyse sémantique 
+                avec SBERT (Sentence-BERT).
             </p>
         </div>
     """, unsafe_allow_html=True)
-    
-    st.markdown("### 🚀 Comment ça marche ?")
-    st.markdown("<br>", unsafe_allow_html=True)
     
     col1, col2, col3 = st.columns(3)
     
@@ -436,11 +430,22 @@ def analysis_page():
         import sys
         import io
         
-        status_text.text("📥 Chargement du moteur SBERT (cache Streamlit)...")
+        status_text.text("📥 Initialisation du moteur SBERT...")
         progress_bar.progress(10)
         
-        # ✅ UTILISER LE CACHE STREAMLIT
-        analyzer = load_semantic_analyzer()
+        if st.session_state.analyzer is None:
+            # Capturer prints de l'init
+            old_stdout = sys.stdout
+            sys.stdout = io.StringIO()
+            try:
+                st.session_state.analyzer = SemanticAnalyzer(
+                    competencies_path='data/competencies.csv',
+                    jobs_path='data/jobs.csv'
+                )
+            finally:
+                sys.stdout = old_stdout
+        
+        analyzer = st.session_state.analyzer
         
         status_text.text("🧠 Analyse sémantique des textes libres...")
         progress_bar.progress(30)
@@ -524,6 +529,9 @@ def analysis_page():
         if st.button("🔙 Retour au questionnaire"):
             st.session_state.page = 'questionnaire'
             st.rerun()
+
+
+
 
 
 def results_page():

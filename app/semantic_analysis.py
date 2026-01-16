@@ -273,7 +273,7 @@ class SemanticAnalyzer:
         q1_parcours: str
     ) -> Tuple[float, int, int]:
         """
-        ✅ NOUVELLE FONCTION : Calculer le score outils POUR UN BLOC SPÉCIFIQUE
+        Calculer le score outils POUR UN BLOC SPÉCIFIQUE
         
         Args:
             bloc_id: ID du bloc (1-5)
@@ -409,7 +409,7 @@ class SemanticAnalyzer:
             print(f"    📊 Score Likert : 0.000 (domaine non sélectionné)")
         
         # ===================================
-        # 3. SCORE OUTILS (20%) - ✅ CORRIGÉ
+        # 3. SCORE OUTILS (20%) 
         # ===================================
         tools_score, nb_q4, nb_q1 = self._calculate_tools_score_for_block(
             bloc_id, 
@@ -422,7 +422,7 @@ class SemanticAnalyzer:
         print(f"       • Outils détectés dans texte Q1 : {nb_q1}")
         
         # ===================================
-        # 4. BONUS EXPÉRIENCE (10%) - ✅ ANALYSE TOUS LES TEXTES Q5
+        # 4. BONUS EXPÉRIENCE (10%) - NALYSE TOUS LES TEXTES Q5
         # ===================================
         experience_score = 0.0
         best_semantic_quality = 0.0
@@ -439,7 +439,7 @@ class SemanticAnalyzer:
                     # Texte trop court, on passe
                     continue
                 
-                # ✅ ANALYSE SÉMANTIQUE : Calculer similarité avec compétences du bloc actuel
+                # NALYSE SÉMANTIQUE : Calculer similarité avec compétences du bloc actuel
                 # Encoder le texte d'expérience
                 exp_embedding = self.model.encode(experience_text, convert_to_tensor=True)
                 

@@ -12,7 +12,7 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.append(str(project_root))
 
-# ✅ IMPORTS LÉGERS SEULEMENT (pas de SBERT au démarrage)
+#  IMPORTS LÉGERS SEULEMENT (pas de SBERT au démarrage)
 import pandas as pd
 from datetime import datetime
 import json
@@ -208,7 +208,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ✅ CACHE STREAMLIT POUR GARDER LE MODÈLE EN MÉMOIRE
+# CACHE STREAMLIT POUR GARDER LE MODÈLE EN MÉMOIRE
 @st.cache_resource(show_spinner=False)
 def load_semantic_analyzer():
     """
@@ -432,20 +432,20 @@ def analysis_page():
     status_text = st.empty()
     
     try:
-        # ✅ IMPORTS POUR MASQUER LES PRINTS
+        # IMPORTS POUR MASQUER LES PRINTS
         import sys
         import io
         
         status_text.text("📥 Chargement du moteur SBERT (cache Streamlit)...")
         progress_bar.progress(10)
-        
-        # ✅ UTILISER LE CACHE STREAMLIT
+    
+        # UTILISER LE CACHE STREAMLIT
         analyzer = load_semantic_analyzer()
         
         status_text.text("🧠 Analyse sémantique des textes libres...")
         progress_bar.progress(30)
         
-        # ✅ CAPTURER LES PRINTS DE L'ANALYSE
+        # CAPTURER LES PRINTS DE L'ANALYSE
         old_stdout = sys.stdout
         sys.stdout = io.StringIO()
         
@@ -477,7 +477,7 @@ def analysis_page():
         
         st.session_state.analysis_results = results
         
-        # ✅ SAUVEGARDER SANS AFFICHER LE MESSAGE
+        # SAUVEGARDER SANS AFFICHER LE MESSAGE
         old_stdout = sys.stdout
         sys.stdout = io.StringIO()
         try:

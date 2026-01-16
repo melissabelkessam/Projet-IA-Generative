@@ -76,7 +76,7 @@ class SemanticAnalyzer:
             5: "Statistiques & Mathématiques"
         }
         
-        # ✅ NOUVEAU : MAPPING OUTILS → BLOCS PERTINENTS
+        # NOUVEAU : MAPPING OUTILS → BLOCS PERTINENTS
         self.tools_to_blocks = {
             # Bloc 1 - Data Analysis & Visualization
             "Python (Pandas, NumPy)": [1, 2, 3, 5],  # Utilisé dans plusieurs blocs
@@ -409,7 +409,7 @@ class SemanticAnalyzer:
             print(f"    📊 Score Likert : 0.000 (domaine non sélectionné)")
         
         # ===================================
-        # 3. SCORE OUTILS (20%) - ✅ CORRIGÉ
+        # 3. SCORE OUTILS (20%) - 
         # ===================================
         tools_score, nb_q4, nb_q1 = self._calculate_tools_score_for_block(
             bloc_id, 
@@ -436,7 +436,7 @@ class SemanticAnalyzer:
                 experience_score = 0.0
                 print(f"    💼 Score Expérience : 0.000 (texte trop court - {word_count} mots)")
             else:
-                # ✅ ANALYSE SÉMANTIQUE DU TEXTE D'EXPÉRIENCE
+                # ANALYSE SÉMANTIQUE DU TEXTE D'EXPÉRIENCE
                 # Encoder le texte d'expérience
                 exp_embedding = self.model.encode(experience_text, convert_to_tensor=True)
                 

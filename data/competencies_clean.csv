@@ -1,0 +1,431 @@
+CompetencyID,Competency,BlockID,BlockName,Description
+C001,data cleaning,1,Data Analysis & Visualization,Nettoyer les données brutes en supprimant les erreurs et incohérences
+C002,data validation,1,Data Analysis & Visualization,Valider la qualité et la cohérence des données collectées
+C003,missing data handling,1,Data Analysis & Visualization,À compléter
+C004,duplicate removal,1,Data Analysis & Visualization,Identifier et supprimer les doublons dans les jeux de données
+C005,data transformation,1,Data Analysis & Visualization,Transformer les données pour les rendre exploitables
+C006,data normalization,1,Data Analysis & Visualization,À compléter
+C007,data standardization,1,Data Analysis & Visualization,Standardiser les formats de données
+C008,outlier detection,1,Data Analysis & Visualization,Détecter les valeurs aberrantes dans les datasets
+C009,outlier treatment,1,Data Analysis & Visualization,Traiter les outliers de manière appropriée
+C010,data type conversion,1,Data Analysis & Visualization,Convertir les types de données selon les besoins
+C011,categorical encoding,1,Data Analysis & Visualization,Encoder les variables catégorielles en valeurs numériques
+C012,one-hot encoding,1,Data Analysis & Visualization,À compléter
+C013,label encoding,1,Data Analysis & Visualization,Encoder les labels catégoriels en valeurs numériques
+C014,feature scaling,1,Data Analysis & Visualization,Mettre à l'échelle les features pour améliorer les performances
+C015,data aggregation,1,Data Analysis & Visualization,Agréger les données selon différents critères
+C016,data grouping,1,Data Analysis & Visualization,Regrouper les données par catégories ou périodes
+C017,data merging,1,Data Analysis & Visualization,Fusionner plusieurs sources de données
+C018,data joining,1,Data Analysis & Visualization,Joindre des tables de données avec différentes clés
+C019,data concatenation,1,Data Analysis & Visualization,Concaténer des datasets verticalement ou horizontalement
+C020,pandas manipulation,1,Data Analysis & Visualization,Manipuler les données avec la bibliothèque Pandas
+C021,numpy operations,1,Data Analysis & Visualization,Effectuer des opérations numériques avec NumPy
+C022,dataframe creation,1,Data Analysis & Visualization,Créer et structurer des DataFrames Pandas
+C023,data indexing,1,Data Analysis & Visualization,Indexer et sélectionner des données spécifiques
+C024,data filtering,1,Data Analysis & Visualization,Filtrer les données selon des conditions
+C025,data sorting,1,Data Analysis & Visualization,Trier les données selon différents critères
+C026,data slicing,1,Data Analysis & Visualization,Découper les données en sous-ensembles
+C027,pivoting tables,1,Data Analysis & Visualization,À compléter
+C028,melting data,1,Data Analysis & Visualization,Restructurer les données du format wide au format long
+C029,exploratory data analysis,1,Data Analysis & Visualization,Conduire une analyse exploratoire approfondie des données
+C030,descriptive statistics,1,Data Analysis & Visualization,Calculer les statistiques descriptives de base
+C031,data profiling,1,Data Analysis & Visualization,Profiler les données pour comprendre leur structure
+C032,data quality assessment,1,Data Analysis & Visualization,Évaluer la qualité globale des données
+C033,data visualization matplotlib,1,Data Analysis & Visualization,Créer des visualisations avec Matplotlib
+C034,data visualization seaborn,1,Data Analysis & Visualization,Créer des graphiques statistiques avec Seaborn
+C035,data visualization plotly,1,Data Analysis & Visualization,Développer des visualisations interactives avec Plotly
+C036,line charts,1,Data Analysis & Visualization,Créer des graphiques linéaires pour tendances temporelles
+C037,bar charts,1,Data Analysis & Visualization,Créer des graphiques à barres pour comparaisons
+C038,scatter plots,1,Data Analysis & Visualization,Créer des nuages de points pour relations entre variables
+C039,histograms,1,Data Analysis & Visualization,À compléter
+C040,box plots,1,Data Analysis & Visualization,Créer des diagrammes en boîte pour visualiser les quartiles
+C041,heatmaps,1,Data Analysis & Visualization,Créer des cartes de chaleur pour matrices de corrélation
+C042,pair plots,1,Data Analysis & Visualization,Créer des graphiques de paires pour relations multivariées
+C043,violin plots,1,Data Analysis & Visualization,Créer des violin plots pour distributions et densités
+C044,pie charts,1,Data Analysis & Visualization,Créer des diagrammes circulaires pour proportions
+C045,area charts,1,Data Analysis & Visualization,Créer des graphiques en aires pour évolutions cumulées
+C046,3d visualization,1,Data Analysis & Visualization,Créer des visualisations en trois dimensions
+C047,interactive dashboards,1,Data Analysis & Visualization,À compléter
+C048,dashboard design,1,Data Analysis & Visualization,Concevoir l'architecture de dashboards efficaces
+C049,storytelling with data,1,Data Analysis & Visualization,Raconter une histoire à travers les visualisations
+C050,chart customization,1,Data Analysis & Visualization,Personnaliser les graphiques pour meilleure lisibilité
+C051,color scheme selection,1,Data Analysis & Visualization,Choisir des palettes de couleurs appropriées
+C052,sql queries,1,Data Analysis & Visualization,Écrire des requêtes SQL pour extraire des données
+C053,sql joins,1,Data Analysis & Visualization,Effectuer des jointures SQL complexes
+C054,sql aggregations,1,Data Analysis & Visualization,Agréger des données avec GROUP BY et fonctions
+C055,sql subqueries,1,Data Analysis & Visualization,Utiliser des sous-requêtes SQL imbriquées
+C056,sql window functions,1,Data Analysis & Visualization,Appliquer des fonctions de fenêtrage SQL
+C057,sql optimization,1,Data Analysis & Visualization,Optimiser les performances des requêtes SQL
+C058,database design,1,Data Analysis & Visualization,Concevoir des schémas de bases de données
+C059,etl processes,1,Data Analysis & Visualization,Mettre en place des processus ETL (Extract Transform Load)
+C060,data pipeline creation,1,Data Analysis & Visualization,Créer des pipelines de traitement de données
+C061,data extraction,1,Data Analysis & Visualization,Extraire des données de diverses sources
+C062,api data collection,1,Data Analysis & Visualization,Collecter des données via des APIs REST
+C063,web scraping,1,Data Analysis & Visualization,Extraire des données depuis des sites web
+C064,file format handling,1,Data Analysis & Visualization,Gérer différents formats de fichiers (CSV JSON XML)
+C065,data export,1,Data Analysis & Visualization,Exporter les données vers différents formats
+C066,report generation,1,Data Analysis & Visualization,Générer des rapports automatisés
+C067,insight communication,1,Data Analysis & Visualization,Communiquer les insights data aux stakeholders
+C068,data interpretation,1,Data Analysis & Visualization,Interpréter les résultats d'analyses
+C069,business metrics,1,Data Analysis & Visualization,À compléter
+C070,trend analysis,1,Data Analysis & Visualization,Analyser les tendances dans les données temporelles
+C071,pattern recognition,1,Data Analysis & Visualization,Identifier des patterns dans les données
+C072,data sampling,1,Data Analysis & Visualization,Échantillonner les données de manière représentative
+C073,stratified sampling,1,Data Analysis & Visualization,Effectuer un échantillonnage stratifié
+C074,time series handling,1,Data Analysis & Visualization,Manipuler des séries temporelles
+C075,date time operations,1,Data Analysis & Visualization,Effectuer des opérations sur dates et heures
+C076,data versioning,1,Data Analysis & Visualization,Versionner les datasets pour traçabilité
+C077,data documentation,1,Data Analysis & Visualization,Documenter les sources et transformations de données
+C078,data lineage,1,Data Analysis & Visualization,Tracer la lignée des données dans le pipeline
+C079,excel integration,1,Data Analysis & Visualization,Intégrer et manipuler des fichiers Excel
+C080,google sheets integration,1,Data Analysis & Visualization,Travailler avec Google Sheets via API
+C081,regression models,2,Machine Learning Supervisé,Construire des modèles de régression pour prédictions continues
+C082,linear regression,2,Machine Learning Supervisé,Implémenter la régression linéaire simple et multiple
+C083,polynomial regression,2,Machine Learning Supervisé,Appliquer la régression polynomiale pour relations non-linéaires
+C084,ridge regression,2,Machine Learning Supervisé,Utiliser la régression Ridge pour régularisation L2
+C085,lasso regression,2,Machine Learning Supervisé,Appliquer la régression Lasso pour sélection de features
+C086,elastic net,2,Machine Learning Supervisé,Combiner Ridge et Lasso avec Elastic Net
+C087,logistic regression,2,Machine Learning Supervisé,Implémenter la régression logistique pour classification binaire
+C088,multinomial logistic regression,2,Machine Learning Supervisé,Étendre la régression logistique aux classes multiples
+C089,decision trees,2,Machine Learning Supervisé,Construire des arbres de décision pour classification
+C090,decision tree pruning,2,Machine Learning Supervisé,Élaguer les arbres de décision pour éviter l'overfitting
+C091,random forest,2,Machine Learning Supervisé,Implémenter des forêts aléatoires (ensemble d'arbres)
+C092,random forest tuning,2,Machine Learning Supervisé,Optimiser les hyperparamètres des random forests
+C093,gradient boosting,2,Machine Learning Supervisé,Appliquer le gradient boosting pour améliorer les prédictions
+C094,xgboost,2,Machine Learning Supervisé,Utiliser XGBoost pour performances optimales
+C095,lightgbm,2,Machine Learning Supervisé,Implémenter LightGBM pour grandes données
+C096,catboost,2,Machine Learning Supervisé,À compléter
+C097,adaboost,2,Machine Learning Supervisé,Appliquer l'adaptive boosting
+C098,support vector machines,2,Machine Learning Supervisé,Implémenter des SVM pour classification
+C099,svm kernels,2,Machine Learning Supervisé,Utiliser différents kernels (linear RBF polynomial)
+C100,k-nearest neighbors,2,Machine Learning Supervisé,Appliquer l'algorithme KNN pour classification
+C101,naive bayes,2,Machine Learning Supervisé,Implémenter les classifieurs Naive Bayes
+C102,gaussian naive bayes,2,Machine Learning Supervisé,Utiliser Gaussian NB pour features continues
+C103,multinomial naive bayes,2,Machine Learning Supervisé,Appliquer Multinomial NB pour données textuelles
+C104,neural networks basics,2,Machine Learning Supervisé,Comprendre les bases des réseaux de neurones
+C105,multilayer perceptron,2,Machine Learning Supervisé,Implémenter des perceptrons multicouches
+C106,activation functions,2,Machine Learning Supervisé,Utiliser différentes fonctions d'activation
+C107,backpropagation,2,Machine Learning Supervisé,Comprendre et implémenter la rétropropagation
+C108,gradient descent,2,Machine Learning Supervisé,Optimiser avec la descente de gradient
+C109,stochastic gradient descent,2,Machine Learning Supervisé,Appliquer SGD pour optimisation
+C110,adam optimizer,2,Machine Learning Supervisé,Utiliser l'optimiseur Adam
+C111,learning rate tuning,2,Machine Learning Supervisé,Ajuster le taux d'apprentissage
+C112,batch normalization,2,Machine Learning Supervisé,Normaliser les activations entre les couches
+C113,dropout regularization,2,Machine Learning Supervisé,Appliquer le dropout pour éviter l'overfitting
+C114,early stopping,2,Machine Learning Supervisé,Implémenter l'arrêt précoce pendant l'entraînement
+C115,cross validation,2,Machine Learning Supervisé,Utiliser la validation croisée pour évaluation robuste
+C116,k-fold cross validation,2,Machine Learning Supervisé,Implémenter la validation croisée k-fold
+C117,stratified cross validation,2,Machine Learning Supervisé,Appliquer la validation croisée stratifiée
+C118,train test split,2,Machine Learning Supervisé,Diviser les données en ensembles train/test
+C119,holdout validation,2,Machine Learning Supervisé,Utiliser la méthode de validation holdout
+C120,model evaluation metrics,2,Machine Learning Supervisé,Calculer diverses métriques d'évaluation
+C121,accuracy score,2,Machine Learning Supervisé,Mesurer l'exactitude globale du modèle
+C122,precision score,2,Machine Learning Supervisé,Calculer la précision (true positives / predicted positives)
+C123,recall score,2,Machine Learning Supervisé,Calculer le rappel (true positives / actual positives)
+C124,f1 score,2,Machine Learning Supervisé,Calculer le score F1 (harmonic mean precision/recall)
+C125,confusion matrix,2,Machine Learning Supervisé,Créer et interpréter une matrice de confusion
+C126,roc curve,2,Machine Learning Supervisé,Tracer et analyser la courbe ROC
+C127,auc score,2,Machine Learning Supervisé,Calculer l'aire sous la courbe ROC
+C128,precision recall curve,2,Machine Learning Supervisé,Analyser la courbe précision-rappel
+C129,classification report,2,Machine Learning Supervisé,Générer un rapport de classification complet
+C130,overfitting detection,2,Machine Learning Supervisé,Détecter le sur-apprentissage dans les modèles
+C131,underfitting detection,2,Machine Learning Supervisé,Identifier le sous-apprentissage
+C132,bias variance tradeoff,2,Machine Learning Supervisé,Comprendre le compromis biais-variance
+C133,hyperparameter tuning,2,Machine Learning Supervisé,Optimiser les hyperparamètres des modèles
+C134,grid search,2,Machine Learning Supervisé,Effectuer une recherche exhaustive par grille
+C135,random search,2,Machine Learning Supervisé,Optimiser par recherche aléatoire
+C136,bayesian optimization,2,Machine Learning Supervisé,Appliquer l'optimisation bayésienne
+C137,feature engineering,2,Machine Learning Supervisé,Créer de nouvelles features pertinentes
+C138,feature selection,2,Machine Learning Supervisé,Sélectionner les features les plus importantes
+C139,feature importance,2,Machine Learning Supervisé,Calculer l'importance des features
+C140,recursive feature elimination,2,Machine Learning Supervisé,Éliminer récursivement les features non pertinentes
+C141,pipeline creation scikit-learn,2,Machine Learning Supervisé,Créer des pipelines ML avec scikit-learn
+C142,model serialization,2,Machine Learning Supervisé,Sauvegarder et charger des modèles (pickle joblib)
+C143,model deployment,2,Machine Learning Supervisé,Déployer des modèles en production
+C144,model versioning,2,Machine Learning Supervisé,Versionner les modèles ML
+C145,model monitoring,2,Machine Learning Supervisé,Surveiller les performances en production
+C146,class imbalance handling,2,Machine Learning Supervisé,Gérer les déséquilibres de classes
+C147,smote technique,2,Machine Learning Supervisé,Appliquer SMOTE pour sur-échantillonnage
+C148,undersampling,2,Machine Learning Supervisé,Sous-échantillonner la classe majoritaire
+C149,ensemble methods,2,Machine Learning Supervisé,Combiner plusieurs modèles pour meilleures performances
+C150,bagging,2,Machine Learning Supervisé,Appliquer le bagging (bootstrap aggregating)
+C151,stacking,2,Machine Learning Supervisé,Implémenter le stacking de modèles
+C152,voting classifiers,2,Machine Learning Supervisé,Créer des classifieurs par vote
+C153,multi-class classification,2,Machine Learning Supervisé,Gérer la classification multi-classes
+C154,multi-label classification,2,Machine Learning Supervisé,Implémenter la classification multi-labels
+C155,calibration curves,2,Machine Learning Supervisé,Calibrer les probabilités prédites
+C156,learning curves,2,Machine Learning Supervisé,Analyser les courbes d'apprentissage
+C157,residual analysis,2,Machine Learning Supervisé,Analyser les résidus des modèles de régression
+C158,outlier impact assessment,2,Machine Learning Supervisé,Évaluer l'impact des outliers sur les modèles
+C159,model interpretation,2,Machine Learning Supervisé,Interpréter les décisions des modèles
+C160,shap values,2,Machine Learning Supervisé,Utiliser SHAP pour expliquer les prédictions
+C161,clustering algorithms,3,Machine Learning Non Supervisé,Implémenter divers algorithmes de clustering
+C162,k-means clustering,3,Machine Learning Non Supervisé,Appliquer K-means pour partitionnement
+C163,k-means++,3,Machine Learning Non Supervisé,Utiliser K-means++ pour meilleure initialisation
+C164,elbow method,3,Machine Learning Non Supervisé,Déterminer le nombre optimal de clusters
+C165,silhouette analysis,3,Machine Learning Non Supervisé,Évaluer la qualité des clusters avec silhouette score
+C166,hierarchical clustering,3,Machine Learning Non Supervisé,Implémenter le clustering hiérarchique
+C167,agglomerative clustering,3,Machine Learning Non Supervisé,Appliquer le clustering agglomératif
+C168,divisive clustering,3,Machine Learning Non Supervisé,Utiliser le clustering divisif
+C169,dendrograms,3,Machine Learning Non Supervisé,Créer et interpréter des dendrogrammes
+C170,dbscan,3,Machine Learning Non Supervisé,Implémenter DBSCAN pour clusters de densité
+C171,dbscan parameter tuning,3,Machine Learning Non Supervisé,Optimiser eps et min_samples pour DBSCAN
+C172,hdbscan,3,Machine Learning Non Supervisé,Utiliser HDBSCAN (hierarchical DBSCAN)
+C173,mean shift clustering,3,Machine Learning Non Supervisé,Appliquer Mean Shift pour clustering
+C174,gaussian mixture models,3,Machine Learning Non Supervisé,Implémenter des GMM pour clustering probabiliste
+C175,expectation maximization,3,Machine Learning Non Supervisé,Utiliser l'algorithme EM pour GMM
+C176,spectral clustering,3,Machine Learning Non Supervisé,Appliquer le clustering spectral
+C177,affinity propagation,3,Machine Learning Non Supervisé,Utiliser Affinity Propagation pour clustering
+C178,optics clustering,3,Machine Learning Non Supervisé,Implémenter OPTICS pour données de densités variées
+C179,dimensionality reduction,3,Machine Learning Non Supervisé,Réduire les dimensions des données
+C180,principal component analysis,3,Machine Learning Non Supervisé,Appliquer PCA pour réduction linéaire
+C181,pca visualization,3,Machine Learning Non Supervisé,Visualiser les composantes principales
+C182,explained variance ratio,3,Machine Learning Non Supervisé,Calculer la variance expliquée par chaque composante
+C183,scree plot,3,Machine Learning Non Supervisé,Créer des scree plots pour choisir le nombre de composantes
+C184,kernel pca,3,Machine Learning Non Supervisé,Appliquer Kernel PCA pour réduction non-linéaire
+C185,t-sne,3,Machine Learning Non Supervisé,Utiliser t-SNE pour visualisation haute dimension
+C186,umap,3,Machine Learning Non Supervisé,Implémenter UMAP pour réduction de dimension
+C187,autoencoder,3,Machine Learning Non Supervisé,Créer des autoencodeurs pour compression
+C188,variational autoencoder,3,Machine Learning Non Supervisé,Implémenter des VAE pour génération
+C189,sparse pca,3,Machine Learning Non Supervisé,Appliquer Sparse PCA pour interprétabilité
+C190,incremental pca,3,Machine Learning Non Supervisé,Utiliser PCA incrémentiel pour grandes données
+C191,factor analysis,3,Machine Learning Non Supervisé,Effectuer une analyse factorielle
+C192,independent component analysis,3,Machine Learning Non Supervisé,Appliquer ICA pour séparation de sources
+C193,non-negative matrix factorization,3,Machine Learning Non Supervisé,Utiliser NMF pour factorisation
+C194,anomaly detection,3,Machine Learning Non Supervisé,Détecter les anomalies dans les données
+C195,isolation forest,3,Machine Learning Non Supervisé,Implémenter Isolation Forest pour anomalies
+C196,one-class svm,3,Machine Learning Non Supervisé,Utiliser One-Class SVM pour détection d'anomalies
+C197,local outlier factor,3,Machine Learning Non Supervisé,Appliquer LOF pour détecter les outliers locaux
+C198,elliptic envelope,3,Machine Learning Non Supervisé,Utiliser Elliptic Envelope pour anomalies
+C199,autoencoder anomaly detection,3,Machine Learning Non Supervisé,Détecter anomalies avec autoencodeurs
+C200,statistical anomaly detection,3,Machine Learning Non Supervisé,Appliquer des méthodes statistiques pour anomalies
+C201,association rules,3,Machine Learning Non Supervisé,Extraire des règles d'association
+C202,apriori algorithm,3,Machine Learning Non Supervisé,Implémenter l'algorithme Apriori
+C203,fp-growth,3,Machine Learning Non Supervisé,Utiliser FP-Growth pour itemsets fréquents
+C204,support confidence lift,3,Machine Learning Non Supervisé,Calculer support confidence et lift des règles
+C205,market basket analysis,3,Machine Learning Non Supervisé,Effectuer une analyse de panier de marché
+C206,self-organizing maps,3,Machine Learning Non Supervisé,Implémenter des cartes auto-organisatrices
+C207,mini-batch k-means,3,Machine Learning Non Supervisé,Utiliser Mini-Batch K-means pour grandes données
+C208,fuzzy c-means,3,Machine Learning Non Supervisé,Appliquer Fuzzy C-Means pour clustering flou
+C209,biclustering,3,Machine Learning Non Supervisé,Effectuer du biclustering simultané lignes/colonnes
+C210,cluster validation,3,Machine Learning Non Supervisé,Valider la qualité et stabilité des clusters
+C211,calinski-harabasz score,3,Machine Learning Non Supervisé,Calculer le score Calinski-Harabasz
+C212,davies-bouldin index,3,Machine Learning Non Supervisé,Utiliser l'indice Davies-Bouldin
+C213,cluster visualization,3,Machine Learning Non Supervisé,Visualiser les résultats de clustering
+C214,cluster interpretation,3,Machine Learning Non Supervisé,Interpréter la signification des clusters
+C215,cluster profiling,3,Machine Learning Non Supervisé,Profiler les caractéristiques de chaque cluster
+C216,customer segmentation,3,Machine Learning Non Supervisé,Segmenter les clients avec clustering
+C217,document clustering,3,Machine Learning Non Supervisé,Regrouper des documents par similarité
+C218,image segmentation,3,Machine Learning Non Supervisé,Segmenter des images en régions
+C219,time series clustering,3,Machine Learning Non Supervisé,Regrouper des séries temporelles similaires
+C220,manifold learning,3,Machine Learning Non Supervisé,Apprendre la structure de variété des données
+C221,isomap,3,Machine Learning Non Supervisé,Utiliser Isomap pour réduction géométrique
+C222,locally linear embedding,3,Machine Learning Non Supervisé,Appliquer LLE pour préservation locale
+C223,multidimensional scaling,3,Machine Learning Non Supervisé,Utiliser MDS pour visualisation distances
+C224,topic modeling,3,Machine Learning Non Supervisé,Extraire des topics de corpus textuels
+C225,latent dirichlet allocation,3,Machine Learning Non Supervisé,Implémenter LDA pour topic modeling
+C226,latent semantic analysis,3,Machine Learning Non Supervisé,Appliquer LSA pour analyse sémantique
+C227,collaborative filtering,3,Machine Learning Non Supervisé,Implémenter du filtrage collaboratif
+C228,recommendation systems,3,Machine Learning Non Supervisé,Créer des systèmes de recommandation
+C229,matrix completion,3,Machine Learning Non Supervisé,Compléter des matrices partiellement observées
+C230,density estimation,3,Machine Learning Non Supervisé,Estimer la densité de probabilité des données
+C231,text preprocessing,4,NLP,Prétraiter le texte avant analyse
+C232,tokenization,4,NLP,Découper le texte en tokens (mots ou sous-mots)
+C233,sentence tokenization,4,NLP,Segmenter le texte en phrases
+C234,word tokenization,4,NLP,Segmenter le texte en mots
+C235,subword tokenization,4,NLP,Tokeniser en sous-unités (BPE WordPiece)
+C236,lowercasing,4,NLP,Convertir le texte en minuscules
+C237,punctuation removal,4,NLP,Supprimer la ponctuation du texte
+C238,stopwords removal,4,NLP,Éliminer les mots vides (stopwords)
+C239,stemming,4,NLP,Réduire les mots à leur racine (stem)
+C240,lemmatization,4,NLP,Réduire les mots à leur forme canonique (lemme)
+C241,part-of-speech tagging,4,NLP,Étiqueter les parties du discours
+C242,named entity recognition,4,NLP,Extraire les entités nommées (personnes lieux organisations)
+C243,dependency parsing,4,NLP,Analyser les dépendances syntaxiques
+C244,constituency parsing,4,NLP,Analyser la structure des phrases
+C245,text normalization,4,NLP,Normaliser le texte (abbréviations nombres)
+C246,spell checking,4,NLP,Corriger les fautes d'orthographe
+C247,text cleaning,4,NLP,Nettoyer le texte (HTML URLs emails)
+C248,regex patterns,4,NLP,Utiliser des expressions régulières pour NLP
+C249,bag of words,4,NLP,Créer des représentations bag-of-words
+C250,tf-idf,4,NLP,Calculer la fréquence terme-document inversée
+C251,n-grams,4,NLP,Extraire des n-grammes (bigrams trigrams)
+C252,word embeddings,4,NLP,Créer des représentations vectorielles de mots
+C253,word2vec,4,NLP,Entraîner des modèles Word2Vec (CBOW Skip-gram)
+C254,glove embeddings,4,NLP,Utiliser les embeddings GloVe pré-entraînés
+C255,fasttext,4,NLP,Appliquer fastText pour embeddings avec sous-mots
+C256,contextual embeddings,4,NLP,Utiliser des embeddings contextuels
+C257,bert embeddings,4,NLP,Extraire des embeddings avec BERT
+C258,bert fine-tuning,4,NLP,Fine-tuner BERT pour tâches spécifiques
+C259,sbert,4,NLP,Utiliser Sentence-BERT pour embeddings de phrases
+C260,transformers,4,NLP,Implémenter l'architecture Transformer
+C261,attention mechanism,4,NLP,Comprendre et utiliser les mécanismes d'attention
+C262,self-attention,4,NLP,Implémenter la self-attention
+C263,multi-head attention,4,NLP,Utiliser l'attention multi-têtes
+C264,positional encoding,4,NLP,Ajouter l'encodage positionnel
+C265,gpt models,4,NLP,Utiliser les modèles GPT pour génération
+C266,t5 model,4,NLP,Appliquer T5 pour tâches text-to-text
+C267,roberta,4,NLP,Utiliser RoBERTa (BERT optimisé)
+C268,albert,4,NLP,Implémenter ALBERT (BERT léger)
+C269,distilbert,4,NLP,Utiliser DistilBERT (BERT distillé)
+C270,xlnet,4,NLP,Appliquer XLNet pour modélisation du langage
+C271,electra,4,NLP,Utiliser ELECTRA pour pré-entraînement efficace
+C272,cosine similarity,4,NLP,Calculer la similarité cosinus entre textes
+C273,semantic similarity,4,NLP,Mesurer la similarité sémantique
+C274,text similarity metrics,4,NLP,Utiliser diverses métriques de similarité
+C275,jaccard similarity,4,NLP,Calculer la similarité de Jaccard
+C276,levenshtein distance,4,NLP,Mesurer la distance d'édition
+C277,text classification,4,NLP,Classifier des textes en catégories
+C278,sentiment analysis,4,NLP,Analyser les sentiments (positif négatif neutre)
+C279,emotion detection,4,NLP,Détecter les émotions dans le texte
+C280,intent classification,4,NLP,Classifier l'intention dans les requêtes
+C281,spam detection,4,NLP,Détecter les spams dans les messages
+C282,topic classification,4,NLP,Classifier les documents par topics
+C283,multi-label text classification,4,NLP,Classifier avec plusieurs labels simultanés
+C284,sequence labeling,4,NLP,Étiqueter les séquences de tokens
+C285,bio tagging,4,NLP,Appliquer le schéma BIO pour NER
+C286,conditional random fields,4,NLP,Utiliser CRF pour étiquetage de séquences
+C287,recurrent neural networks,4,NLP,Implémenter des RNN pour séquences
+C288,lstm networks,4,NLP,Utiliser LSTM pour dépendances long terme
+C289,gru networks,4,NLP,Appliquer GRU comme alternative aux LSTM
+C290,bidirectional lstm,4,NLP,Utiliser BiLSTM pour contexte bidirectionnel
+C291,text generation,4,NLP,Générer du texte automatiquement
+C292,language modeling,4,NLP,Modéliser la probabilité des séquences
+C293,next word prediction,4,NLP,Prédire le prochain mot dans une séquence
+C294,text summarization,4,NLP,Résumer automatiquement des textes
+C295,extractive summarization,4,NLP,Extraire les phrases clés pour résumé
+C296,abstractive summarization,4,NLP,Générer des résumés paraphrasés
+C297,machine translation,4,NLP,Traduire automatiquement entre langues
+C298,seq2seq models,4,NLP,Implémenter des modèles séquence-à-séquence
+C299,encoder-decoder architecture,4,NLP,Utiliser l'architecture encodeur-décodeur
+C300,beam search,4,NLP,Appliquer beam search pour génération
+C301,question answering,4,NLP,Construire des systèmes de questions-réponses
+C302,reading comprehension,4,NLP,Développer des modèles de compréhension de lecture
+C303,information extraction,4,NLP,Extraire des informations structurées du texte
+C304,relation extraction,4,NLP,Extraire les relations entre entités
+C305,coreference resolution,4,NLP,Résoudre les coréférences pronominales
+C306,text entailment,4,NLP,Déterminer l'implication textuelle
+C307,paraphrase detection,4,NLP,Identifier les paraphrases
+C308,chatbot development,4,NLP,Développer des chatbots conversationnels
+C309,dialogue systems,4,NLP,Créer des systèmes de dialogue
+C310,conversational ai,4,NLP,Implémenter des agents conversationnels
+C311,prompt engineering,4,NLP,Concevoir des prompts efficaces pour LLMs
+C312,few-shot learning,4,NLP,Apprendre avec peu d'exemples
+C313,zero-shot learning,4,NLP,Classifier sans exemples d'entraînement
+C314,transfer learning nlp,4,NLP,Appliquer le transfer learning en NLP
+C315,domain adaptation,4,NLP,Adapter les modèles à des domaines spécifiques
+C316,multilingual nlp,4,NLP,Gérer plusieurs langues simultanément
+C317,cross-lingual transfer,4,NLP,Transférer les connaissances entre langues
+C318,language detection,4,NLP,Détecter la langue d'un texte
+C319,code-switching handling,4,NLP,Gérer le mélange de langues
+C320,text augmentation,4,NLP,Augmenter les données textuelles
+C321,back translation,4,NLP,Utiliser la traduction aller-retour pour augmentation
+C322,synonym replacement,4,NLP,Remplacer par des synonymes pour augmentation
+C323,active learning nlp,4,NLP,Sélectionner les exemples les plus informatifs
+C324,model interpretability,4,NLP,Interpréter les décisions des modèles NLP
+C325,attention visualization,4,NLP,Visualiser les poids d'attention
+C326,word importance,4,NLP,Identifier les mots importants pour prédictions
+C327,adversarial examples nlp,4,NLP,Créer et défendre contre exemples adverses
+C328,bias detection in text,4,NLP,Détecter les biais dans les modèles de langage
+C329,fairness in nlp,4,NLP,Assurer l'équité des modèles NLP
+C330,text privacy,4,NLP,Préserver la confidentialité dans les données textuelles
+C331,probability distributions,5,Statistiques & Mathématiques,Comprendre les distributions de probabilités
+C332,normal distribution,5,Statistiques & Mathématiques,Utiliser la distribution normale (gaussienne)
+C333,binomial distribution,5,Statistiques & Mathématiques,Appliquer la distribution binomiale
+C334,poisson distribution,5,Statistiques & Mathématiques,Utiliser la distribution de Poisson
+C335,exponential distribution,5,Statistiques & Mathématiques,Appliquer la distribution exponentielle
+C336,uniform distribution,5,Statistiques & Mathématiques,Utiliser la distribution uniforme
+C337,chi-square distribution,5,Statistiques & Mathématiques,Appliquer la distribution du chi-deux
+C338,t-distribution,5,Statistiques & Mathématiques,Utiliser la distribution de Student
+C339,f-distribution,5,Statistiques & Mathématiques,Appliquer la distribution de Fisher
+C340,beta distribution,5,Statistiques & Mathématiques,Utiliser la distribution bêta
+C341,gamma distribution,5,Statistiques & Mathématiques,Appliquer la distribution gamma
+C342,descriptive statistics,5,Statistiques & Mathématiques,Calculer les statistiques descriptives
+C343,mean calculation,5,Statistiques & Mathématiques,Calculer la moyenne arithmétique
+C344,median calculation,5,Statistiques & Mathématiques,Calculer la médiane
+C345,mode calculation,5,Statistiques & Mathématiques,Identifier le mode d'une distribution
+C346,variance calculation,5,Statistiques & Mathématiques,Calculer la variance
+C347,standard deviation,5,Statistiques & Mathématiques,Calculer l'écart-type
+C348,range calculation,5,Statistiques & Mathématiques,Calculer l'étendue des données
+C349,interquartile range,5,Statistiques & Mathématiques,Calculer l'écart interquartile
+C350,percentiles,5,Statistiques & Mathématiques,Calculer les percentiles et quartiles
+C351,skewness,5,Statistiques & Mathématiques,Mesurer l'asymétrie d'une distribution
+C352,kurtosis,5,Statistiques & Mathématiques,Mesurer l'aplatissement d'une distribution
+C353,correlation analysis,5,Statistiques & Mathématiques,Analyser les corrélations entre variables
+C354,pearson correlation,5,Statistiques & Mathématiques,Calculer le coefficient de corrélation de Pearson
+C355,spearman correlation,5,Statistiques & Mathématiques,Calculer la corrélation de rang de Spearman
+C356,kendall correlation,5,Statistiques & Mathématiques,Utiliser le tau de Kendall
+C357,covariance,5,Statistiques & Mathématiques,Calculer la covariance entre variables
+C358,correlation vs causation,5,Statistiques & Mathématiques,Distinguer corrélation et causalité
+C359,hypothesis testing,5,Statistiques & Mathématiques,Effectuer des tests d'hypothèses statistiques
+C360,null hypothesis,5,Statistiques & Mathématiques,Formuler l'hypothèse nulle
+C361,alternative hypothesis,5,Statistiques & Mathématiques,Formuler l'hypothèse alternative
+C362,p-value interpretation,5,Statistiques & Mathématiques,Interpréter les p-values correctement
+C363,significance level,5,Statistiques & Mathématiques,Choisir le seuil de significativité (alpha)
+C364,type i error,5,Statistiques & Mathématiques,Comprendre l'erreur de type I (faux positif)
+C365,type ii error,5,Statistiques & Mathématiques,Comprendre l'erreur de type II (faux négatif)
+C366,statistical power,5,Statistiques & Mathématiques,Calculer la puissance statistique d'un test
+C367,t-test,5,Statistiques & Mathématiques,Effectuer des tests t (Student)
+C368,paired t-test,5,Statistiques & Mathématiques,Appliquer le t-test pour échantillons appariés
+C369,independent t-test,5,Statistiques & Mathématiques,Effectuer le t-test pour échantillons indépendants
+C370,one-sample t-test,5,Statistiques & Mathématiques,Tester une moyenne contre une valeur de référence
+C371,z-test,5,Statistiques & Mathématiques,Effectuer des tests z
+C372,chi-square test,5,Statistiques & Mathématiques,Appliquer le test du chi-deux
+C373,chi-square goodness of fit,5,Statistiques & Mathématiques,Tester l'adéquation à une distribution
+C374,chi-square independence,5,Statistiques & Mathématiques,Tester l'indépendance de variables catégorielles
+C375,anova,5,Statistiques & Mathématiques,Effectuer l'analyse de variance
+C376,one-way anova,5,Statistiques & Mathématiques,Comparer plusieurs groupes (un facteur)
+C377,two-way anova,5,Statistiques & Mathématiques,Analyser l'effet de deux facteurs
+C378,repeated measures anova,5,Statistiques & Mathématiques,ANOVA pour mesures répétées
+C379,post-hoc tests,5,Statistiques & Mathématiques,Effectuer des tests post-hoc après ANOVA
+C380,tukey hsd test,5,Statistiques & Mathématiques,Appliquer le test de Tukey
+C381,bonferroni correction,5,Statistiques & Mathématiques,Corriger pour comparaisons multiples
+C382,non-parametric tests,5,Statistiques & Mathématiques,Utiliser des tests non-paramétriques
+C383,mann-whitney u test,5,Statistiques & Mathématiques,Comparer deux groupes indépendants (non-paramétrique)
+C384,wilcoxon signed-rank test,5,Statistiques & Mathématiques,Tester des échantillons appariés (non-paramétrique)
+C385,kruskal-wallis test,5,Statistiques & Mathématiques,ANOVA non-paramétrique pour plusieurs groupes
+C386,friedman test,5,Statistiques & Mathématiques,Alternative non-paramétrique à ANOVA répétée
+C387,confidence intervals,5,Statistiques & Mathématiques,Calculer les intervalles de confiance
+C388,confidence interval interpretation,5,Statistiques & Mathématiques,Interpréter correctement les IC
+C389,bootstrap methods,5,Statistiques & Mathématiques,Appliquer le bootstrap pour estimation
+C390,permutation tests,5,Statistiques & Mathématiques,Effectuer des tests de permutation
+C391,linear algebra basics,5,Statistiques & Mathématiques,Maîtriser les bases de l'algèbre linéaire
+C392,vectors,5,Statistiques & Mathématiques,Manipuler des vecteurs
+C393,matrices,5,Statistiques & Mathématiques,Opérer sur des matrices
+C394,matrix multiplication,5,Statistiques & Mathématiques,Effectuer la multiplication matricielle
+C395,matrix transpose,5,Statistiques & Mathématiques,Transposer des matrices
+C396,matrix inverse,5,Statistiques & Mathématiques,Calculer l'inverse d'une matrice
+C397,determinant,5,Statistiques & Mathématiques,Calculer le déterminant d'une matrice
+C398,eigenvalues,5,Statistiques & Mathématiques,Calculer les valeurs propres
+C399,eigenvectors,5,Statistiques & Mathématiques,Calculer les vecteurs propres
+C400,matrix decomposition,5,Statistiques & Mathématiques,Décomposer des matrices (SVD QR LU)
+C401,singular value decomposition,5,Statistiques & Mathématiques,Appliquer la décomposition en valeurs singulières
+C402,dot product,5,Statistiques & Mathématiques,Calculer le produit scalaire
+C403,cross product,5,Statistiques & Mathématiques,Calculer le produit vectoriel
+C404,norm calculation,5,Statistiques & Mathématiques,Calculer les normes de vecteurs
+C405,calculus basics,5,Statistiques & Mathématiques,Comprendre les bases du calcul différentiel
+C406,derivatives,5,Statistiques & Mathématiques,Calculer les dérivées
+C407,partial derivatives,5,Statistiques & Mathématiques,Calculer les dérivées partielles
+C408,gradient,5,Statistiques & Mathématiques,Calculer le gradient d'une fonction
+C409,chain rule,5,Statistiques & Mathématiques,Appliquer la règle de la chaîne
+C410,optimization theory,5,Statistiques & Mathématiques,Comprendre la théorie de l'optimisation
+C411,convex optimization,5,Statistiques & Mathématiques,Résoudre des problèmes d'optimisation convexe
+C412,lagrange multipliers,5,Statistiques & Mathématiques,Utiliser les multiplicateurs de Lagrange
+C413,numerical optimization,5,Statistiques & Mathématiques,Appliquer des méthodes d'optimisation numérique
+C414,time series analysis,5,Statistiques & Mathématiques,Analyser les séries temporelles
+C415,stationarity,5,Statistiques & Mathématiques,Tester la stationnarité des séries
+C416,autocorrelation,5,Statistiques & Mathématiques,Calculer l'autocorrélation
+C417,partial autocorrelation,5,Statistiques & Mathématiques,Calculer l'autocorrélation partielle
+C418,arima models,5,Statistiques & Mathématiques,Modéliser avec ARIMA
+C419,seasonal decomposition,5,Statistiques & Mathématiques,Décomposer en tendance saisonnalité résidu
+C420,exponential smoothing,5,Statistiques & Mathématiques,Appliquer le lissage exponentiel
+C421,forecasting,5,Statistiques & Mathématiques,Faire des prévisions statistiques
+C422,bayesian statistics,5,Statistiques & Mathématiques,Appliquer les statistiques bayésiennes
+C423,bayes theorem,5,Statistiques & Mathématiques,Utiliser le théorème de Bayes
+C424,prior probability,5,Statistiques & Mathématiques,Définir les probabilités a priori
+C425,posterior probability,5,Statistiques & Mathématiques,Calculer les probabilités a posteriori
+C426,likelihood function,5,Statistiques & Mathématiques,Construire la fonction de vraisemblance
+C427,maximum likelihood estimation,5,Statistiques & Mathématiques,Estimer par maximum de vraisemblance
+C428,bayesian inference,5,Statistiques & Mathématiques,Effectuer l'inférence bayésienne
+C429,monte carlo methods,5,Statistiques & Mathématiques,Appliquer les méthodes de Monte Carlo
+C430,markov chain monte carlo,5,Statistiques & Mathématiques,Utiliser MCMC pour échantillonnage

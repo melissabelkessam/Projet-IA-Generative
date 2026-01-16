@@ -824,7 +824,7 @@ def display_results(results: Dict, jobs_df: pd.DataFrame, competencies_df: pd.Da
                 st.metric("🔧 Outils", f"{bloc_data.get('tools_score', 0):.1%}",
                          help="Score basé sur les outils sélectionnés")
             with col4:
-                # ✅ CORRIGÉ ICI - experience_score au lieu de checkbox_score
+                # CORRIGÉ ICI - experience_score au lieu de checkbox_score
                 st.metric("💼 Expérience", f"{bloc_data.get('experience_score', 0):.1%}",
                          help="Score basé sur l'expérience déclarée")
             
@@ -843,14 +843,14 @@ def display_results(results: Dict, jobs_df: pd.DataFrame, competencies_df: pd.Da
     col1, col2, col3 = st.columns([1, 2, 1])
     
     with col2:
-        # ✅ BOUTON 1 - Retour à la page analyse (Bio + Plan)
+        # OUTON 1 - Retour à la page analyse (Bio + Plan)
         if st.button("⬅️ Retour au Récapitulatif", use_container_width=True, type="primary"):
             st.session_state.page = 'analysis'
             st.rerun()
         
         st.markdown("<br>", unsafe_allow_html=True)
         
-        # ✅ BOUTON 2 - Recommencer vraiment (Reset tout)
+        # BOUTON 2 - Recommencer vraiment (Reset tout)
         if st.button("🔄 Recommencer une Nouvelle Évaluation", use_container_width=True):
             # Reset session state
             for key in list(st.session_state.keys()):

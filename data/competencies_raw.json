@@ -1,0 +1,3041 @@
+{
+  "metadata": {
+    "source": "Extraction brute depuis multiples sources",
+    "date_extraction": "2025-12-15",
+    "quality_status": "NON NETTOYÉ - Contient erreurs",
+    "total_records": 478
+  },
+  "competencies": [
+    {
+      "CompetencyID": "C001",
+      "Competency": "  data cleaning  ",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Nettoyer les données brutes en supprimant les erreurs et incohérences"
+    },
+    {
+      "CompetencyID": "C001",
+      "Competency": "data cleaning",
+      "BlockID": "01",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Nettoyer les données brutes en supprimant les erreurs et incohérences"
+    },
+    {
+      "CompetencyID": "C002",
+      "Competency": "DATA VALIDATION",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Valider la qualité et la cohérence des données collectées"
+    },
+    {
+      "CompetencyID": "C003",
+      "Competency": "missing data handling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C004",
+      "Competency": "duplicate removal",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Identifier et supprimer les doublons dans les jeux de données"
+    },
+    {
+      "CompetencyID": "C004",
+      "Competency": "duplicate removal",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Identifier et supprimer les doublons dans les jeux de données"
+    },
+    {
+      "CompetencyID": "C005",
+      "Competency": "data\ttransformation",
+      "BlockID": "Bloc 1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Transformer les données pour les rendre exploitables"
+    },
+    {
+      "CompetencyID": "C006",
+      "Competency": "data normalization",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "NaN"
+    },
+    {
+      "CompetencyID": "C007",
+      "Competency": "data standardization  ",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Standardiser les formats de données"
+    },
+    {
+      "CompetencyID": "C008",
+      "Competency": "outlier detection",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Détecter les valeurs aberrantes dans les datasets"
+    },
+    {
+      "CompetencyID": "C009",
+      "Competency": "outlier treatment",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Traiter les outliers de manière appropriée"
+    },
+    {
+      "CompetencyID": "C010",
+      "Competency": "data type conversion",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Convertir les types de données selon les besoins"
+    },
+    {
+      "CompetencyID": "C-011",
+      "Competency": "categorical encoding",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Encoder les variables catégorielles en valeurs numériques"
+    },
+    {
+      "CompetencyID": "C012",
+      "Competency": "one-hot encoding",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C013",
+      "Competency": "label encoding",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Encoder les labels catégoriels en valeurs numériques"
+    },
+    {
+      "CompetencyID": "C014",
+      "Competency": "Feature Scaling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Mettre à l'échelle les features pour améliorer les performances"
+    },
+    {
+      "CompetencyID": "C015",
+      "Competency": "  data aggregation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Agréger les données selon différents critères"
+    },
+    {
+      "CompetencyID": "C016",
+      "Competency": "data grouping",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Regrouper les données par catégories ou périodes"
+    },
+    {
+      "CompetencyID": "C017",
+      "Competency": "data merging",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Fusionner plusieurs sources de données"
+    },
+    {
+      "CompetencyID": "C018",
+      "Competency": "data joining",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Joindre des tables de données avec différentes clés"
+    },
+    {
+      "CompetencyID": "C019",
+      "Competency": "data concatenation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Concaténer des datasets verticalement ou horizontalement"
+    },
+    {
+      "CompetencyID": "C020",
+      "Competency": "pandas manipulation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Manipuler les données avec la bibliothèque Pandas"
+    },
+    {
+      "CompetencyID": "C020",
+      "Competency": "PANDAS MANIPULATION",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Manipuler les données avec la bibliothèque Pandas"
+    },
+    {
+      "CompetencyID": "C021",
+      "Competency": "numpy operations",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Effectuer des opérations numériques avec NumPy"
+    },
+    {
+      "CompetencyID": "C022",
+      "Competency": "dataframe creation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer et structurer des DataFrames Pandas"
+    },
+    {
+      "CompetencyID": "C023",
+      "Competency": "data indexing",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Indexer et sélectionner des données spécifiques"
+    },
+    {
+      "CompetencyID": "C024",
+      "Competency": "data filtering  ",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Filtrer les données selon des conditions"
+    },
+    {
+      "CompetencyID": "C025",
+      "Competency": "data sorting",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Trier les données selon différents critères"
+    },
+    {
+      "CompetencyID": "C026",
+      "Competency": "data slicing",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Découper les données en sous-ensembles"
+    },
+    {
+      "CompetencyID": "C027",
+      "Competency": "pivoting tables",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C028",
+      "Competency": "melting data",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Restructurer les données du format wide au format long"
+    },
+    {
+      "CompetencyID": "C029",
+      "Competency": "exploratory data analysis",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Conduire une analyse exploratoire approfondie des données"
+    },
+    {
+      "CompetencyID": "C030",
+      "Competency": "descriptive statistics",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Calculer les statistiques descriptives de base"
+    },
+    {
+      "CompetencyID": "C031",
+      "Competency": "data profiling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Profiler les données pour comprendre leur structure"
+    },
+    {
+      "CompetencyID": "C032",
+      "Competency": "data quality assessment",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Évaluer la qualité globale des données"
+    },
+    {
+      "CompetencyID": "C033",
+      "Competency": "data visualization matplotlib",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des visualisations avec Matplotlib"
+    },
+    {
+      "CompetencyID": "C034",
+      "Competency": "data visualization seaborn",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des graphiques statistiques avec Seaborn"
+    },
+    {
+      "CompetencyID": "C035",
+      "Competency": "data visualization plotly",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Développer des visualisations interactives avec Plotly"
+    },
+    {
+      "CompetencyID": "C036",
+      "Competency": "line charts",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des graphiques linéaires pour tendances temporelles"
+    },
+    {
+      "CompetencyID": "C037",
+      "Competency": "bar charts",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des graphiques à barres pour comparaisons"
+    },
+    {
+      "CompetencyID": "C038",
+      "Competency": "scatter plots",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des nuages de points pour relations entre variables"
+    },
+    {
+      "CompetencyID": "C039",
+      "Competency": "histograms",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "NaN"
+    },
+    {
+      "CompetencyID": "C040",
+      "Competency": "box plots",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des diagrammes en boîte pour visualiser les quartiles"
+    },
+    {
+      "CompetencyID": "C041",
+      "Competency": "heatmaps",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des cartes de chaleur pour matrices de corrélation"
+    },
+    {
+      "CompetencyID": "C042",
+      "Competency": "pair plots",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des graphiques de paires pour relations multivariées"
+    },
+    {
+      "CompetencyID": "C043",
+      "Competency": "violin plots",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des violin plots pour distributions et densités"
+    },
+    {
+      "CompetencyID": "C044",
+      "Competency": "pie charts",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des diagrammes circulaires pour proportions"
+    },
+    {
+      "CompetencyID": "C045",
+      "Competency": "area charts",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des graphiques en aires pour évolutions cumulées"
+    },
+    {
+      "CompetencyID": "C046",
+      "Competency": "3D visualization",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des visualisations en trois dimensions"
+    },
+    {
+      "CompetencyID": "C047",
+      "Competency": "interactive dashboards",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C048",
+      "Competency": "dashboard design",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Concevoir l'architecture de dashboards efficaces"
+    },
+    {
+      "CompetencyID": "C049",
+      "Competency": "storytelling with data",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Raconter une histoire à travers les visualisations"
+    },
+    {
+      "CompetencyID": "C050",
+      "Competency": "chart customization",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Personnaliser les graphiques pour meilleure lisibilité"
+    },
+    {
+      "CompetencyID": "C051",
+      "Competency": "color scheme selection",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Choisir des palettes de couleurs appropriées"
+    },
+    {
+      "CompetencyID": "C052",
+      "Competency": "SQL queries",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Écrire des requêtes SQL pour extraire des données"
+    },
+    {
+      "CompetencyID": "C053",
+      "Competency": "SQL joins",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Effectuer des jointures SQL complexes"
+    },
+    {
+      "CompetencyID": "C054",
+      "Competency": "SQL aggregations  ",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Agréger des données avec GROUP BY et fonctions"
+    },
+    {
+      "CompetencyID": "C055",
+      "Competency": "SQL subqueries",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Utiliser des sous-requêtes SQL imbriquées"
+    },
+    {
+      "CompetencyID": "C056",
+      "Competency": "SQL window functions",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Appliquer des fonctions de fenêtrage SQL"
+    },
+    {
+      "CompetencyID": "C057",
+      "Competency": "SQL optimization",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Optimiser les performances des requêtes SQL"
+    },
+    {
+      "CompetencyID": "C058",
+      "Competency": "database design",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Concevoir des schémas de bases de données"
+    },
+    {
+      "CompetencyID": "C059",
+      "Competency": "ETL processes",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Mettre en place des processus ETL (Extract Transform Load)"
+    },
+    {
+      "CompetencyID": "C060",
+      "Competency": "data pipeline creation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Créer des pipelines de traitement de données"
+    },
+    {
+      "CompetencyID": "C061",
+      "Competency": "data extraction",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Extraire des données de diverses sources"
+    },
+    {
+      "CompetencyID": "C062",
+      "Competency": "API data collection",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Collecter des données via des APIs REST"
+    },
+    {
+      "CompetencyID": "C063",
+      "Competency": "web scraping",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Extraire des données depuis des sites web"
+    },
+    {
+      "CompetencyID": "C064",
+      "Competency": "file format handling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Gérer différents formats de fichiers (CSV JSON XML)"
+    },
+    {
+      "CompetencyID": "C065",
+      "Competency": "data export",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Exporter les données vers différents formats"
+    },
+    {
+      "CompetencyID": "C066",
+      "Competency": "report generation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Générer des rapports automatisés"
+    },
+    {
+      "CompetencyID": "C067",
+      "Competency": "insight communication",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Communiquer les insights data aux stakeholders"
+    },
+    {
+      "CompetencyID": "C068",
+      "Competency": "data interpretation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Interpréter les résultats d'analyses"
+    },
+    {
+      "CompetencyID": "C069",
+      "Competency": "business metrics",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C070",
+      "Competency": "trend analysis",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Analyser les tendances dans les données temporelles"
+    },
+    {
+      "CompetencyID": "C071",
+      "Competency": "pattern recognition",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Identifier des patterns dans les données"
+    },
+    {
+      "CompetencyID": "C072",
+      "Competency": "data sampling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Échantillonner les données de manière représentative"
+    },
+    {
+      "CompetencyID": "C073",
+      "Competency": "stratified sampling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Effectuer un échantillonnage stratifié"
+    },
+    {
+      "CompetencyID": "C074",
+      "Competency": "time series handling",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Manipuler des séries temporelles"
+    },
+    {
+      "CompetencyID": "C075",
+      "Competency": "date time operations",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Effectuer des opérations sur dates et heures"
+    },
+    {
+      "CompetencyID": "C076",
+      "Competency": "data versioning",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Versionner les datasets pour traçabilité"
+    },
+    {
+      "CompetencyID": "C077",
+      "Competency": "data documentation",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Documenter les sources et transformations de données"
+    },
+    {
+      "CompetencyID": "C078",
+      "Competency": "data lineage",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Tracer la lignée des données dans le pipeline"
+    },
+    {
+      "CompetencyID": "C079",
+      "Competency": "excel integration",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Intégrer et manipuler des fichiers Excel"
+    },
+    {
+      "CompetencyID": "C080",
+      "Competency": "google sheets integration",
+      "BlockID": "1",
+      "BlockName": "Data Analysis & Visualization",
+      "Description": "Travailler avec Google Sheets via API"
+    },
+    {
+      "CompetencyID": "C081",
+      "Competency": "regression models",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Construire des modèles de régression pour prédictions continues"
+    },
+    {
+      "CompetencyID": "C082",
+      "Competency": "linear regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter la régression linéaire simple et multiple"
+    },
+    {
+      "CompetencyID": "C083",
+      "Competency": "polynomial regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer la régression polynomiale pour relations non-linéaires"
+    },
+    {
+      "CompetencyID": "C084",
+      "Competency": "ridge regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser la régression Ridge pour régularisation L2"
+    },
+    {
+      "CompetencyID": "C085",
+      "Competency": "lasso regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer la régression Lasso pour sélection de features"
+    },
+    {
+      "CompetencyID": "C086",
+      "Competency": "elastic net",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Combiner Ridge et Lasso avec Elastic Net"
+    },
+    {
+      "CompetencyID": "C087",
+      "Competency": "logistic regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter la régression logistique pour classification binaire"
+    },
+    {
+      "CompetencyID": "C088",
+      "Competency": "multinomial logistic regression",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Étendre la régression logistique aux classes multiples"
+    },
+    {
+      "CompetencyID": "C089",
+      "Competency": "decision trees",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Construire des arbres de décision pour classification"
+    },
+    {
+      "CompetencyID": "C090",
+      "Competency": "decision tree pruning",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Élaguer les arbres de décision pour éviter l'overfitting"
+    },
+    {
+      "CompetencyID": "C091",
+      "Competency": "random forest  ",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter des forêts aléatoires (ensemble d'arbres)"
+    },
+    {
+      "CompetencyID": "C092",
+      "Competency": "random forest tuning",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Optimiser les hyperparamètres des random forests"
+    },
+    {
+      "CompetencyID": "C093",
+      "Competency": "gradient boosting",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer le gradient boosting pour améliorer les prédictions"
+    },
+    {
+      "CompetencyID": "C094",
+      "Competency": "XGBoost",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser XGBoost pour performances optimales"
+    },
+    {
+      "CompetencyID": "C095",
+      "Competency": "LightGBM",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter LightGBM pour grandes données"
+    },
+    {
+      "CompetencyID": "C096",
+      "Competency": "CatBoost",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": ""
+    },
+    {
+      "CompetencyID": "C097",
+      "Competency": "AdaBoost",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer l'adaptive boosting"
+    },
+    {
+      "CompetencyID": "C098",
+      "Competency": "support vector machines",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter des SVM pour classification"
+    },
+    {
+      "CompetencyID": "C099",
+      "Competency": "SVM kernels",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser différents kernels (linear RBF polynomial)"
+    },
+    {
+      "CompetencyID": "C100",
+      "Competency": "k-nearest neighbors",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer l'algorithme KNN pour classification"
+    },
+    {
+      "CompetencyID": "C101",
+      "Competency": "naive bayes",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter les classifieurs Naive Bayes"
+    },
+    {
+      "CompetencyID": "C102",
+      "Competency": "gaussian naive bayes",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser Gaussian NB pour features continues"
+    },
+    {
+      "CompetencyID": "C103",
+      "Competency": "multinomial naive bayes",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer Multinomial NB pour données textuelles"
+    },
+    {
+      "CompetencyID": "C104",
+      "Competency": "neural networks basics",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Comprendre les bases des réseaux de neurones"
+    },
+    {
+      "CompetencyID": "C105",
+      "Competency": "multilayer perceptron",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter des perceptrons multicouches"
+    },
+    {
+      "CompetencyID": "C106",
+      "Competency": "activation functions",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser différentes fonctions d'activation"
+    },
+    {
+      "CompetencyID": "C107",
+      "Competency": "backpropagation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Comprendre et implémenter la rétropropagation"
+    },
+    {
+      "CompetencyID": "C108",
+      "Competency": "gradient descent",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Optimiser avec la descente de gradient"
+    },
+    {
+      "CompetencyID": "C109",
+      "Competency": "stochastic gradient descent",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer SGD pour optimisation"
+    },
+    {
+      "CompetencyID": "C110",
+      "Competency": "adam optimizer",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser l'optimiseur Adam"
+    },
+    {
+      "CompetencyID": "C111",
+      "Competency": "learning rate tuning",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Ajuster le taux d'apprentissage"
+    },
+    {
+      "CompetencyID": "C112",
+      "Competency": "batch normalization",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Normaliser les activations entre les couches"
+    },
+    {
+      "CompetencyID": "C113",
+      "Competency": "dropout regularization",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer le dropout pour éviter l'overfitting"
+    },
+    {
+      "CompetencyID": "C114",
+      "Competency": "early stopping",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter l'arrêt précoce pendant l'entraînement"
+    },
+    {
+      "CompetencyID": "C115",
+      "Competency": "cross validation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser la validation croisée pour évaluation robuste"
+    },
+    {
+      "CompetencyID": "C116",
+      "Competency": "k-fold cross validation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter la validation croisée k-fold"
+    },
+    {
+      "CompetencyID": "C117",
+      "Competency": "stratified cross validation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer la validation croisée stratifiée"
+    },
+    {
+      "CompetencyID": "C118",
+      "Competency": "train test split",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Diviser les données en ensembles train/test"
+    },
+    {
+      "CompetencyID": "C119",
+      "Competency": "holdout validation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser la méthode de validation holdout"
+    },
+    {
+      "CompetencyID": "C120",
+      "Competency": "model evaluation metrics",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer diverses métriques d'évaluation"
+    },
+    {
+      "CompetencyID": "C121",
+      "Competency": "accuracy score",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Mesurer l'exactitude globale du modèle"
+    },
+    {
+      "CompetencyID": "C122",
+      "Competency": "precision score",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer la précision (true positives / predicted positives)"
+    },
+    {
+      "CompetencyID": "C123",
+      "Competency": "recall score",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer le rappel (true positives / actual positives)"
+    },
+    {
+      "CompetencyID": "C124",
+      "Competency": "f1 score",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer le score F1 (harmonic mean precision/recall)"
+    },
+    {
+      "CompetencyID": "C125",
+      "Competency": "confusion matrix",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Créer et interpréter une matrice de confusion"
+    },
+    {
+      "CompetencyID": "C126",
+      "Competency": "ROC curve",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Tracer et analyser la courbe ROC"
+    },
+    {
+      "CompetencyID": "C127",
+      "Competency": "AUC score",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer l'aire sous la courbe ROC"
+    },
+    {
+      "CompetencyID": "C128",
+      "Competency": "precision recall curve",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Analyser la courbe précision-rappel"
+    },
+    {
+      "CompetencyID": "C129",
+      "Competency": "classification report",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Générer un rapport de classification complet"
+    },
+    {
+      "CompetencyID": "C130",
+      "Competency": "overfitting detection",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Détecter le sur-apprentissage dans les modèles"
+    },
+    {
+      "CompetencyID": "C131",
+      "Competency": "underfitting detection",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Identifier le sous-apprentissage"
+    },
+    {
+      "CompetencyID": "C132",
+      "Competency": "bias variance tradeoff",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Comprendre le compromis biais-variance"
+    },
+    {
+      "CompetencyID": "C133",
+      "Competency": "hyperparameter tuning",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Optimiser les hyperparamètres des modèles"
+    },
+    {
+      "CompetencyID": "C134",
+      "Competency": "grid search",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Effectuer une recherche exhaustive par grille"
+    },
+    {
+      "CompetencyID": "C135",
+      "Competency": "random search",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Optimiser par recherche aléatoire"
+    },
+    {
+      "CompetencyID": "C136",
+      "Competency": "bayesian optimization",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer l'optimisation bayésienne"
+    },
+    {
+      "CompetencyID": "C137",
+      "Competency": "feature engineering",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Créer de nouvelles features pertinentes"
+    },
+    {
+      "CompetencyID": "C138",
+      "Competency": "feature selection",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Sélectionner les features les plus importantes"
+    },
+    {
+      "CompetencyID": "C139",
+      "Competency": "feature importance",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calculer l'importance des features"
+    },
+    {
+      "CompetencyID": "C140",
+      "Competency": "recursive feature elimination",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Éliminer récursivement les features non pertinentes"
+    },
+    {
+      "CompetencyID": "C141",
+      "Competency": "pipeline creation scikit-learn",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Créer des pipelines ML avec scikit-learn"
+    },
+    {
+      "CompetencyID": "C142",
+      "Competency": "model serialization",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Sauvegarder et charger des modèles (pickle joblib)"
+    },
+    {
+      "CompetencyID": "C143",
+      "Competency": "model deployment",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Déployer des modèles en production"
+    },
+    {
+      "CompetencyID": "C144",
+      "Competency": "model versioning",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Versionner les modèles ML"
+    },
+    {
+      "CompetencyID": "C145",
+      "Competency": "model monitoring",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Surveiller les performances en production"
+    },
+    {
+      "CompetencyID": "C146",
+      "Competency": "class imbalance handling",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Gérer les déséquilibres de classes"
+    },
+    {
+      "CompetencyID": "C147",
+      "Competency": "SMOTE technique",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer SMOTE pour sur-échantillonnage"
+    },
+    {
+      "CompetencyID": "C148",
+      "Competency": "undersampling",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Sous-échantillonner la classe majoritaire"
+    },
+    {
+      "CompetencyID": "C149",
+      "Competency": "ensemble methods",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Combiner plusieurs modèles pour meilleures performances"
+    },
+    {
+      "CompetencyID": "C150",
+      "Competency": "bagging",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Appliquer le bagging (bootstrap aggregating)"
+    },
+    {
+      "CompetencyID": "C151",
+      "Competency": "stacking",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter le stacking de modèles"
+    },
+    {
+      "CompetencyID": "C152",
+      "Competency": "voting classifiers",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Créer des classifieurs par vote"
+    },
+    {
+      "CompetencyID": "C153",
+      "Competency": "multi-class classification",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Gérer la classification multi-classes"
+    },
+    {
+      "CompetencyID": "C154",
+      "Competency": "multi-label classification",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Implémenter la classification multi-labels"
+    },
+    {
+      "CompetencyID": "C155",
+      "Competency": "calibration curves",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Calibrer les probabilités prédites"
+    },
+    {
+      "CompetencyID": "C156",
+      "Competency": "learning curves",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Analyser les courbes d'apprentissage"
+    },
+    {
+      "CompetencyID": "C157",
+      "Competency": "residual analysis",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Analyser les résidus des modèles de régression"
+    },
+    {
+      "CompetencyID": "C158",
+      "Competency": "outlier impact assessment",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Évaluer l'impact des outliers sur les modèles"
+    },
+    {
+      "CompetencyID": "C159",
+      "Competency": "model interpretation",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Interpréter les décisions des modèles"
+    },
+    {
+      "CompetencyID": "C160",
+      "Competency": "SHAP values",
+      "BlockID": "2",
+      "BlockName": "Machine Learning Supervisé",
+      "Description": "Utiliser SHAP pour expliquer les prédictions"
+    },
+    {
+      "CompetencyID": "C161",
+      "Competency": "clustering algorithms",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter divers algorithmes de clustering"
+    },
+    {
+      "CompetencyID": "C162",
+      "Competency": "k-means clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer K-means pour partitionnement"
+    },
+    {
+      "CompetencyID": "C163",
+      "Competency": "k-means++",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser K-means++ pour meilleure initialisation"
+    },
+    {
+      "CompetencyID": "C164",
+      "Competency": "elbow method",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Déterminer le nombre optimal de clusters"
+    },
+    {
+      "CompetencyID": "C165",
+      "Competency": "silhouette analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Évaluer la qualité des clusters avec silhouette score"
+    },
+    {
+      "CompetencyID": "C166",
+      "Competency": "hierarchical clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter le clustering hiérarchique"
+    },
+    {
+      "CompetencyID": "C167",
+      "Competency": "agglomerative clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer le clustering agglomératif"
+    },
+    {
+      "CompetencyID": "C168",
+      "Competency": "divisive clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser le clustering divisif"
+    },
+    {
+      "CompetencyID": "C169",
+      "Competency": "dendrograms",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Créer et interpréter des dendrogrammes"
+    },
+    {
+      "CompetencyID": "C170",
+      "Competency": "DBSCAN",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter DBSCAN pour clusters de densité"
+    },
+    {
+      "CompetencyID": "C171",
+      "Competency": "DBSCAN parameter tuning",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Optimiser eps et min_samples pour DBSCAN"
+    },
+    {
+      "CompetencyID": "C172",
+      "Competency": "HDBSCAN",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser HDBSCAN (hierarchical DBSCAN)"
+    },
+    {
+      "CompetencyID": "C173",
+      "Competency": "mean shift clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer Mean Shift pour clustering"
+    },
+    {
+      "CompetencyID": "C174",
+      "Competency": "gaussian mixture models",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter des GMM pour clustering probabiliste"
+    },
+    {
+      "CompetencyID": "C175",
+      "Competency": "expectation maximization",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser l'algorithme EM pour GMM"
+    },
+    {
+      "CompetencyID": "C176",
+      "Competency": "spectral clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer le clustering spectral"
+    },
+    {
+      "CompetencyID": "C177",
+      "Competency": "affinity propagation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser Affinity Propagation pour clustering"
+    },
+    {
+      "CompetencyID": "C178",
+      "Competency": "OPTICS clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter OPTICS pour données de densités variées"
+    },
+    {
+      "CompetencyID": "C179",
+      "Competency": "dimensionality reduction",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Réduire les dimensions des données"
+    },
+    {
+      "CompetencyID": "C180",
+      "Competency": "principal component analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer PCA pour réduction linéaire"
+    },
+    {
+      "CompetencyID": "C181",
+      "Competency": "PCA visualization",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Visualiser les composantes principales"
+    },
+    {
+      "CompetencyID": "C182",
+      "Competency": "explained variance ratio",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Calculer la variance expliquée par chaque composante"
+    },
+    {
+      "CompetencyID": "C183",
+      "Competency": "scree plot",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Créer des scree plots pour choisir le nombre de composantes"
+    },
+    {
+      "CompetencyID": "C184",
+      "Competency": "kernel PCA",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer Kernel PCA pour réduction non-linéaire"
+    },
+    {
+      "CompetencyID": "C185",
+      "Competency": "t-SNE",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser t-SNE pour visualisation haute dimension"
+    },
+    {
+      "CompetencyID": "C186",
+      "Competency": "UMAP",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter UMAP pour réduction de dimension"
+    },
+    {
+      "CompetencyID": "C187",
+      "Competency": "autoencoder",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Créer des autoencodeurs pour compression"
+    },
+    {
+      "CompetencyID": "C188",
+      "Competency": "variational autoencoder",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter des VAE pour génération"
+    },
+    {
+      "CompetencyID": "C189",
+      "Competency": "sparse PCA",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer Sparse PCA pour interprétabilité"
+    },
+    {
+      "CompetencyID": "C190",
+      "Competency": "incremental PCA",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser PCA incrémentiel pour grandes données"
+    },
+    {
+      "CompetencyID": "C191",
+      "Competency": "factor analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Effectuer une analyse factorielle"
+    },
+    {
+      "CompetencyID": "C192",
+      "Competency": "independent component analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer ICA pour séparation de sources"
+    },
+    {
+      "CompetencyID": "C193",
+      "Competency": "non-negative matrix factorization",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser NMF pour factorisation"
+    },
+    {
+      "CompetencyID": "C194",
+      "Competency": "anomaly detection",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Détecter les anomalies dans les données"
+    },
+    {
+      "CompetencyID": "C195",
+      "Competency": "isolation forest",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter Isolation Forest pour anomalies"
+    },
+    {
+      "CompetencyID": "C196",
+      "Competency": "one-class SVM",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser One-Class SVM pour détection d'anomalies"
+    },
+    {
+      "CompetencyID": "C197",
+      "Competency": "local outlier factor",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer LOF pour détecter les outliers locaux"
+    },
+    {
+      "CompetencyID": "C198",
+      "Competency": "elliptic envelope",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser Elliptic Envelope pour anomalies"
+    },
+    {
+      "CompetencyID": "C199",
+      "Competency": "autoencoder anomaly detection",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Détecter anomalies avec autoencodeurs"
+    },
+    {
+      "CompetencyID": "C200",
+      "Competency": "statistical anomaly detection",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer des méthodes statistiques pour anomalies"
+    },
+    {
+      "CompetencyID": "C201",
+      "Competency": "association rules",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Extraire des règles d'association"
+    },
+    {
+      "CompetencyID": "C202",
+      "Competency": "apriori algorithm",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter l'algorithme Apriori"
+    },
+    {
+      "CompetencyID": "C203",
+      "Competency": "FP-growth",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser FP-Growth pour itemsets fréquents"
+    },
+    {
+      "CompetencyID": "C204",
+      "Competency": "support confidence lift",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Calculer support confidence et lift des règles"
+    },
+    {
+      "CompetencyID": "C205",
+      "Competency": "market basket analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Effectuer une analyse de panier de marché"
+    },
+    {
+      "CompetencyID": "C206",
+      "Competency": "self-organizing maps",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter des cartes auto-organisatrices"
+    },
+    {
+      "CompetencyID": "C207",
+      "Competency": "mini-batch k-means",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser Mini-Batch K-means pour grandes données"
+    },
+    {
+      "CompetencyID": "C208",
+      "Competency": "fuzzy c-means",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer Fuzzy C-Means pour clustering flou"
+    },
+    {
+      "CompetencyID": "C209",
+      "Competency": "biclustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Effectuer du biclustering simultané lignes/colonnes"
+    },
+    {
+      "CompetencyID": "C210",
+      "Competency": "cluster validation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Valider la qualité et stabilité des clusters"
+    },
+    {
+      "CompetencyID": "C211",
+      "Competency": "calinski-harabasz score",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Calculer le score Calinski-Harabasz"
+    },
+    {
+      "CompetencyID": "C212",
+      "Competency": "davies-bouldin index",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser l'indice Davies-Bouldin"
+    },
+    {
+      "CompetencyID": "C213",
+      "Competency": "cluster visualization",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Visualiser les résultats de clustering"
+    },
+    {
+      "CompetencyID": "C214",
+      "Competency": "cluster interpretation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Interpréter la signification des clusters"
+    },
+    {
+      "CompetencyID": "C215",
+      "Competency": "cluster profiling",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Profiler les caractéristiques de chaque cluster"
+    },
+    {
+      "CompetencyID": "C216",
+      "Competency": "customer segmentation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Segmenter les clients avec clustering"
+    },
+    {
+      "CompetencyID": "C217",
+      "Competency": "document clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Regrouper des documents par similarité"
+    },
+    {
+      "CompetencyID": "C218",
+      "Competency": "image segmentation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Segmenter des images en régions"
+    },
+    {
+      "CompetencyID": "C219",
+      "Competency": "time series clustering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Regrouper des séries temporelles similaires"
+    },
+    {
+      "CompetencyID": "C220",
+      "Competency": "manifold learning",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Apprendre la structure de variété des données"
+    },
+    {
+      "CompetencyID": "C221",
+      "Competency": "isomap",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser Isomap pour réduction géométrique"
+    },
+    {
+      "CompetencyID": "C222",
+      "Competency": "locally linear embedding",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer LLE pour préservation locale"
+    },
+    {
+      "CompetencyID": "C223",
+      "Competency": "multidimensional scaling",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Utiliser MDS pour visualisation distances"
+    },
+    {
+      "CompetencyID": "C224",
+      "Competency": "topic modeling",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Extraire des topics de corpus textuels"
+    },
+    {
+      "CompetencyID": "C225",
+      "Competency": "latent dirichlet allocation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter LDA pour topic modeling"
+    },
+    {
+      "CompetencyID": "C226",
+      "Competency": "latent semantic analysis",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Appliquer LSA pour analyse sémantique"
+    },
+    {
+      "CompetencyID": "C227",
+      "Competency": "collaborative filtering",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Implémenter du filtrage collaboratif"
+    },
+    {
+      "CompetencyID": "C228",
+      "Competency": "recommendation systems",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Créer des systèmes de recommandation"
+    },
+    {
+      "CompetencyID": "C229",
+      "Competency": "matrix completion",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Compléter des matrices partiellement observées"
+    },
+    {
+      "CompetencyID": "C230",
+      "Competency": "density estimation",
+      "BlockID": "3",
+      "BlockName": "Machine Learning Non Supervisé",
+      "Description": "Estimer la densité de probabilité des données"
+    },
+    {
+      "CompetencyID": "C231",
+      "Competency": "text preprocessing",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Prétraiter le texte avant analyse"
+    },
+    {
+      "CompetencyID": "C232",
+      "Competency": "tokenization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Découper le texte en tokens (mots ou sous-mots)"
+    },
+    {
+      "CompetencyID": "C233",
+      "Competency": "sentence tokenization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Segmenter le texte en phrases"
+    },
+    {
+      "CompetencyID": "C234",
+      "Competency": "word tokenization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Segmenter le texte en mots"
+    },
+    {
+      "CompetencyID": "C235",
+      "Competency": "subword tokenization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Tokeniser en sous-unités (BPE WordPiece)"
+    },
+    {
+      "CompetencyID": "C236",
+      "Competency": "lowercasing",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Convertir le texte en minuscules"
+    },
+    {
+      "CompetencyID": "C237",
+      "Competency": "punctuation removal",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Supprimer la ponctuation du texte"
+    },
+    {
+      "CompetencyID": "C238",
+      "Competency": "stopwords removal",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Éliminer les mots vides (stopwords)"
+    },
+    {
+      "CompetencyID": "C239",
+      "Competency": "stemming",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Réduire les mots à leur racine (stem)"
+    },
+    {
+      "CompetencyID": "C240",
+      "Competency": "lemmatization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Réduire les mots à leur forme canonique (lemme)"
+    },
+    {
+      "CompetencyID": "C241",
+      "Competency": "part-of-speech tagging",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Étiqueter les parties du discours"
+    },
+    {
+      "CompetencyID": "C242",
+      "Competency": "named entity recognition",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire les entités nommées (personnes lieux organisations)"
+    },
+    {
+      "CompetencyID": "C243",
+      "Competency": "dependency parsing",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Analyser les dépendances syntaxiques"
+    },
+    {
+      "CompetencyID": "C244",
+      "Competency": "constituency parsing",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Analyser la structure des phrases"
+    },
+    {
+      "CompetencyID": "C245",
+      "Competency": "text normalization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Normaliser le texte (abbréviations nombres)"
+    },
+    {
+      "CompetencyID": "C246",
+      "Competency": "spell checking",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Corriger les fautes d'orthographe"
+    },
+    {
+      "CompetencyID": "C247",
+      "Competency": "text cleaning",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Nettoyer le texte (HTML URLs emails)"
+    },
+    {
+      "CompetencyID": "C248",
+      "Competency": "regex patterns",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser des expressions régulières pour NLP"
+    },
+    {
+      "CompetencyID": "C249",
+      "Competency": "bag of words",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Créer des représentations bag-of-words"
+    },
+    {
+      "CompetencyID": "C250",
+      "Competency": "TF-IDF",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Calculer la fréquence terme-document inversée"
+    },
+    {
+      "CompetencyID": "C251",
+      "Competency": "n-grams",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire des n-grammes (bigrams trigrams)"
+    },
+    {
+      "CompetencyID": "C252",
+      "Competency": "word embeddings",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Créer des représentations vectorielles de mots"
+    },
+    {
+      "CompetencyID": "C253",
+      "Competency": "word2vec",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Entraîner des modèles Word2Vec (CBOW Skip-gram)"
+    },
+    {
+      "CompetencyID": "C254",
+      "Competency": "GloVe embeddings",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser les embeddings GloVe pré-entraînés"
+    },
+    {
+      "CompetencyID": "C255",
+      "Competency": "fastText",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer fastText pour embeddings avec sous-mots"
+    },
+    {
+      "CompetencyID": "C256",
+      "Competency": "contextual embeddings",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser des embeddings contextuels"
+    },
+    {
+      "CompetencyID": "C257",
+      "Competency": "BERT embeddings",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire des embeddings avec BERT"
+    },
+    {
+      "CompetencyID": "C258",
+      "Competency": "BERT fine-tuning",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Fine-tuner BERT pour tâches spécifiques"
+    },
+    {
+      "CompetencyID": "C259",
+      "Competency": "SBERT",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser Sentence-BERT pour embeddings de phrases"
+    },
+    {
+      "CompetencyID": "C260",
+      "Competency": "transformers",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter l'architecture Transformer"
+    },
+    {
+      "CompetencyID": "C261",
+      "Competency": "attention mechanism",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Comprendre et utiliser les mécanismes d'attention"
+    },
+    {
+      "CompetencyID": "C262",
+      "Competency": "self-attention",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter la self-attention"
+    },
+    {
+      "CompetencyID": "C263",
+      "Competency": "multi-head attention",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser l'attention multi-têtes"
+    },
+    {
+      "CompetencyID": "C264",
+      "Competency": "positional encoding",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Ajouter l'encodage positionnel"
+    },
+    {
+      "CompetencyID": "C265",
+      "Competency": "GPT models",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser les modèles GPT pour génération"
+    },
+    {
+      "CompetencyID": "C266",
+      "Competency": "T5 model",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer T5 pour tâches text-to-text"
+    },
+    {
+      "CompetencyID": "C267",
+      "Competency": "RoBERTa",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser RoBERTa (BERT optimisé)"
+    },
+    {
+      "CompetencyID": "C268",
+      "Competency": "ALBERT",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter ALBERT (BERT léger)"
+    },
+    {
+      "CompetencyID": "C269",
+      "Competency": "DistilBERT",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser DistilBERT (BERT distillé)"
+    },
+    {
+      "CompetencyID": "C270",
+      "Competency": "XLNet",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer XLNet pour modélisation du langage"
+    },
+    {
+      "CompetencyID": "C271",
+      "Competency": "ELECTRA",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser ELECTRA pour pré-entraînement efficace"
+    },
+    {
+      "CompetencyID": "C272",
+      "Competency": "cosine similarity",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Calculer la similarité cosinus entre textes"
+    },
+    {
+      "CompetencyID": "C273",
+      "Competency": "semantic similarity",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Mesurer la similarité sémantique"
+    },
+    {
+      "CompetencyID": "C274",
+      "Competency": "text similarity metrics",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser diverses métriques de similarité"
+    },
+    {
+      "CompetencyID": "C275",
+      "Competency": "jaccard similarity",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Calculer la similarité de Jaccard"
+    },
+    {
+      "CompetencyID": "C276",
+      "Competency": "levenshtein distance",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Mesurer la distance d'édition"
+    },
+    {
+      "CompetencyID": "C277",
+      "Competency": "text classification",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Classifier des textes en catégories"
+    },
+    {
+      "CompetencyID": "C278",
+      "Competency": "sentiment analysis",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Analyser les sentiments (positif négatif neutre)"
+    },
+    {
+      "CompetencyID": "C279",
+      "Competency": "emotion detection",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Détecter les émotions dans le texte"
+    },
+    {
+      "CompetencyID": "C280",
+      "Competency": "intent classification",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Classifier l'intention dans les requêtes"
+    },
+    {
+      "CompetencyID": "C281",
+      "Competency": "spam detection",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Détecter les spams dans les messages"
+    },
+    {
+      "CompetencyID": "C282",
+      "Competency": "topic classification",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Classifier les documents par topics"
+    },
+    {
+      "CompetencyID": "C283",
+      "Competency": "multi-label text classification",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Classifier avec plusieurs labels simultanés"
+    },
+    {
+      "CompetencyID": "C284",
+      "Competency": "sequence labeling",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Étiqueter les séquences de tokens"
+    },
+    {
+      "CompetencyID": "C285",
+      "Competency": "BIO tagging",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer le schéma BIO pour NER"
+    },
+    {
+      "CompetencyID": "C286",
+      "Competency": "conditional random fields",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser CRF pour étiquetage de séquences"
+    },
+    {
+      "CompetencyID": "C287",
+      "Competency": "recurrent neural networks",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter des RNN pour séquences"
+    },
+    {
+      "CompetencyID": "C288",
+      "Competency": "LSTM networks",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser LSTM pour dépendances long terme"
+    },
+    {
+      "CompetencyID": "C289",
+      "Competency": "GRU networks",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer GRU comme alternative aux LSTM"
+    },
+    {
+      "CompetencyID": "C290",
+      "Competency": "bidirectional LSTM",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser BiLSTM pour contexte bidirectionnel"
+    },
+    {
+      "CompetencyID": "C291",
+      "Competency": "text generation",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Générer du texte automatiquement"
+    },
+    {
+      "CompetencyID": "C292",
+      "Competency": "language modeling",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Modéliser la probabilité des séquences"
+    },
+    {
+      "CompetencyID": "C293",
+      "Competency": "next word prediction",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Prédire le prochain mot dans une séquence"
+    },
+    {
+      "CompetencyID": "C294",
+      "Competency": "text summarization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Résumer automatiquement des textes"
+    },
+    {
+      "CompetencyID": "C295",
+      "Competency": "extractive summarization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire les phrases clés pour résumé"
+    },
+    {
+      "CompetencyID": "C296",
+      "Competency": "abstractive summarization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Générer des résumés paraphrasés"
+    },
+    {
+      "CompetencyID": "C297",
+      "Competency": "machine translation",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Traduire automatiquement entre langues"
+    },
+    {
+      "CompetencyID": "C298",
+      "Competency": "seq2seq models",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter des modèles séquence-à-séquence"
+    },
+    {
+      "CompetencyID": "C299",
+      "Competency": "encoder-decoder architecture",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser l'architecture encodeur-décodeur"
+    },
+    {
+      "CompetencyID": "C300",
+      "Competency": "beam search",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer beam search pour génération"
+    },
+    {
+      "CompetencyID": "C301",
+      "Competency": "question answering",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Construire des systèmes de questions-réponses"
+    },
+    {
+      "CompetencyID": "C302",
+      "Competency": "reading comprehension",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Développer des modèles de compréhension de lecture"
+    },
+    {
+      "CompetencyID": "C303",
+      "Competency": "information extraction",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire des informations structurées du texte"
+    },
+    {
+      "CompetencyID": "C304",
+      "Competency": "relation extraction",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Extraire les relations entre entités"
+    },
+    {
+      "CompetencyID": "C305",
+      "Competency": "coreference resolution",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Résoudre les coréférences pronominales"
+    },
+    {
+      "CompetencyID": "C306",
+      "Competency": "text entailment",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Déterminer l'implication textuelle"
+    },
+    {
+      "CompetencyID": "C307",
+      "Competency": "paraphrase detection",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Identifier les paraphrases"
+    },
+    {
+      "CompetencyID": "C308",
+      "Competency": "chatbot development",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Développer des chatbots conversationnels"
+    },
+    {
+      "CompetencyID": "C309",
+      "Competency": "dialogue systems",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Créer des systèmes de dialogue"
+    },
+    {
+      "CompetencyID": "C310",
+      "Competency": "conversational AI",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Implémenter des agents conversationnels"
+    },
+    {
+      "CompetencyID": "C311",
+      "Competency": "prompt engineering",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Concevoir des prompts efficaces pour LLMs"
+    },
+    {
+      "CompetencyID": "C312",
+      "Competency": "few-shot learning",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Apprendre avec peu d'exemples"
+    },
+    {
+      "CompetencyID": "C313",
+      "Competency": "zero-shot learning",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Classifier sans exemples d'entraînement"
+    },
+    {
+      "CompetencyID": "C314",
+      "Competency": "transfer learning NLP",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Appliquer le transfer learning en NLP"
+    },
+    {
+      "CompetencyID": "C315",
+      "Competency": "domain adaptation",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Adapter les modèles à des domaines spécifiques"
+    },
+    {
+      "CompetencyID": "C316",
+      "Competency": "multilingual NLP",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Gérer plusieurs langues simultanément"
+    },
+    {
+      "CompetencyID": "C317",
+      "Competency": "cross-lingual transfer",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Transférer les connaissances entre langues"
+    },
+    {
+      "CompetencyID": "C318",
+      "Competency": "language detection",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Détecter la langue d'un texte"
+    },
+    {
+      "CompetencyID": "C319",
+      "Competency": "code-switching handling",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Gérer le mélange de langues"
+    },
+    {
+      "CompetencyID": "C320",
+      "Competency": "text augmentation",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Augmenter les données textuelles"
+    },
+    {
+      "CompetencyID": "C321",
+      "Competency": "back translation",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Utiliser la traduction aller-retour pour augmentation"
+    },
+    {
+      "CompetencyID": "C322",
+      "Competency": "synonym replacement",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Remplacer par des synonymes pour augmentation"
+    },
+    {
+      "CompetencyID": "C323",
+      "Competency": "active learning NLP",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Sélectionner les exemples les plus informatifs"
+    },
+    {
+      "CompetencyID": "C324",
+      "Competency": "model interpretability",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Interpréter les décisions des modèles NLP"
+    },
+    {
+      "CompetencyID": "C325",
+      "Competency": "attention visualization",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Visualiser les poids d'attention"
+    },
+    {
+      "CompetencyID": "C326",
+      "Competency": "word importance",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Identifier les mots importants pour prédictions"
+    },
+    {
+      "CompetencyID": "C327",
+      "Competency": "adversarial examples NLP",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Créer et défendre contre exemples adverses"
+    },
+    {
+      "CompetencyID": "C328",
+      "Competency": "bias detection in text",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Détecter les biais dans les modèles de langage"
+    },
+    {
+      "CompetencyID": "C329",
+      "Competency": "fairness in NLP",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Assurer l'équité des modèles NLP"
+    },
+    {
+      "CompetencyID": "C330",
+      "Competency": "text privacy",
+      "BlockID": "4",
+      "BlockName": "NLP",
+      "Description": "Préserver la confidentialité dans les données textuelles"
+    },
+    {
+      "CompetencyID": "C331",
+      "Competency": "probability distributions",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comprendre les distributions de probabilités"
+    },
+    {
+      "CompetencyID": "C332",
+      "Competency": "normal distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser la distribution normale (gaussienne)"
+    },
+    {
+      "CompetencyID": "C333",
+      "Competency": "binomial distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la distribution binomiale"
+    },
+    {
+      "CompetencyID": "C334",
+      "Competency": "poisson distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser la distribution de Poisson"
+    },
+    {
+      "CompetencyID": "C335",
+      "Competency": "exponential distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la distribution exponentielle"
+    },
+    {
+      "CompetencyID": "C336",
+      "Competency": "uniform distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser la distribution uniforme"
+    },
+    {
+      "CompetencyID": "C337",
+      "Competency": "chi-square distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la distribution du chi-deux"
+    },
+    {
+      "CompetencyID": "C338",
+      "Competency": "t-distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser la distribution de Student"
+    },
+    {
+      "CompetencyID": "C339",
+      "Competency": "F-distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la distribution de Fisher"
+    },
+    {
+      "CompetencyID": "C340",
+      "Competency": "beta distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser la distribution bêta"
+    },
+    {
+      "CompetencyID": "C341",
+      "Competency": "gamma distribution",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la distribution gamma"
+    },
+    {
+      "CompetencyID": "C342",
+      "Competency": "descriptive statistics",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les statistiques descriptives"
+    },
+    {
+      "CompetencyID": "C343",
+      "Competency": "mean calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la moyenne arithmétique"
+    },
+    {
+      "CompetencyID": "C344",
+      "Competency": "median calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la médiane"
+    },
+    {
+      "CompetencyID": "C345",
+      "Competency": "mode calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Identifier le mode d'une distribution"
+    },
+    {
+      "CompetencyID": "C346",
+      "Competency": "variance calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la variance"
+    },
+    {
+      "CompetencyID": "C347",
+      "Competency": "standard deviation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'écart-type"
+    },
+    {
+      "CompetencyID": "C348",
+      "Competency": "range calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'étendue des données"
+    },
+    {
+      "CompetencyID": "C349",
+      "Competency": "interquartile range",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'écart interquartile"
+    },
+    {
+      "CompetencyID": "C350",
+      "Competency": "percentiles",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les percentiles et quartiles"
+    },
+    {
+      "CompetencyID": "C351",
+      "Competency": "skewness",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Mesurer l'asymétrie d'une distribution"
+    },
+    {
+      "CompetencyID": "C352",
+      "Competency": "kurtosis",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Mesurer l'aplatissement d'une distribution"
+    },
+    {
+      "CompetencyID": "C353",
+      "Competency": "correlation analysis",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Analyser les corrélations entre variables"
+    },
+    {
+      "CompetencyID": "C354",
+      "Competency": "pearson correlation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer le coefficient de corrélation de Pearson"
+    },
+    {
+      "CompetencyID": "C355",
+      "Competency": "spearman correlation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la corrélation de rang de Spearman"
+    },
+    {
+      "CompetencyID": "C356",
+      "Competency": "kendall correlation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser le tau de Kendall"
+    },
+    {
+      "CompetencyID": "C357",
+      "Competency": "covariance",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la covariance entre variables"
+    },
+    {
+      "CompetencyID": "C358",
+      "Competency": "correlation vs causation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Distinguer corrélation et causalité"
+    },
+    {
+      "CompetencyID": "C359",
+      "Competency": "hypothesis testing",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer des tests d'hypothèses statistiques"
+    },
+    {
+      "CompetencyID": "C360",
+      "Competency": "null hypothesis",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Formuler l'hypothèse nulle"
+    },
+    {
+      "CompetencyID": "C361",
+      "Competency": "alternative hypothesis",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Formuler l'hypothèse alternative"
+    },
+    {
+      "CompetencyID": "C362",
+      "Competency": "p-value interpretation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Interpréter les p-values correctement"
+    },
+    {
+      "CompetencyID": "C363",
+      "Competency": "significance level",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Choisir le seuil de significativité (alpha)"
+    },
+    {
+      "CompetencyID": "C364",
+      "Competency": "type I error",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comprendre l'erreur de type I (faux positif)"
+    },
+    {
+      "CompetencyID": "C365",
+      "Competency": "type II error",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comprendre l'erreur de type II (faux négatif)"
+    },
+    {
+      "CompetencyID": "C366",
+      "Competency": "statistical power",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer la puissance statistique d'un test"
+    },
+    {
+      "CompetencyID": "C367",
+      "Competency": "t-test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer des tests t (Student)"
+    },
+    {
+      "CompetencyID": "C368",
+      "Competency": "paired t-test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer le t-test pour échantillons appariés"
+    },
+    {
+      "CompetencyID": "C369",
+      "Competency": "independent t-test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer le t-test pour échantillons indépendants"
+    },
+    {
+      "CompetencyID": "C370",
+      "Competency": "one-sample t-test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Tester une moyenne contre une valeur de référence"
+    },
+    {
+      "CompetencyID": "C371",
+      "Competency": "z-test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer des tests z"
+    },
+    {
+      "CompetencyID": "C372",
+      "Competency": "chi-square test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer le test du chi-deux"
+    },
+    {
+      "CompetencyID": "C373",
+      "Competency": "chi-square goodness of fit",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Tester l'adéquation à une distribution"
+    },
+    {
+      "CompetencyID": "C374",
+      "Competency": "chi-square independence",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Tester l'indépendance de variables catégorielles"
+    },
+    {
+      "CompetencyID": "C375",
+      "Competency": "ANOVA",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer l'analyse de variance"
+    },
+    {
+      "CompetencyID": "C376",
+      "Competency": "one-way ANOVA",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comparer plusieurs groupes (un facteur)"
+    },
+    {
+      "CompetencyID": "C377",
+      "Competency": "two-way ANOVA",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Analyser l'effet de deux facteurs"
+    },
+    {
+      "CompetencyID": "C378",
+      "Competency": "repeated measures ANOVA",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "ANOVA pour mesures répétées"
+    },
+    {
+      "CompetencyID": "C379",
+      "Competency": "post-hoc tests",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer des tests post-hoc après ANOVA"
+    },
+    {
+      "CompetencyID": "C380",
+      "Competency": "tukey HSD test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer le test de Tukey"
+    },
+    {
+      "CompetencyID": "C381",
+      "Competency": "bonferroni correction",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Corriger pour comparaisons multiples"
+    },
+    {
+      "CompetencyID": "C382",
+      "Competency": "non-parametric tests",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser des tests non-paramétriques"
+    },
+    {
+      "CompetencyID": "C383",
+      "Competency": "mann-whitney U test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comparer deux groupes indépendants (non-paramétrique)"
+    },
+    {
+      "CompetencyID": "C384",
+      "Competency": "wilcoxon signed-rank test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Tester des échantillons appariés (non-paramétrique)"
+    },
+    {
+      "CompetencyID": "C385",
+      "Competency": "kruskal-wallis test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "ANOVA non-paramétrique pour plusieurs groupes"
+    },
+    {
+      "CompetencyID": "C386",
+      "Competency": "friedman test",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Alternative non-paramétrique à ANOVA répétée"
+    },
+    {
+      "CompetencyID": "C387",
+      "Competency": "confidence intervals",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les intervalles de confiance"
+    },
+    {
+      "CompetencyID": "C388",
+      "Competency": "confidence interval interpretation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Interpréter correctement les IC"
+    },
+    {
+      "CompetencyID": "C389",
+      "Competency": "bootstrap methods",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer le bootstrap pour estimation"
+    },
+    {
+      "CompetencyID": "C390",
+      "Competency": "permutation tests",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer des tests de permutation"
+    },
+    {
+      "CompetencyID": "C391",
+      "Competency": "linear algebra basics",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Maîtriser les bases de l'algèbre linéaire"
+    },
+    {
+      "CompetencyID": "C392",
+      "Competency": "vectors",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Manipuler des vecteurs"
+    },
+    {
+      "CompetencyID": "C393",
+      "Competency": "matrices",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Opérer sur des matrices"
+    },
+    {
+      "CompetencyID": "C394",
+      "Competency": "matrix multiplication",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer la multiplication matricielle"
+    },
+    {
+      "CompetencyID": "C395",
+      "Competency": "matrix transpose",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Transposer des matrices"
+    },
+    {
+      "CompetencyID": "C396",
+      "Competency": "matrix inverse",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'inverse d'une matrice"
+    },
+    {
+      "CompetencyID": "C397",
+      "Competency": "determinant",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer le déterminant d'une matrice"
+    },
+    {
+      "CompetencyID": "C398",
+      "Competency": "eigenvalues",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les valeurs propres"
+    },
+    {
+      "CompetencyID": "C399",
+      "Competency": "eigenvectors",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les vecteurs propres"
+    },
+    {
+      "CompetencyID": "C400",
+      "Competency": "matrix decomposition",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Décomposer des matrices (SVD QR LU)"
+    },
+    {
+      "CompetencyID": "C401",
+      "Competency": "singular value decomposition",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la décomposition en valeurs singulières"
+    },
+    {
+      "CompetencyID": "C402",
+      "Competency": "dot product",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer le produit scalaire"
+    },
+    {
+      "CompetencyID": "C403",
+      "Competency": "cross product",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer le produit vectoriel"
+    },
+    {
+      "CompetencyID": "C404",
+      "Competency": "norm calculation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les normes de vecteurs"
+    },
+    {
+      "CompetencyID": "C405",
+      "Competency": "calculus basics",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comprendre les bases du calcul différentiel"
+    },
+    {
+      "CompetencyID": "C406",
+      "Competency": "derivatives",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les dérivées"
+    },
+    {
+      "CompetencyID": "C407",
+      "Competency": "partial derivatives",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les dérivées partielles"
+    },
+    {
+      "CompetencyID": "C408",
+      "Competency": "gradient",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer le gradient d'une fonction"
+    },
+    {
+      "CompetencyID": "C409",
+      "Competency": "chain rule",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer la règle de la chaîne"
+    },
+    {
+      "CompetencyID": "C410",
+      "Competency": "optimization theory",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Comprendre la théorie de l'optimisation"
+    },
+    {
+      "CompetencyID": "C411",
+      "Competency": "convex optimization",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Résoudre des problèmes d'optimisation convexe"
+    },
+    {
+      "CompetencyID": "C412",
+      "Competency": "lagrange multipliers",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser les multiplicateurs de Lagrange"
+    },
+    {
+      "CompetencyID": "C413",
+      "Competency": "numerical optimization",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer des méthodes d'optimisation numérique"
+    },
+    {
+      "CompetencyID": "C414",
+      "Competency": "time series analysis",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Analyser les séries temporelles"
+    },
+    {
+      "CompetencyID": "C415",
+      "Competency": "stationarity",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Tester la stationnarité des séries"
+    },
+    {
+      "CompetencyID": "C416",
+      "Competency": "autocorrelation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'autocorrélation"
+    },
+    {
+      "CompetencyID": "C417",
+      "Competency": "partial autocorrelation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer l'autocorrélation partielle"
+    },
+    {
+      "CompetencyID": "C418",
+      "Competency": "ARIMA models",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Modéliser avec ARIMA"
+    },
+    {
+      "CompetencyID": "C419",
+      "Competency": "seasonal decomposition",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Décomposer en tendance saisonnalité résidu"
+    },
+    {
+      "CompetencyID": "C420",
+      "Competency": "exponential smoothing",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer le lissage exponentiel"
+    },
+    {
+      "CompetencyID": "C421",
+      "Competency": "forecasting",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Faire des prévisions statistiques"
+    },
+    {
+      "CompetencyID": "C422",
+      "Competency": "bayesian statistics",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer les statistiques bayésiennes"
+    },
+    {
+      "CompetencyID": "C423",
+      "Competency": "bayes theorem",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser le théorème de Bayes"
+    },
+    {
+      "CompetencyID": "C424",
+      "Competency": "prior probability",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Définir les probabilités a priori"
+    },
+    {
+      "CompetencyID": "C425",
+      "Competency": "posterior probability",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Calculer les probabilités a posteriori"
+    },
+    {
+      "CompetencyID": "C426",
+      "Competency": "likelihood function",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Construire la fonction de vraisemblance"
+    },
+    {
+      "CompetencyID": "C427",
+      "Competency": "maximum likelihood estimation",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Estimer par maximum de vraisemblance"
+    },
+    {
+      "CompetencyID": "C428",
+      "Competency": "bayesian inference",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Effectuer l'inférence bayésienne"
+    },
+    {
+      "CompetencyID": "C429",
+      "Competency": "monte carlo methods",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Appliquer les méthodes de Monte Carlo"
+    },
+    {
+      "CompetencyID": "C430",
+      "Competency": "markov chain monte carlo",
+      "BlockID": "5",
+      "BlockName": "Statistiques & Mathématiques",
+      "Description": "Utiliser MCMC pour échantillonnage"
+    }
+  ]
+}
